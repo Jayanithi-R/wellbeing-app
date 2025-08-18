@@ -7,6 +7,7 @@ const ServicesSection = () => {
       padding: '80px 40px',
       fontFamily: 'Inter, sans-serif',
       textAlign: 'center',
+      overflowX:'hidden',
     },
     label: {
       textTransform: 'uppercase',
@@ -31,6 +32,7 @@ const ServicesSection = () => {
       flexWrap: 'wrap',
       gap: '30px',
       justifyContent: 'center',
+      marginBottom:'20px',
     },
     card: {
       backgroundColor: 'white',
@@ -91,12 +93,26 @@ const ServicesSection = () => {
       flex: 2,
     },
     fullImage: {
-      flex: 1,
+      flex: '1 1 50%',
       maxWidth: '150px',
     },
     fullImgStyle: {
       width: '100%',
     },
+    coaching: {
+        backgroundColor:'white',
+        borderRadius:'30px',
+        display :'flex',
+        flexDirection:'row',
+        gap:'20%',
+        width:'100%',
+    },
+    coach: {
+        display:'flex',
+        width:'100%',
+         borderRadius:'30px',
+    }
+
   };
 
   return (
@@ -127,19 +143,18 @@ const ServicesSection = () => {
           </div>
           <button style={styles.buttonOutline}>Learn More</button>
         </div>
-
-        {/* Coaching Card */}
-        <div style={{ ...styles.card, width: '100%' }}>
-          <div style={styles.fullCard}>
-            <div style={styles.fullText}>
-              <div style={styles.cardTitle}>Wellness Coaching</div>
-              <div style={styles.cardText}>
+      </div>
+      <div style={styles.coaching }>
+          <div style={styles.coach}>
+            <div style={styles.trainimg}>
+              <h2 style={styles.cardTitle}>Wellness Coaching</h2>
+              <p style={styles.cardText}>
                 Personalized guidance to help you build healthier habits,
-                manage stress, and achieve balance in all areas of your life.
-                <br /><br />
+                manage stress, and achieve balance in all areas of your life.<br />
+            
                 Our wellness coaches support you in creating sustainable routines for
-                mental, emotional, and physical well-being.
-              </div>
+                mental, emotional, and physical well-being.<br />
+              </p>
               <button style={styles.buttonFill}>Learn More</button>
             </div>
             <div style={styles.fullImage}>
@@ -151,7 +166,7 @@ const ServicesSection = () => {
             </div>
           </div>
         </div>
-      </div>
+        
     </section>
   );
 };
