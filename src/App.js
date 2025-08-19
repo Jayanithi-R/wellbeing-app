@@ -4,8 +4,10 @@ import HeroSection from './components/HeroSection';
 import HowItWorks from './components/HowItWorks';
 import ServicesSection from './components/ServiceCard';
 import TestimonialsSection from './components/TestimonialsSection';
-import ResourcesSection from './components/ResourcesSection';
-import CommunitySection from './components/CommunitySection';
+// import ResourcesSection from './components/ResourcesSection';
+// import CommunitySection from './components/CommunitySection';
+// import FAQSection from './components/FAQSection';
+import ContactSection from './components/ContactSection';
 
 
 function App() {
@@ -16,10 +18,12 @@ function App() {
       <HowItWorks />
       <ServicesSection />
       <TestimonialsSection />
-      <ResourcesSection />
-      <CommunitySection />
+      {/* <ResourcesSection /> */}
+      {/* <CommunitySection /> */}
+      {/* <FAQSection /> */}
+      <ContactSection />
     </div>
   );
-}
+} 
 
 export default App;
