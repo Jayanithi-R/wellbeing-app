@@ -46,6 +46,8 @@ const ServicesSection = () => {
     },
     peachCard: {
       backgroundColor: '#fce6cf',
+      width:'30%',
+
     },
     cardTitle: {
       fontSize: '1.2rem',
