@@ -1,145 +1,224 @@
 import React from "react";
-import rainbow from "./assets/rainbow.png";   // save rainbow image here
-import flower1 from "./assets/flower1.png";   // save flower images here
-import flower2 from "./assets/flower2.png";
-import flower3 from "./assets/flower3.png";
-
-const styles = {
-  container: {
-    backgroundColor: "#f7f6f3",
-    padding: "60px 20px",
-    fontFamily: "'Inter', sans-serif",
-    display: "flex",
-    justifyContent: "center",
-  },
-  footerBox: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "stretch",
-    maxWidth: "1000px",
-    width: "100%",
-    gap: "40px",
-    flexWrap: "wrap",
-  },
-  left: {
-    background: "#fff",
-    borderRadius: "20px",
-    padding: "30px",
-    flex: 1,
-    minWidth: "280px",
-  },
-  brand: {
-    fontSize: "20px",
-    fontWeight: 700,
-    color: "#00342e",
-    marginBottom: "20px",
-  },
-  linksGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, auto)",
-    gap: "12px 40px",
-    fontSize: "14px",
-    color: "#00342e",
-    marginBottom: "30px",
-  },
-  link: {
-    textDecoration: "none",
-    color: "#00342e",
-    cursor: "pointer",
-  },
-  copyright: {
-    fontSize: "12px",
-    color: "#888",
-    marginTop: "10px",
-  },
-  right: {
-    flex: 1,
-    minWidth: "300px",
-    background: "#00342e",
-    color: "#fff",
-    borderRadius: "24px",
-    padding: "40px",
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    overflow: "hidden",
-  },
-  rightText: {
-    fontSize: "24px",
-    fontWeight: 700,
-    lineHeight: 1.4,
-    marginBottom: "30px",
-  },
-  button: {
-    background: "#fff",
-    color: "#00342e",
-    border: "none",
-    borderRadius: "30px",
-    padding: "14px 20px",
-    fontSize: "14px",
-    fontWeight: 600,
-    cursor: "pointer",
-    width: "100%",
-    textAlign: "center",
-  },
-  decoration: {
-    position: "absolute",
-    top: "20px",
-    right: "20px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-end",
-    gap: "10px",
-  },
-  img: {
-    width: "70px",
-    height: "auto",
-  },
-};
+// import rainbow from "../assets/rainbow.png";
+// import flower1 from "../assets/flower1.png";
+// import flower2 from "../assets/flower2.png";
+// import flower3 from "../assets/flower3.png";
 
 const FooterSection = () => {
   return (
-    <div style={styles.container}>
-      <div style={styles.footerBox}>
-        {/* Left Section */}
-        <div style={styles.left}>
-          <h3 style={styles.brand}>Solus</h3>
-          <div style={styles.linksGrid}>
-            <a href="#" style={styles.link}>About</a>
-            <a href="#" style={styles.link}>Instagram</a>
-            <a href="#" style={styles.link}>Terms Of Use</a>
-            <a href="#" style={styles.link}>Services</a>
-            <a href="#" style={styles.link}>Facebook</a>
-            <a href="#" style={styles.link}>Privacy Policy</a>
-            <a href="#" style={styles.link}>Therapists</a>
-            <a href="#" style={styles.link}>YouTube</a>
-            <a href="#" style={styles.link}>Resources</a>
-            <a href="#" style={styles.link}>LinkedIn</a>
-            <a href="#" style={styles.link}>Contact</a>
+    <>
+      <style>{`
+        .footer-container {
+          background-color: #f7f6f3;
+          padding: 60px 20px;
+          font-family: "Inter", sans-serif;
+          display: flex;
+          justify-content: center;
+        }
+
+        .footer-box {
+          display: flex;
+          justify-content: space-between;
+          align-items: stretch;
+          max-width: 1000px;
+          width: 100%;
+          gap: 40px;
+          flex-wrap: wrap;
+        }
+
+        /* Left box */
+        .footer-left {
+          background: #fff;
+          border-radius: 20px;
+          padding: 30px;
+          flex: 1;
+          min-width: 280px;
+        }
+
+        .footer-brand {
+          font-size: 20px;
+          font-weight: 700;
+          color: #00342e;
+          margin-bottom: 20px;
+        }
+
+        .links-grid {
+          display: grid;
+          grid-template-columns: repeat(3, auto);
+          gap: 12px 40px;
+          font-size: 14px;
+          color: #00342e;
+          margin-bottom: 30px;
+        }
+
+        .links-grid a {
+          text-decoration: none;
+          color: #00342e;
+        }
+
+        .links-grid a:hover {
+          color: #066f4d;
+        }
+
+        .copyright {
+          font-size: 12px;
+          color: #888;
+          margin-top: 10px;
+        }
+
+        /* Right box */
+        .footer-right {
+          flex: 1;
+          min-width: 300px;
+          background: #00342e;
+          color: #fff;
+          border-radius: 24px;
+          padding: 40px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        .footer-right-text {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 1.4;
+          margin-bottom: 30px;
+        }
+
+        .cta-button {
+          background: #fff;
+          color: #00342e;
+          border: none;
+          border-radius: 30px;
+          padding: 14px 20px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          width: 100%;
+          text-align: center;
+          transition: 0.3s;
+        }
+
+        .cta-button:hover {
+          background: #f4f4f4;
+        }
+
+        /* Decorations */
+        .decorations {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 10px;
+        }
+
+        .decorations img {
+          width: 70px;
+          height: auto;
+        }
+
+        /* ✅ RESPONSIVE DESIGN */
+
+        /* Tablets */
+        @media (max-width: 900px) {
+          .footer-box {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+          }
+
+          .footer-left,
+          .footer-right {
+            width: 100%;
+            max-width: 600px;
+          }
+
+          .links-grid {
+            grid-template-columns: repeat(2, auto);
+            gap: 12px 30px;
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 500px) {
+          .footer-container {
+            padding: 40px 15px;
+          }
+
+          .footer-left {
+            padding: 20px;
+          }
+
+          .footer-right {
+            padding: 30px 20px;
+          }
+
+          .footer-right-text {
+            font-size: 20px;
+          }
+
+          .cta-button {
+            font-size: 13px;
+            padding: 12px 16px;
+          }
+
+          .links-grid {
+            grid-template-columns: 1fr;
+            gap: 10px;
+          }
+
+          .decorations img {
+            width: 50px;
+          }
+        }
+      `}</style>
+
+      <div className="footer-container">
+        <div className="footer-box">
+          {/* Left Section */}
+          <div className="footer-left">
+            <h3 className="footer-brand">Solus</h3>
+            <div className="links-grid">
+              <a href="#">About</a>
+              <a href="#">Instagram</a>
+              <a href="#">Terms Of Use</a>
+              <a href="#">Services</a>
+              <a href="#">Facebook</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Therapists</a>
+              <a href="#">YouTube</a>
+              <a href="#">Resources</a>
+              <a href="#">LinkedIn</a>
+              <a href="#">Contact</a>
+            </div>
+            <p className="copyright">© [2035] Solus. All Rights Reserved.</p>
           </div>
-          <p style={styles.copyright}>© [2035] Solus. All Rights Reserved.</p>
-        </div>
 
-        {/* Right Section (CTA Box) */}
-        <div style={styles.right}>
-          <p style={styles.rightText}>
-            Find Support, <br />
-            Guidance, <br />
-            and Balance.
-          </p>
-          <button style={styles.button}>Find Support Now</button>
+          {/* Right Section (CTA Box) */}
+          <div className="footer-right">
+            <p className="footer-right-text">
+              Find Support, <br />
+              Guidance, <br />
+              and Balance.
+            </p>
+            <button className="cta-button">Find Support Now</button>
 
-          {/* Decorative Images */}
-          <div style={styles.decoration}>
-            <img src={rainbow} alt="Rainbow" style={styles.img} />
-            <img src={flower1} alt="Flower" style={styles.img} />
-            <img src={flower2} alt="Flower" style={styles.img} />
-            <img src={flower3} alt="Flower" style={styles.img} />
+            {/* Decorative Images */}
+            <div className="decorations">
+              {/* <img src={rainbow} alt="Rainbow" /> */}
+              {/* <img src={flower1} alt="Flower" /> */}
+              {/* <img src={flower2} alt="Flower" /> */}
+              {/* <img src={flower3} alt="Flower" /> */}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

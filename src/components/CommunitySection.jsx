@@ -1,108 +1,163 @@
-// import React from "react";
-// // import communityImage from "./c99845ec-c0cc-4bcc-bc0a-b5d1f923bee4.png"; // use your uploaded image
+import React from "react";
 
-// const CommunitySection = () => {
-//   return (
-//     <section
-//      style={{
-//         display: "flex",
-//         justifyContent: "space-between",
-//         alignItems: "center",
-//         backgroundColor: "#f9f9f7",
-//         padding: "50px",
-//         margin: "40px auto",
-//         maxWidth: "100%",
-//         boxSizing: "border-box",
-//         fontFamily:
-//           "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-//       }}>
+const CommunitySection = () => {
+  return (
+    <>
+      <style>{`
+        .community-section {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #f9f9f7;
+          padding: 60px 20px;
+          font-family: 'Inter', sans-serif;
+        }
 
-//         <div
-//       style={{
-//         display: "flex",
-//         justifyContent: "space-between",
-//         alignItems: "center",
-//         backgroundColor: "#ffffffff",
-//         borderRadius: "20px",
-//         padding: "50px",
-//         margin: "40px auto",
-//         maxWidth: "1100px",
-//         boxSizing: "border-box",
-//         fontFamily:
-//           "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-//       }}
-//     >
-//       {/* Left Content */}
-//       <div style={{ flex: 1, maxWidth: "500px" }}>
-//         <p
-//           style={{
-//             fontSize: "12px",
-//             fontWeight: 600,
-//             color: "#1a2e35",
-//             textTransform: "uppercase",
-//             marginBottom: "10px",
-//             letterSpacing: "1px",
-//           }}
-//         >
-//           COMMUNITY
-//         </p>
+        .community-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #ffffff;
+          border-radius: 25px;
+          padding: 50px;
+          max-width: 1100px;
+          width: 100%;
+          box-sizing: border-box;
+          gap: 40px;
+        }
 
-//         <h2
-//           style={{
-//             fontSize: "32px",
-//             fontWeight: 700,
-//             color: "#123d3a",
-//             margin: "0 0 20px",
-//             lineHeight: 1.3,
-//           }}
-//         >
-//           You’re Not Alone <br /> on This Journey
-//         </h2>
+        /* Left Text */
+        .community-text {
+          flex: 1;
+          max-width: 500px;
+        }
 
-//         <p
-//           style={{
-//             fontSize: "16px",
-//             color: "#445556",
-//             lineHeight: 1.6,
-//             marginBottom: "30px",
-//           }}
-//         >
-//           Connect with others, share experiences, <br />
-//           and find encouragement in a safe, <br />
-//           supportive space.
-//         </p>
+        .community-label {
+          font-size: 12px;
+          font-weight: 600;
+          color: #1a2e35;
+          text-transform: uppercase;
+          margin-bottom: 12px;
+          letter-spacing: 1px;
+        }
 
-//         <button
-//           style={{
-//             backgroundColor: "#0c3b36",
-//             color: "#fff",
-//             border: "none",
-//             padding: "14px 28px",
-//             borderRadius: "999px",
-//             fontSize: "16px",
-//             fontWeight: 600,
-//             cursor: "pointer",
-//             transition: "background 0.3s ease",
-//           }}
-//           onMouseOver={(e) => (e.target.style.backgroundColor = "#092f2a")}
-//           onMouseOut={(e) => (e.target.style.backgroundColor = "#0c3b36")}
-//         >
-//           Join The Community
-//         </button>
-//       </div>
+        .community-title {
+          font-size: 32px;
+          font-weight: 700;
+          color: #123d3a;
+          margin-bottom: 20px;
+          line-height: 1.3;
+        }
 
-//       {/* Right Image */}
-//       {/* <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
-//         <img
-//           src={communityImage}
-//           alt="Community"
-//           style={{ maxWidth: "380px", height: "auto" }}
-//         />
-//       </div> */}
-//     </div>
-//     </section>
-    
-//   );
-// };
+        .community-subtitle {
+          font-size: 16px;
+          color: #445556;
+          line-height: 1.6;
+          margin-bottom: 30px;
+        }
 
-// export default CommunitySection;
+        .btn-community {
+          background-color: #0c3b36;
+          color: #fff;
+          border: none;
+          padding: 14px 28px;
+          border-radius: 999px;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+
+        .btn-community:hover {
+          background-color: #092f2a;
+        }
+
+        /* Right Image */
+        .community-image {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .community-image img {
+          max-width: 380px;
+          height: auto;
+        }
+
+        /* 📱 Tablet View */
+        @media (max-width: 992px) {
+          .community-container {
+            flex-direction: column;
+            text-align: center;
+            padding: 40px 30px;
+          }
+
+          .community-text {
+            max-width: 100%;
+          }
+
+          .community-image {
+            justify-content: center;
+          }
+
+          .community-image img {
+            max-width: 300px;
+          }
+        }
+
+        /* 📱 Mobile View */
+        @media (max-width: 600px) {
+          .community-container {
+            padding: 30px 20px;
+          }
+
+          .community-title {
+            font-size: 24px;
+          }
+
+          .community-subtitle {
+            font-size: 14px;
+          }
+
+          .btn-community {
+            width: 100%;
+            padding: 12px;
+            font-size: 15px;
+          }
+
+          .community-image img {
+            max-width: 240px;
+          }
+        }
+      `}</style>
+
+      <section className="community-section">
+        <div className="community-container">
+          {/* Left Content */}
+          <div className="community-text">
+            <p className="community-label">COMMUNITY</p>
+            <h2 className="community-title">
+              You’re Not Alone <br /> on This Journey
+            </h2>
+            <p className="community-subtitle">
+              Connect with others, share experiences, <br />
+              and find encouragement in a safe, <br />
+              supportive space.
+            </p>
+            <button className="btn-community">Join The Community</button>
+          </div>
+
+          {/* Right Image */}
+          <div className="community-image">
+            <img
+              src="/images/community.png" 
+              alt="Community"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default CommunitySection;

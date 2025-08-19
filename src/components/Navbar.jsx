@@ -1,41 +1,89 @@
-import React from 'react';
+import React from "react";
 
 const Navbar = () => {
   return (
-    <nav style={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '20px 40px',
-      fontFamily: 'Inter, sans-serif',
-      backgroundColor: '#f7f6f4'
-    }}>
-      {/* Left Links */}
-      <div style={{ display: 'flex', gap: '32px' }}>
-        <a href="#" style={linkStyle}>Home</a>
-        <a href="#" style={linkStyle}>About</a>
-        <a href="#" style={linkStyle}>Services</a>
-      </div>
+    <>
+      <style>{`
+        .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px 40px;
+          font-family: 'Inter', sans-serif;
+          background-color: #f7f6f4;
+        }
 
-      {/* Logo */}
-      <div style={{ fontWeight: 'bold', fontSize: '20px', color: '#003c3b' }}>
-        Solus
-      </div>
+        .nav-links {
+          display: flex;
+          gap: 32px;
+        }
 
-      {/* Right Links */}
-      <div style={{ display: 'flex', gap: '32px' }}>
-        <a href="#" style={linkStyle}>Therapists</a>
-        <a href="#" style={linkStyle}>Resources</a>
-        <a href="#" style={linkStyle}>Contact</a>
-      </div>
-    </nav>
+        .nav-link {
+          font-size: 14px;
+          color: #003c3b;
+          text-decoration: none;
+        }
+
+        .nav-logo {
+          font-weight: bold;
+          font-size: 20px;
+          color: #003c3b;
+        }
+
+        /* ✅ Tablet */
+        @media (max-width: 900px) {
+          .navbar {
+            padding: 16px 24px;
+          }
+
+          .nav-links {
+            gap: 20px;
+          }
+
+          .nav-link {
+            font-size: 13px;
+          }
+        }
+
+        /* ✅ Mobile */
+        @media (max-width: 600px) {
+          .navbar {
+            flex-direction: column;
+            gap: 15px;
+          }
+
+          .nav-links {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+          }
+
+          .nav-logo {
+            font-size: 18px;
+          }
+        }
+      `}</style>
+
+      <nav className="navbar">
+        {/* Left Links */}
+        <div className="nav-links">
+          <a href="#" className="nav-link">Home</a>
+          <a href="#" className="nav-link">About</a>
+          <a href="#" className="nav-link">Services</a>
+        </div>
+
+        {/* Logo */}
+        <div className="nav-logo">Solus</div>
+
+        {/* Right Links */}
+        <div className="nav-links">
+          <a href="#" className="nav-link">Therapists</a>
+          <a href="#" className="nav-link">Resources</a>
+          <a href="#" className="nav-link">Contact</a>
+        </div>
+      </nav>
+    </>
   );
-};
-
-const linkStyle = {
-  fontSize: '14px',
-  color: '#003c3b',
-  textDecoration: 'none'
 };
 
 export default Navbar;

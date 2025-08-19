@@ -5,10 +5,10 @@ import HowItWorks from './components/HowItWorks';
 import ServicesSection from './components/ServiceCard';
 import TestimonialsSection from './components/TestimonialsSection';
 // import ResourcesSection from './components/ResourcesSection';
-// import CommunitySection from './components/CommunitySection';
+import CommunitySection from './components/CommunitySection';
 // import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
-
+import FooterSection from './components/FooterSection';
 
 function App() {
   return (
@@ -19,9 +19,10 @@ function App() {
       <ServicesSection />
       <TestimonialsSection />
       {/* <ResourcesSection /> */}
-      {/* <CommunitySection /> */}
+      <CommunitySection />
       {/* <FAQSection /> */}
       <ContactSection />
+      <FooterSection />
     </div>
   );
 } 
