@@ -5,6 +5,8 @@ import HowItWorks from './components/HowItWorks';
 import ServicesSection from './components/ServiceCard';
 import TestimonialsSection from './components/TestimonialsSection';
 import ResourcesSection from './components/ResourcesSection';
+import CommunitySection from './components/CommunitySection';
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <ServicesSection />
       <TestimonialsSection />
       <ResourcesSection />
+      <CommunitySection />
     </div>
   );
 }
