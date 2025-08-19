@@ -29,6 +29,13 @@ const styles = {
     },
 
     brand: {
-        
+        fontSize: "20px",
+        fontWeight: 700,
+        color: "#00342e",
+        marginBottom: "20px",
+    },
+
+    linksGrid: {
+        display: 
     }
 }
