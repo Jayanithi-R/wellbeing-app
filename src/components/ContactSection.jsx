@@ -1,176 +1,220 @@
 import React from "react";
 import { FaLinkedin, FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
-const styles = {
-  container: {
-    backgroundColor: "#f7f6f3",
-    padding: "60px 20px",
-    fontFamily: "'Inter', sans-serif",
-    textAlign: "center",
-  },
-  smallHeading: {
-    textTransform: "uppercase",
-    fontSize: "12px",
-    letterSpacing: "1px",
-    color: "#555",
-    marginBottom: "10px",
-  },
-  mainHeading: {
-    fontSize: "28px",
-    fontWeight: 700,
-    color: "#00342e",
-    marginBottom: "10px",
-  },
-  subHeading: {
-    fontSize: "15px",
-    color: "#555",
-    marginBottom: "40px",
-  },
-  contactBox: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    gap: "40px",
-    maxWidth: "900px",
-    margin: "0 auto",
-    background: "#fff",
-    borderRadius: "20px",
-    padding: "30px",
-    boxShadow: "0px 2px 8px rgba(0,0,0,0.08)",
-    flexWrap: "wrap",
-  },
-  left: {
-    flex: 1,
-    textAlign: "left",
-    minWidth: "250px",
-  },
-  right: {
-    flex: 1,
-    minWidth: "280px",
-    background: "#fefaf5",
-    borderRadius: "16px",
-    padding: "20px",
-    textAlign: "left",
-  },
-  heading3: {
-    fontSize: "18px",
-    fontWeight: 600,
-    marginBottom: "15px",
-    color: "#00342e",
-  },
-  text: {
-    fontSize: "14px",
-    color: "#222",
-    margin: "8px 0",
-  },
-  icons: {
-    display: "flex",
-    gap: "15px",
-    marginTop: "15px",
-  },
-  icon: {
-    fontSize: "20px",
-    color: "#00342e",
-    cursor: "pointer",
-    transition: "0.3s",
-  },
-  response: {
-    marginTop: "15px",
-    fontSize: "13px",
-    color: "#666",
-    paddingUp:"30px",
-  },
-  label: {
-    fontSize: "14px",
-    fontWeight: 600,
-    color: "#00342e",
-    display: "block",
-    marginTop: "10px",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    marginTop: "6px",
-    marginBottom: "12px",
-    border: "none",
-    borderBottom: "1px solid #999",
-    background: "transparent",
-    fontSize: "14px",
-    outline: "none",
-  },
-  textarea: {
-    width: "100%",
-    padding: "10px",
-    marginTop: "6px",
-    marginBottom: "12px",
-    border: "none",
-    borderBottom: "1px solid #999",
-    background: "transparent",
-    fontSize: "14px",
-    outline: "none",
-    resize: "none",
-  },
-  button: {
-    background: "#00342e",
-    color: "#fff",
-    padding: "12px 20px",
-    border: "none",
-    borderRadius: "25px",
-    cursor: "pointer",
-    fontSize: "14px",
-    width: "100%",
-    marginTop: "10px",
-    transition: "0.3s",
-  },
-};
-
 const ContactSection = () => {
   return (
-    <div style={styles.container}>
+    <div className="contact-container">
       {/* Top Text */}
-      <p style={styles.smallHeading}>GET IN TOUCH</p>
-      <h2 style={styles.mainHeading}>We’re Here to Support You</h2>
-      <p style={styles.subHeading}>
+      <p className="small-heading">GET IN TOUCH</p>
+      <h2 className="main-heading">We’re Here to Support You</h2>
+      <p className="sub-heading">
         Whether you have questions, need help getting started, or want to learn more — reach out anytime.
       </p>
 
       {/* Contact Box */}
-      <div style={styles.contactBox}>
+      <div className="contact-box">
         {/* Left Section */}
-        <div style={styles.left}>
-          <h3 style={styles.heading3}>Contact Details:</h3>
-          <p style={styles.text}><strong>Email:</strong> support@solus.com</p>
-          <p style={styles.text}><strong>Phone:</strong> +1 (123) 456-7890</p>
-          <p style={styles.text}><strong>Address:</strong> 123 Wellness Way, Calm City, CA 90210</p>
+        <div className="contact-left">
+          <h3 className="heading3">Contact Details:</h3>
+          <p className="text"><strong>Email:</strong> support@solus.com</p>
+          <p className="text"><strong>Phone:</strong> +1 (123) 456-7890</p>
+          <p className="text"><strong>Address:</strong> 123 Wellness Way, Calm City, CA 90210</p>
 
           {/* Social Icons */}
-          <div style={styles.icons}>
-            <FaLinkedin style={styles.icon} />
-            <FaFacebookF style={styles.icon} />
-            <FaInstagram style={styles.icon} />
-            <FaWhatsapp style={styles.icon} />
+          <div className="social-icons">
+            <FaLinkedin className="icon" />
+            <FaFacebookF className="icon" />
+            <FaInstagram className="icon" />
+            <FaWhatsapp className="icon" />
           </div>
 
-          <p style={styles.response}>We typically respond within 12 hours.</p>
+          <p className="response">We typically respond within 12 hours.</p>
         </div>
-       {/* <div>
-        <p style={styles.response}>We typically respond within 12 hours.</p>
-       </div> */}
 
         {/* Right Section (Form) */}
-        <div style={styles.right}>
-          <h3 style={styles.heading3}>Send Us a Message</h3>
+        <div className="contact-right">
+          <h3 className="heading3">Send Us a Message</h3>
           <form>
-            <label style={styles.label}>Email</label>
-            <input type="email" placeholder="Email" required style={styles.input} />
+            <label className="label">Email</label>
+            <input type="email" placeholder="Email" required className="input" />
 
-            <label style={styles.label}>Message</label>
-            <textarea placeholder="Message" rows="4" required style={styles.textarea}></textarea>
+            <label className="label">Message</label>
+            <textarea placeholder="Message" rows="4" required className="textarea"></textarea>
 
-            <button type="submit" style={styles.button}>Send Message</button>
+            <button type="submit" className="button">Send Message</button>
           </form>
         </div>
       </div>
+
+      {/* CSS inside same file */}
+      <style>{`
+        .contact-container {
+          background-color: #f7f6f3;
+          padding: 60px 20px;
+          font-family: "Inter", sans-serif;
+          text-align: center;
+        }
+
+        .small-heading {
+          text-transform: uppercase;
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: #555;
+          margin-bottom: 10px;
+        }
+
+        .main-heading {
+          font-size: 28px;
+          font-weight: 700;
+          color: #00342e;
+          margin-bottom: 10px;
+        }
+
+        .sub-heading {
+          font-size: 15px;
+          color: #555;
+          margin-bottom: 40px;
+        }
+
+        .contact-box {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 40px;
+          max-width: 900px;
+          margin: 0 auto;
+          background: #fff;
+          border-radius: 20px;
+          padding: 30px;
+          box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+          flex-wrap: wrap;
+        }
+
+        .contact-left {
+          flex: 1;
+          text-align: left;
+          min-width: 250px;
+        }
+
+        .contact-right {
+          flex: 1;
+          min-width: 280px;
+          background: #fefaf5;
+          border-radius: 16px;
+          padding: 20px;
+          text-align: left;
+        }
+
+        .heading3 {
+          font-size: 18px;
+          font-weight: 600;
+          margin-bottom: 15px;
+          color: #00342e;
+        }
+
+        .text {
+          font-size: 14px;
+          color: #222;
+          margin: 8px 0;
+        }
+
+        .social-icons {
+          display: flex;
+          gap: 15px;
+          margin-top: 15px;
+        }
+
+        .icon {
+          font-size: 20px;
+          color: #00342e;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        .icon:hover {
+          color: #00796b;
+        }
+
+        .response {
+          margin-top: 15px;
+          font-size: 13px;
+          color: #666;
+        }
+
+        .label {
+          font-size: 14px;
+          font-weight: 600;
+          color: #00342e;
+          display: block;
+          margin-top: 10px;
+        }
+
+        .input, .textarea {
+          width: 100%;
+          padding: 10px;
+          margin-top: 6px;
+          margin-bottom: 12px;
+          border: none;
+          border-bottom: 1px solid #999;
+          background: transparent;
+          font-size: 14px;
+          outline: none;
+        }
+
+        .textarea {
+          resize: none;
+        }
+
+        .button {
+          background: #00342e;
+          color: #fff;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          font-size: 14px;
+          width: 100%;
+          margin-top: 10px;
+          transition: background 0.3s;
+        }
+        .button:hover {
+          background: #00564d;
+        }
+
+        /* ---------------- RESPONSIVENESS ---------------- */
+        @media (max-width: 768px) {
+          .contact-box {
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+          }
+
+          .main-heading {
+            font-size: 24px;
+          }
+
+          .sub-heading {
+            font-size: 14px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .contact-container {
+            padding: 40px 15px;
+          }
+
+          .main-heading {
+            font-size: 20px;
+          }
+
+          .sub-heading {
+            font-size: 13px;
+          }
+
+          .contact-right {
+            padding: 15px;
+          }
+        }
+      `}</style>
     </div>
   );
 };

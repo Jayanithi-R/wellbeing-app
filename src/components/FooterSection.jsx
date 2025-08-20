@@ -1,8 +1,4 @@
 import React from "react";
-// import rainbow from "../assets/rainbow.png";
-// import flower1 from "../assets/flower1.png";
-// import flower2 from "../assets/flower2.png";
-// import flower3 from "../assets/flower3.png";
 
 const FooterSection = () => {
   return (
@@ -20,7 +16,7 @@ const FooterSection = () => {
           display: flex;
           justify-content: space-between;
           align-items: stretch;
-          max-width: 1000px;
+          max-width: 1100px;
           width: 100%;
           gap: 40px;
           flex-wrap: wrap;
@@ -30,13 +26,16 @@ const FooterSection = () => {
         .footer-left {
           background: #fff;
           border-radius: 20px;
-          padding: 30px;
+          padding: 40px 30px;
           flex: 1;
           min-width: 280px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
         }
 
         .footer-brand {
-          font-size: 20px;
+          font-size: 22px;
           font-weight: 700;
           color: #00342e;
           margin-bottom: 20px;
@@ -48,12 +47,13 @@ const FooterSection = () => {
           gap: 12px 40px;
           font-size: 14px;
           color: #00342e;
-          margin-bottom: 30px;
+          margin-bottom: 20px;
         }
 
         .links-grid a {
           text-decoration: none;
           color: #00342e;
+          transition: color 0.2s ease-in-out;
         }
 
         .links-grid a:hover {
@@ -63,7 +63,7 @@ const FooterSection = () => {
         .copyright {
           font-size: 12px;
           color: #888;
-          margin-top: 10px;
+          margin-top: auto;
         }
 
         /* Right box */
@@ -73,7 +73,7 @@ const FooterSection = () => {
           background: #00342e;
           color: #fff;
           border-radius: 24px;
-          padding: 40px;
+          padding: 50px 40px;
           position: relative;
           display: flex;
           flex-direction: column;
@@ -82,10 +82,11 @@ const FooterSection = () => {
         }
 
         .footer-right-text {
-          font-size: 24px;
+          font-size: 28px;
           font-weight: 700;
           line-height: 1.4;
           margin-bottom: 30px;
+          max-width: 300px;
         }
 
         .cta-button {
@@ -94,10 +95,11 @@ const FooterSection = () => {
           border: none;
           border-radius: 30px;
           padding: 14px 20px;
-          font-size: 14px;
+          font-size: 15px;
           font-weight: 600;
           cursor: pointer;
-          width: 100%;
+          width: fit-content;
+          min-width: 220px;
           text-align: center;
           transition: 0.3s;
         }
@@ -106,7 +108,7 @@ const FooterSection = () => {
           background: #f4f4f4;
         }
 
-        /* Decorations */
+        /* Decorations (optional) */
         .decorations {
           position: absolute;
           top: 20px;
@@ -135,12 +137,16 @@ const FooterSection = () => {
           .footer-left,
           .footer-right {
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
           }
 
           .links-grid {
             grid-template-columns: repeat(2, auto);
             gap: 12px 30px;
+          }
+
+          .footer-right-text {
+            font-size: 24px;
           }
         }
 
@@ -151,7 +157,7 @@ const FooterSection = () => {
           }
 
           .footer-left {
-            padding: 20px;
+            padding: 25px;
           }
 
           .footer-right {
@@ -160,11 +166,13 @@ const FooterSection = () => {
 
           .footer-right-text {
             font-size: 20px;
+            max-width: 100%;
           }
 
           .cta-button {
             font-size: 13px;
             padding: 12px 16px;
+            width: 100%;
           }
 
           .links-grid {
@@ -199,7 +207,7 @@ const FooterSection = () => {
             <p className="copyright">© [2035] Solus. All Rights Reserved.</p>
           </div>
 
-          {/* Right Section (CTA Box) */}
+          {/* Right Section */}
           <div className="footer-right">
             <p className="footer-right-text">
               Find Support, <br />
