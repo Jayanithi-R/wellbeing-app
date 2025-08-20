@@ -1,6 +1,6 @@
 import React from "react";
 // import community from "../assets/community.png"; // ✅ image from src/assets
-
+import right from "../assets/hero.png";
 const HeroSection = () => {
   return (
     <div style={styles.hero}>
@@ -15,6 +15,7 @@ const HeroSection = () => {
 
           {/* ✅ Image placed inside hero content, without changing UI */}
           {/* <img src={community} alt="Community" style={styles.heroImage} /> */}
+          {/* <img src={right} alt="right" style={styles.rightImage} /> */}
         </div>
       </div>
     </div>
@@ -46,6 +47,9 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    backgroundImage: `url(${right})`,
+    backgroundPosition:"center",
+    backgroundSize: "cover",
   },
   heroContent: {
     maxWidth: "800px",
@@ -86,3 +90,7 @@ styles.heroButton[":hover"] = {
 };
 
 export default HeroSection;
+
+
+
+

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import web from "../assets/web.png"; // ✅ import from src/assets
 
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -25,14 +26,13 @@ const FAQSection = () => {
         <h2 className="faq-heading">Frequently Asked Questions</h2>
         <p className="faq-desc">
           Find answers to common questions about our services,<br />
-          therapy, and
-          mental well-being.
+          therapy, and mental well-being.
         </p>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png"
-          alt="illustration"
-          className="faq-image"
-        />
+
+        {/* ✅ Box behind image */}
+        <div className="faq-image-box">
+          <img src={web} alt="illustration" className="faq-image" />
+        </div>
       </div>
 
       {/* Right Section */}
@@ -40,9 +40,7 @@ const FAQSection = () => {
         {faqs.map((q, index) => (
           <div
             key={index}
-            className={`faq-item ${
-              activeIndex === index ? "faq-active" : ""
-            }`}
+            className={`faq-item ${activeIndex === index ? "faq-active" : ""}`}
             onClick={() => toggleFAQ(index)}
           >
             <p className="faq-question">{q}</p>
@@ -94,9 +92,19 @@ const FAQSection = () => {
           margin-bottom: 30px;
         }
 
+        /* ✅ Box behind image */
+        .faq-image-box {
+          display: inline-block;
+          padding: 20px;
+          background: #fff;
+          border-radius: 24px;
+          box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+        }
+
         .faq-image {
           max-width: 280px;
           border-radius: 20px;
+          display: block;
         }
 
         .faq-right {
@@ -150,7 +158,7 @@ const FAQSection = () => {
             text-align: center;
           }
 
-          .faq-image {
+          .faq-image-box {
             margin: 20px auto 0;
           }
         }

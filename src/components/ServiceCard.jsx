@@ -67,6 +67,9 @@ const ServicesSection = () => {
             maxWidth: "400px",
             textAlign: "left",
             boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+            backgroundImage: `url(${servicesIllustration})`,
+            // backgroundPosition:"center",
+            backgroundSize: "cover",
           }}
         >
           {/* ✅ Added mindfulness image */}
@@ -210,11 +213,11 @@ const ServicesSection = () => {
         </div>
 
         <div style={{ flex: 1, maxWidth: "220px" }}>
-          <img
+          {/* <img
             src={servicesIllustration}
             alt="Wellness Illustration"
             style={{ width: "100%", borderRadius: "20px" }}
-          />
+          /> */}
         </div>
       </div>
     </section>
