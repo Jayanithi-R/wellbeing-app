@@ -1,6 +1,7 @@
 import React from "react";
-// import red from "../assets/red.png";
-import servicesIllustration from "../assets/services-illustration.png"; // ✅ imported from src/assets
+// import red from "../assets/1234.png"; // ✅ mindfulness image
+import servicesIllustration from "../assets/services-illustration.png";
+import extraImage from "../assets/extraImage.png"; // still imported for later use
 
 const ServicesSection = () => {
   return (
@@ -68,6 +69,9 @@ const ServicesSection = () => {
             boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
           }}
         >
+          {/* ✅ Added mindfulness image */}
+          {/* <img src={red} alt="Mindfulness" style={{ width: "100%", borderRadius: "15px", marginBottom: "15px" }} /> */}
+
           <h6
             style={{
               fontSize: "1.2rem",
@@ -207,7 +211,7 @@ const ServicesSection = () => {
 
         <div style={{ flex: 1, maxWidth: "220px" }}>
           <img
-            src={servicesIllustration} // ✅ using import instead of /images
+            src={servicesIllustration}
             alt="Wellness Illustration"
             style={{ width: "100%", borderRadius: "20px" }}
           />
