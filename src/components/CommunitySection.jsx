@@ -15,9 +15,10 @@ const CommunitySection = () => {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: "#f9f9f7",
-      padding: "60px 20px",
+      backgroundColor: "#f9f8f6",
+    //   padding: "60px 20px",
       fontFamily: "'Inter', sans-serif",
+      width:"100%",
     },
     container: {
       display: "flex",

@@ -16,8 +16,12 @@ const ServicesSection = () => {
   const styles = {
     section: {
       backgroundColor: "#f9f8f6",
-      padding: "80px 40px",
+    //   padding: "80px 40px",
       fontFamily: "'Inter', sans-serif",
+      width: "100%",
+    },
+
+    container: {
       textAlign: "center",
       width: "100%",
     },
@@ -26,7 +30,7 @@ const ServicesSection = () => {
       fontSize: "12px",
       color: "#00332c",
       fontWeight: 600,
-      marginBottom: "10px",
+    //   marginBottom: "10px",
     },
     title: {
       fontSize: "2.2rem",
@@ -45,6 +49,7 @@ const ServicesSection = () => {
       justifyContent: "center",
       marginBottom: "40px",
       flexWrap: "wrap",
+
     },
     card: {
       borderRadius: "25px",
@@ -133,12 +138,13 @@ const ServicesSection = () => {
 
   return (
     <section style={styles.section}>
-      <h6 style={styles.subtitle}>SERVICES</h6>
+        <div style={styles.container}>
+            <h6 style={styles.subtitle}>SERVICES</h6>
       <h1 style={styles.title}>Your Path to Well-being</h1>
       <p style={styles.description}>
         Discover expert guidance for a healthier <br /> mind and balanced life.
       </p>
-
+        </div>
       {/* Cards */}
       <div style={styles.cardContainer}>
         {/* Card 1 */}
