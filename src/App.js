@@ -23,6 +23,7 @@ function App() {
       <FAQSection />
       <ContactSection />
       <FooterSection />
+      
     </div>
   );
 } 

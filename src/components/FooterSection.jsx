@@ -1,5 +1,5 @@
 import React from "react";
-
+import poster from "../assets/poster.png" 
 const FooterSection = () => {
   return (
     <div
