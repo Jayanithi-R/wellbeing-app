@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 // ✅ Import logos from assets
@@ -114,7 +114,7 @@ const styles = {
     marginBottom: '24px',
     // paddingRight: '30px',
 
-    
+
   },
   partnersLogos: {
     display: 'flex',

@@ -1,5 +1,13 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+function Cal() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+}
 const ResourcesSection = () => {
   const resources = [
     {

@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import poster from "../assets/poster.png"; // ✅ imported from src/assets
-
+function Cal() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+}
 const FooterSection = () => {
   return (
     <div

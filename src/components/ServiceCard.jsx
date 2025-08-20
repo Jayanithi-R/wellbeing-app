@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import servicesIllustration from "../assets/services-illustration.png";
 import extraImage from "../assets/extraImage.png";
 // import web from "../assets/web(2).png"; // ✅ your web(2).png import
 // import heart from "../assets/heart image.png";
-
+function Cal() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+}
 const ServicesSection = () => {
   const styles = {
     section: {

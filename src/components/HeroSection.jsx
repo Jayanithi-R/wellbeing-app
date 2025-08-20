@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import community from "../assets/community.png"; // ✅ image from src/assets
 import right from "../assets/hero.png";
+function Cal() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+}
 const HeroSection = () => {
   return (
     <div style={styles.hero}>

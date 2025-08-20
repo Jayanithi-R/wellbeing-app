@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import heroImage from "../assets/hero(2).png";
-
+function Cal() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+}
 const HeroSection = () => {
   return (
     <section
