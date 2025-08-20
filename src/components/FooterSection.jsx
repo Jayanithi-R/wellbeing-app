@@ -2,231 +2,167 @@ import React from "react";
 
 const FooterSection = () => {
   return (
-    <>
-      <style>{`
-        .footer-container {
-          background-color: #f7f6f3;
-          padding: 60px 20px;
-          font-family: "Inter", sans-serif;
-          display: flex;
-          justify-content: center;
-        }
+    <div
+      style={{
+        backgroundColor: "#f7f6f3",
+        padding: "60px 20px",
+        fontFamily: "Inter, sans-serif",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "stretch",
+          maxWidth: "1100px",
+          width: "100%",
+          gap: "40px",
+          flexWrap: "wrap",
+        }}
+      >
+        {/* Left Section */}
+        <div
+          style={{
+            background: "#fff",
+            borderRadius: "20px",
+            padding: "40px 30px",
+            flex: 1,
+            minWidth: "280px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
+          <h3
+            style={{
+              fontSize: "22px",
+              fontWeight: 700,
+              color: "#00342e",
+              marginBottom: "20px",
+            }}
+          >
+            Solus
+          </h3>
 
-        .footer-box {
-          display: flex;
-          justify-content: space-between;
-          align-items: stretch;
-          max-width: 1100px;
-          width: 100%;
-          gap: 40px;
-          flex-wrap: wrap;
-        }
-
-        /* Left box */
-        .footer-left {
-          background: #fff;
-          border-radius: 20px;
-          padding: 40px 30px;
-          flex: 1;
-          min-width: 280px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-
-        .footer-brand {
-          font-size: 22px;
-          font-weight: 700;
-          color: #00342e;
-          margin-bottom: 20px;
-        }
-
-        .links-grid {
-          display: grid;
-          grid-template-columns: repeat(3, auto);
-          gap: 12px 40px;
-          font-size: 14px;
-          color: #00342e;
-          margin-bottom: 20px;
-        }
-
-        .links-grid a {
-          text-decoration: none;
-          color: #00342e;
-          transition: color 0.2s ease-in-out;
-        }
-
-        .links-grid a:hover {
-          color: #066f4d;
-        }
-
-        .copyright {
-          font-size: 12px;
-          color: #888;
-          margin-top: auto;
-        }
-
-        /* Right box */
-        .footer-right {
-          flex: 1;
-          min-width: 300px;
-          background: #00342e;
-          color: #fff;
-          border-radius: 24px;
-          padding: 50px 40px;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          overflow: hidden;
-        }
-
-        .footer-right-text {
-          font-size: 28px;
-          font-weight: 700;
-          line-height: 1.4;
-          margin-bottom: 30px;
-          max-width: 300px;
-        }
-
-        .cta-button {
-          background: #fff;
-          color: #00342e;
-          border: none;
-          border-radius: 30px;
-          padding: 14px 20px;
-          font-size: 15px;
-          font-weight: 600;
-          cursor: pointer;
-          width: fit-content;
-          min-width: 220px;
-          text-align: center;
-          transition: 0.3s;
-        }
-
-        .cta-button:hover {
-          background: #f4f4f4;
-        }
-
-        /* Decorations (optional) */
-        .decorations {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          gap: 10px;
-        }
-
-        .decorations img {
-          width: 70px;
-          height: auto;
-        }
-
-        /* ✅ RESPONSIVE DESIGN */
-
-        /* Tablets */
-        @media (max-width: 900px) {
-          .footer-box {
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-          }
-
-          .footer-left,
-          .footer-right {
-            width: 100%;
-            max-width: 650px;
-          }
-
-          .links-grid {
-            grid-template-columns: repeat(2, auto);
-            gap: 12px 30px;
-          }
-
-          .footer-right-text {
-            font-size: 24px;
-          }
-        }
-
-        /* Mobile */
-        @media (max-width: 500px) {
-          .footer-container {
-            padding: 40px 15px;
-          }
-
-          .footer-left {
-            padding: 25px;
-          }
-
-          .footer-right {
-            padding: 30px 20px;
-          }
-
-          .footer-right-text {
-            font-size: 20px;
-            max-width: 100%;
-          }
-
-          .cta-button {
-            font-size: 13px;
-            padding: 12px 16px;
-            width: 100%;
-          }
-
-          .links-grid {
-            grid-template-columns: 1fr;
-            gap: 10px;
-          }
-
-          .decorations img {
-            width: 50px;
-          }
-        }
-      `}</style>
-
-      <div className="footer-container">
-        <div className="footer-box">
-          {/* Left Section */}
-          <div className="footer-left">
-            <h3 className="footer-brand">Solus</h3>
-            <div className="links-grid">
-              <a href="#">About</a>
-              <a href="#">Instagram</a>
-              <a href="#">Terms Of Use</a>
-              <a href="#">Services</a>
-              <a href="#">Facebook</a>
-              <a href="#">Privacy Policy</a>
-              <a href="#">Therapists</a>
-              <a href="#">YouTube</a>
-              <a href="#">Resources</a>
-              <a href="#">LinkedIn</a>
-              <a href="#">Contact</a>
-            </div>
-            <p className="copyright">© [2035] Solus. All Rights Reserved.</p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, auto)",
+              gap: "12px 40px",
+              fontSize: "14px",
+              color: "#00342e",
+              marginBottom: "20px",
+            }}
+          >
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              About
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              Instagram
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              Terms Of Use
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              Services
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              Facebook
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              Privacy Policy
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              Therapists
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              YouTube
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              Resources
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              LinkedIn
+            </a>
+            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>
+              Contact
+            </a>
           </div>
 
-          {/* Right Section */}
-          <div className="footer-right">
-            <p className="footer-right-text">
-              Find Support, <br />
-              Guidance, <br />
-              and Balance.
-            </p>
-            <button className="cta-button">Find Support Now</button>
+          <p style={{ fontSize: "12px", color: "#888", marginTop: "auto" }}>
+            © [2035] Solus. All Rights Reserved.
+          </p>
+        </div>
 
-            {/* Decorative Images */}
-            <div className="decorations">
-              {/* <img src={rainbow} alt="Rainbow" /> */}
-              {/* <img src={flower1} alt="Flower" /> */}
-              {/* <img src={flower2} alt="Flower" /> */}
-              {/* <img src={flower3} alt="Flower" /> */}
-            </div>
+        {/* Right Section */}
+        <div
+          style={{
+            flex: 1,
+            minWidth: "300px",
+            background: "#00342e",
+            color: "#fff",
+            borderRadius: "24px",
+            padding: "50px 40px",
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            overflow: "hidden",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              lineHeight: 1.4,
+              marginBottom: "30px",
+              maxWidth: "300px",
+            }}
+          >
+            Find Support, <br />
+            Guidance, <br />
+            and Balance.
+          </p>
+          <button
+            style={{
+              background: "#fff",
+              color: "#00342e",
+              border: "none",
+              borderRadius: "30px",
+              padding: "14px 20px",
+              fontSize: "15px",
+              fontWeight: 600,
+              cursor: "pointer",
+              width: "fit-content",
+              minWidth: "220px",
+              textAlign: "center",
+              transition: "0.3s",
+            }}
+          >
+            Find Support Now
+          </button>
+
+          {/* Decorative Images */}
+          <div
+            style={{
+              position: "absolute",
+              top: "20px",
+              right: "20px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
+              gap: "10px",
+            }}
+          >
+            {/* <img src={rainbow} alt="Rainbow" style={{ width: "70px", height: "auto" }} /> */}
+            {/* <img src={flower1} alt="Flower" style={{ width: "70px", height: "auto" }} /> */}
+            {/* <img src={flower2} alt="Flower" style={{ width: "70px", height: "auto" }} /> */}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

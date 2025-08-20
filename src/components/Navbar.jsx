@@ -1,88 +1,68 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // ✅ Breakpoints
+  const isTablet = screenWidth <= 900 && screenWidth > 600;
+  const isMobile = screenWidth <= 600;
+
+  const navbarStyle = {
+    display: "flex",
+    justifyContent: isMobile ? "center" : "space-between",
+    alignItems: "center",
+    padding: isTablet ? "16px 24px" : isMobile ? "12px 16px" : "20px 40px",
+    fontFamily: "'Inter', sans-serif",
+    backgroundColor: "#f7f6f4",
+    flexDirection: isMobile ? "column" : "row",
+    gap: isMobile ? "15px" : "0px",
+  };
+
+  const navLinksStyle = {
+    display: "flex",
+    gap: isTablet ? "20px" : isMobile ? "10px" : "32px",
+    flexDirection: isMobile ? "column" : "row",
+    alignItems: isMobile ? "center" : "flex-start",
+  };
+
+  const navLinkStyle = {
+    fontSize: isTablet ? "13px" : isMobile ? "12px" : "14px",
+    color: "#003c3b",
+    textDecoration: "none",
+  };
+
+  const navLogoStyle = {
+    fontWeight: "bold",
+    fontSize: isMobile ? "18px" : "20px",
+    color: "#003c3b",
+  };
+
   return (
-    <>
-      <style>{`
-        .navbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 20px 40px;
-          font-family: 'Inter', sans-serif;
-          background-color: #f7f6f4;
-        }
+    <nav style={navbarStyle}>
+      {/* Left Links */}
+      <div style={navLinksStyle}>
+        <a href="#" style={navLinkStyle}>Home</a>
+        <a href="#" style={navLinkStyle}>About</a>
+        <a href="#" style={navLinkStyle}>Services</a>
+      </div>
 
-        .nav-links {
-          display: flex;
-          gap: 32px;
-        }
+      {/* Logo */}
+      <div style={navLogoStyle}>Solus</div>
 
-        .nav-link {
-          font-size: 14px;
-          color: #003c3b;
-          text-decoration: none;
-        }
-
-        .nav-logo {
-          font-weight: bold;
-          font-size: 20px;
-          color: #003c3b;
-        }
-
-        /* ✅ Tablet */
-        @media (max-width: 900px) {
-          .navbar {
-            padding: 16px 24px;
-          }
-
-          .nav-links {
-            gap: 20px;
-          }
-
-          .nav-link {
-            font-size: 13px;
-          }
-        }
-
-        /* ✅ Mobile */
-        @media (max-width: 600px) {
-          .navbar {
-            flex-direction: column;
-            gap: 15px;
-          }
-
-          .nav-links {
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-          }
-
-          .nav-logo {
-            font-size: 18px;
-          }
-        }
-      `}</style>
-
-      <nav className="navbar">
-        {/* Left Links */}
-        <div className="nav-links">
-          <a href="#" className="nav-link">Home</a>
-          <a href="#" className="nav-link">About</a>
-          <a href="#" className="nav-link">Services</a>
-        </div>
-
-        {/* Logo */}
-        <div className="nav-logo">Solus</div>
-
-        {/* Right Links */}
-        <div className="nav-links">
-          <a href="#" className="nav-link">Therapists</a>
-          <a href="#" className="nav-link">Resources</a>
-          <a href="#" className="nav-link">Contact</a>
-        </div>
-      </nav>
-    </>
+      {/* Right Links */}
+      <div style={navLinksStyle}>
+        <a href="#" style={navLinkStyle}>Therapists</a>
+        <a href="#" style={navLinkStyle}>Resources</a>
+        <a href="#" style={navLinkStyle}>Contact</a>
+      </div>
+    </nav>
   );
 };
 

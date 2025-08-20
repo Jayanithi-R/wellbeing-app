@@ -24,6 +24,7 @@ const ResourcesSection = () => {
 
   return (
     <>
+      {/* ✅ Inline CSS for responsiveness */}
       <style>{`
         .resources-section {
           background-color: #f9f9f7;
@@ -31,12 +32,10 @@ const ResourcesSection = () => {
           font-family: "Inter", sans-serif;
           text-align: center;
         }
-
         .resources-header {
           max-width: 650px;
           margin: 0 auto 50px;
         }
-
         .small-heading {
           font-size: 0.75rem;
           font-weight: 600;
@@ -45,7 +44,6 @@ const ResourcesSection = () => {
           margin-bottom: 10px;
           text-transform: uppercase;
         }
-
         .main-heading {
           font-size: 2.2rem;
           font-weight: 800;
@@ -53,13 +51,11 @@ const ResourcesSection = () => {
           margin-bottom: 20px;
           line-height: 1.3;
         }
-
         .sub-text {
           font-size: 1rem;
           color: #404040;
           line-height: 1.6;
         }
-
         .resources-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -67,7 +63,6 @@ const ResourcesSection = () => {
           max-width: 1100px;
           margin: 0 auto;
         }
-
         .resource-card {
           background: #ffffff;
           border-radius: 20px;
@@ -78,50 +73,47 @@ const ResourcesSection = () => {
           align-items: center;
           text-align: center;
         }
-
         .card-title {
           font-size: 1.25rem;
           font-weight: 700;
           color: #00332c;
           margin-bottom: 10px;
         }
-
         .card-desc {
           font-size: 0.95rem;
           color: #404040;
           margin-bottom: 20px;
           line-height: 1.5;
         }
-
-        .explore-btn {
+        .card-btn {
           border: none;
           padding: 10px 24px;
           border-radius: 999px;
           font-size: 0.95rem;
           font-weight: 600;
-          color: #00332c;
+          color: #fff;
           cursor: pointer;
           transition: transform 0.2s ease;
         }
-
-        .explore-btn:hover {
+        .card-btn:hover {
           transform: scale(1.05);
         }
 
-        /* ✅ Responsive Styles */
+        /* ✅ RESPONSIVENESS */
         @media (max-width: 992px) {
           .resources-grid {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
           }
         }
-
         @media (max-width: 600px) {
           .resources-grid {
             grid-template-columns: 1fr;
           }
-
           .main-heading {
             font-size: 1.8rem;
+          }
+          .sub-text {
+            font-size: 0.9rem;
           }
         }
       `}</style>
@@ -144,7 +136,7 @@ const ResourcesSection = () => {
               <h3 className="card-title">{res.title}</h3>
               <p className="card-desc">{res.description}</p>
               <button
-                className="explore-btn"
+                className="card-btn"
                 style={{ backgroundColor: res.buttonColor }}
               >
                 Explore
