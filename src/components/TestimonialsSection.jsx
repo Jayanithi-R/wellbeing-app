@@ -1,6 +1,13 @@
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
+// ✅ Import logos from assets
+import partner1 from '../assets/partner1.png';
+import partner2 from '../assets/partner2.png';
+import partner3 from '../assets/partner3.png';
+import partner4 from '../assets/partner4.png';
+import partner5 from '../assets/partner5.png';
+
 const styles = {
   container: {
     backgroundColor: '#f7f6f3',
@@ -118,13 +125,8 @@ const styles = {
   },
 };
 
-const placeholderLogos = [
-  'https://via.placeholder.com/100x28?text=Wealthsimple',
-  'https://via.placeholder.com/100x28?text=Notion',
-  'https://via.placeholder.com/100x28?text=Medium',
-  'https://via.placeholder.com/100x28?text=Braze',
-  'https://via.placeholder.com/100x28?text=Sonos',
-];
+// ✅ Replace placeholders with imported logos
+const partnerLogos = [partner1, partner2, partner3, partner4, partner5];
 
 const TestimonialsSection = () => {
   return (
@@ -132,14 +134,20 @@ const TestimonialsSection = () => {
       <div style={styles.topSection}>
         <div style={styles.header}>
           <p style={styles.subheading}>TESTIMONIALS</p>
-          <h2 style={styles.heading}>What Our Clients <br /> Are Saying</h2>
+          <h2 style={styles.heading}>
+            What Our Clients <br /> Are Saying
+          </h2>
           <p style={styles.description}>
             Positive experiences from users who have <br />
             benefited from therapy or wellness programs.
           </p>
           <div style={styles.navButtons}>
-            <button style={{ ...styles.arrow, ...styles.left }}><FaArrowLeft /></button>
-            <button style={{ ...styles.arrow, ...styles.right }}><FaArrowRight /></button>
+            <button style={{ ...styles.arrow, ...styles.left }}>
+              <FaArrowLeft />
+            </button>
+            <button style={{ ...styles.arrow, ...styles.right }}>
+              <FaArrowRight />
+            </button>
           </div>
         </div>
 
@@ -167,7 +175,7 @@ const TestimonialsSection = () => {
       <div style={styles.partnersSection}>
         <p style={styles.partnersHeading}>Our Partners</p>
         <div style={styles.partnersLogos}>
-          {placeholderLogos.map((src, index) => (
+          {partnerLogos.map((src, index) => (
             <img key={index} src={src} alt={`Partner ${index + 1}`} style={styles.logo} />
           ))}
         </div>
