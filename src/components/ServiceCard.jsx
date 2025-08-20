@@ -1,7 +1,8 @@
 import React from "react";
-// import red from "../assets/1234.png"; // ✅ mindfulness image
 import servicesIllustration from "../assets/services-illustration.png";
 import extraImage from "../assets/extraImage.png"; // still imported for later use
+// import web from "../assets/web(2).png"; // ✅ your web(2).png import
+// import heart from "../assets/heart image.png";
 
 const ServicesSection = () => {
   return (
@@ -67,14 +68,27 @@ const ServicesSection = () => {
             maxWidth: "400px",
             textAlign: "left",
             boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
-            backgroundImage: `url(${servicesIllustration})`,
-            // backgroundPosition:"center",
-            backgroundSize: "cover",
           }}
         >
-          {/* ✅ Added mindfulness image */}
-          {/* <img src={red} alt="Mindfulness" style={{ width: "100%", borderRadius: "15px", marginBottom: "15px" }} /> */}
-
+          {/* ✅ Added web(2).png image */}
+          <img
+            // src={web}
+            // alt="Mindfulness"
+            style={{
+              width: "100%",
+              borderRadius: "15px",
+              marginBottom: "15px",
+            }}
+          />
+        {/* <img 
+        src={heart}
+        alt="heart"
+        style={{
+            width: "50%",
+            borderRadius: "20px",
+            paddingleft: "20px",
+        }}
+        /> */}
           <h6
             style={{
               fontSize: "1.2rem",

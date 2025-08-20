@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import web from "../assets/web.png"; // ✅ import from src/assets
+import web from "../assets/web(2).png"; // ✅ import from src/assets
 
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -96,9 +96,10 @@ const FAQSection = () => {
         .faq-image-box {
           display: inline-block;
           padding: 20px;
-          background: #fff;
+          background: #F9E6D0;
           border-radius: 24px;
           box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+
         }
 
         .faq-image {
