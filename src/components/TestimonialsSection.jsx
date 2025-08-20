@@ -112,6 +112,7 @@ const styles = {
     color: '#00342e',
     fontSize: '14px',
     marginBottom: '24px',
+    // paddingRight: '30px',
   },
   partnersLogos: {
     display: 'flex',
