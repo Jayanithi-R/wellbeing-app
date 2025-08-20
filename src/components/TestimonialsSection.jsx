@@ -13,6 +13,8 @@ const styles = {
     backgroundColor: '#f7f6f3',
     padding: '60px 40px',
     fontFamily: "'Inter', sans-serif",
+    display:"flex",
+    flexDirection:"column",
   },
   topSection: {
     display: 'flex',
@@ -104,23 +106,24 @@ const styles = {
     padding: '32px',
     marginTop: '60px',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: "center",
   },
   partnersHeading: {
     fontWeight: 600,
     color: '#00342e',
     fontSize: '14px',
     marginBottom: '24px',
-    // paddingRight: '30px',
-
+    paddingRight: '50px',
+    
 
   },
   partnersLogos: {
     display: 'flex',
-    gap: '40px',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    gap: '90px',
+    // flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
   },
   logo: {
     height: '28px',
