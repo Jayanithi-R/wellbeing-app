@@ -113,6 +113,8 @@ const styles = {
     fontSize: '14px',
     marginBottom: '24px',
     // paddingRight: '30px',
+
+    
   },
   partnersLogos: {
     display: 'flex',

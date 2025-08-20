@@ -22,130 +22,109 @@ const ResourcesSection = () => {
     },
   ];
 
+  // ✅ Styles as const object
+  const styles = {
+    section: {
+      backgroundColor: "#f9f9f7",
+      padding: "60px 20px",
+      fontFamily: "Inter, sans-serif",
+      textAlign: "center",
+    },
+    header: {
+      maxWidth: "650px",
+      margin: "0 auto 50px",
+    },
+    smallHeading: {
+      fontSize: "0.75rem",
+      fontWeight: 600,
+      letterSpacing: "1px",
+      color: "#4b5563",
+      marginBottom: "10px",
+      textTransform: "uppercase",
+    },
+    mainHeading: {
+      fontSize: "2.2rem",
+      fontWeight: 800,
+      color: "#00332c",
+      marginBottom: "20px",
+      lineHeight: 1.3,
+    },
+    subText: {
+      fontSize: "1rem",
+      color: "#404040",
+      lineHeight: 1.6,
+    },
+    grid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+      gap: "25px",
+      maxWidth: "1100px",
+      margin: "0 auto",
+    },
+    card: {
+      background: "#ffffff",
+      borderRadius: "20px",
+      padding: "30px 20px",
+      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.05)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
+    },
+    cardTitle: {
+      fontSize: "1.25rem",
+      fontWeight: 700,
+      color: "#00332c",
+      marginBottom: "10px",
+    },
+    cardDesc: {
+      fontSize: "0.95rem",
+      color: "#404040",
+      marginBottom: "20px",
+      lineHeight: 1.5,
+    },
+    cardBtn: {
+      border: "none",
+      padding: "10px 24px",
+      borderRadius: "999px",
+      fontSize: "0.95rem",
+      fontWeight: 600,
+      color: "#fff",
+      cursor: "pointer",
+      transition: "transform 0.2s ease",
+    },
+  };
+
   return (
-    <>
-      {/* ✅ Inline CSS for responsiveness */}
-      <style>{`
-        .resources-section {
-          background-color: #f9f9f7;
-          padding: 60px 20px;
-          font-family: "Inter", sans-serif;
-          text-align: center;
-        }
-        .resources-header {
-          max-width: 650px;
-          margin: 0 auto 50px;
-        }
-        .small-heading {
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 1px;
-          color: #4b5563;
-          margin-bottom: 10px;
-          text-transform: uppercase;
-        }
-        .main-heading {
-          font-size: 2.2rem;
-          font-weight: 800;
-          color: #00332c;
-          margin-bottom: 20px;
-          line-height: 1.3;
-        }
-        .sub-text {
-          font-size: 1rem;
-          color: #404040;
-          line-height: 1.6;
-        }
-        .resources-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 25px;
-          max-width: 1100px;
-          margin: 0 auto;
-        }
-        .resource-card {
-          background: #ffffff;
-          border-radius: 20px;
-          padding: 30px 20px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-        .card-title {
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: #00332c;
-          margin-bottom: 10px;
-        }
-        .card-desc {
-          font-size: 0.95rem;
-          color: #404040;
-          margin-bottom: 20px;
-          line-height: 1.5;
-        }
-        .card-btn {
-          border: none;
-          padding: 10px 24px;
-          border-radius: 999px;
-          font-size: 0.95rem;
-          font-weight: 600;
-          color: #fff;
-          cursor: pointer;
-          transition: transform 0.2s ease;
-        }
-        .card-btn:hover {
-          transform: scale(1.05);
-        }
+    <section style={styles.section}>
+      <div style={styles.header}>
+        <p style={styles.smallHeading}>EXPLORE & LEARN</p>
+        <h2 style={styles.mainHeading}>
+          Resources for <br /> Your Well-being
+        </h2>
+        <p style={styles.subText}>
+          Explore expert insights, self-care guides, and tools to support your
+          mental health.
+        </p>
+      </div>
 
-        /* ✅ RESPONSIVENESS */
-        @media (max-width: 992px) {
-          .resources-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (max-width: 600px) {
-          .resources-grid {
-            grid-template-columns: 1fr;
-          }
-          .main-heading {
-            font-size: 1.8rem;
-          }
-          .sub-text {
-            font-size: 0.9rem;
-          }
-        }
-      `}</style>
-
-      <section className="resources-section">
-        <div className="resources-header">
-          <p className="small-heading">EXPLORE & LEARN</p>
-          <h2 className="main-heading">
-            Resources for <br /> Your Well-being
-          </h2>
-          <p className="sub-text">
-            Explore expert insights, self-care guides, and tools to support your
-            mental health.
-          </p>
-        </div>
-
-        <div className="resources-grid">
-          {resources.map((res, index) => (
-            <div key={index} className="resource-card">
-              <h3 className="card-title">{res.title}</h3>
-              <p className="card-desc">{res.description}</p>
-              <button
-                className="card-btn"
-                style={{ backgroundColor: res.buttonColor }}
-              >
-                Explore
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-    </>
+      <div style={styles.grid}>
+        {resources.map((res, index) => (
+          <div key={index} style={styles.card}>
+            <h3 style={styles.cardTitle}>{res.title}</h3>
+            <p style={styles.cardDesc}>{res.description}</p>
+            <button
+              style={{
+                ...styles.cardBtn,
+                backgroundColor: res.buttonColor,
+              }}
+            >
+              Explore
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 

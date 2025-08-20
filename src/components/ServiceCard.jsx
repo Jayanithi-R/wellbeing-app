@@ -1,236 +1,178 @@
 import React from "react";
 import servicesIllustration from "../assets/services-illustration.png";
-import extraImage from "../assets/extraImage.png"; // still imported for later use
+import extraImage from "../assets/extraImage.png";
 // import web from "../assets/web(2).png"; // ✅ your web(2).png import
 // import heart from "../assets/heart image.png";
 
 const ServicesSection = () => {
+  const styles = {
+    section: {
+      backgroundColor: "#f9f8f6",
+      padding: "80px 40px",
+      fontFamily: "'Inter', sans-serif",
+      textAlign: "center",
+      width: "100%",
+    },
+    subtitle: {
+      textTransform: "uppercase",
+      fontSize: "12px",
+      color: "#00332c",
+      fontWeight: 600,
+      marginBottom: "10px",
+    },
+    title: {
+      fontSize: "2.2rem",
+      fontWeight: 800,
+      color: "#00332c",
+      marginBottom: "10px",
+    },
+    description: {
+      fontSize: "1rem",
+      color: "#00332c",
+      marginBottom: "50px",
+    },
+    cardContainer: {
+      display: "flex",
+      gap: "30px",
+      justifyContent: "center",
+      marginBottom: "40px",
+      flexWrap: "wrap",
+    },
+    card: {
+      borderRadius: "25px",
+      padding: "30px",
+      flex: "1 1 320px",
+      maxWidth: "400px",
+      textAlign: "left",
+      boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+    },
+    orangeCard: {
+      backgroundColor: "#fce6cf",
+    },
+    whiteCard: {
+      backgroundColor: "white",
+    },
+    cardImage: {
+      width: "100%",
+      borderRadius: "15px",
+      marginBottom: "15px",
+    },
+    cardHeading: {
+      fontSize: "1.2rem",
+      fontWeight: 700,
+      color: "#00332c",
+      marginBottom: "10px",
+    },
+    cardText: {
+      fontSize: "0.95rem",
+      color: "#00332c",
+      marginBottom: "20px",
+      lineHeight: 1.5,
+    },
+    cardButton: {
+      padding: "10px 18px",
+      border: "1px solid #00332c",
+      borderRadius: "25px",
+      color: "#00332c",
+      backgroundColor: "transparent",
+      fontWeight: 600,
+      cursor: "pointer",
+    },
+    coachingSection: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      gap: "30px",
+      background: "white",
+      borderRadius: "25px",
+      padding: "40px",
+      flexWrap: "wrap",
+    },
+    coachingText: {
+      flex: 2,
+      textAlign: "left",
+    },
+    coachingHeading: {
+      fontSize: "1.2rem",
+      fontWeight: 700,
+      color: "#00332c",
+      marginBottom: "10px",
+    },
+    coachingParagraph: {
+      fontSize: "0.95rem",
+      color: "#00332c",
+      marginBottom: "20px",
+      lineHeight: 1.5,
+    },
+    coachingButton: {
+      padding: "10px 18px",
+      backgroundColor: "#00332c",
+      color: "white",
+      border: "none",
+      borderRadius: "25px",
+      fontWeight: 600,
+      cursor: "pointer",
+    },
+    coachingImageWrapper: {
+      flex: 1,
+      maxWidth: "220px",
+    },
+    coachingImage: {
+      width: "100%",
+      borderRadius: "20px",
+    },
+  };
+
   return (
-    <section
-      style={{
-        backgroundColor: "#f9f8f6",
-        padding: "80px 40px",
-        fontFamily: "'Inter', sans-serif",
-        textAlign: "center",
-        width: "100%",
-      }}
-    >
-      <h6
-        style={{
-          textTransform: "uppercase",
-          fontSize: "12px",
-          color: "#00332c",
-          fontWeight: 600,
-          marginBottom: "10px",
-        }}
-      >
-        SERVICES
-      </h6>
-
-      <h1
-        style={{
-          fontSize: "2.2rem",
-          fontWeight: 800,
-          color: "#00332c",
-          marginBottom: "10px",
-        }}
-      >
-        Your Path to Well-being
-      </h1>
-
-      <p
-        style={{
-          fontSize: "1rem",
-          color: "#00332c",
-          marginBottom: "50px",
-        }}
-      >
+    <section style={styles.section}>
+      <h6 style={styles.subtitle}>SERVICES</h6>
+      <h1 style={styles.title}>Your Path to Well-being</h1>
+      <p style={styles.description}>
         Discover expert guidance for a healthier <br /> mind and balanced life.
       </p>
 
       {/* Cards */}
-      <div
-        style={{
-          display: "flex",
-          gap: "30px",
-          justifyContent: "center",
-          marginBottom: "40px",
-          flexWrap: "wrap",
-        }}
-      >
+      <div style={styles.cardContainer}>
         {/* Card 1 */}
-        <div
-          style={{
-            backgroundColor: "#fce6cf",
-            borderRadius: "25px",
-            padding: "30px",
-            flex: "1 1 320px",
-            maxWidth: "400px",
-            textAlign: "left",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
-          }}
-        >
-          {/* ✅ Added web(2).png image */}
-          <img
-            // src={web}
-            // alt="Mindfulness"
-            style={{
-              width: "100%",
-              borderRadius: "15px",
-              marginBottom: "15px",
-            }}
-          />
-        {/* <img 
-        src={heart}
-        alt="heart"
-        style={{
-            width: "50%",
-            borderRadius: "20px",
-            paddingleft: "20px",
-        }}
-        /> */}
-          <h6
-            style={{
-              fontSize: "1.2rem",
-              fontWeight: 700,
-              color: "#00332c",
-              marginBottom: "10px",
-            }}
-          >
-            Mindfulness & Meditation
-          </h6>
-          <p
-            style={{
-              fontSize: "0.95rem",
-              color: "#00332c",
-              marginBottom: "20px",
-              lineHeight: 1.5,
-            }}
-          >
+        <div style={{ ...styles.card, ...styles.orangeCard }}>
+          {/* <img src={web} alt="Mindfulness" style={styles.cardImage} /> */}
+          <h6 style={styles.cardHeading}>Mindfulness & Meditation</h6>
+          <p style={styles.cardText}>
             Guided meditation sessions and <br /> stress management techniques.
           </p>
-          <button
-            style={{
-              padding: "10px 18px",
-              border: "1px solid #00332c",
-              borderRadius: "25px",
-              color: "#00332c",
-              backgroundColor: "transparent",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            Learn More
-          </button>
+          <button style={styles.cardButton}>Learn More</button>
         </div>
 
         {/* Card 2 */}
-        <div
-          style={{
-            backgroundColor: "white",
-            borderRadius: "25px",
-            padding: "30px",
-            flex: "1 1 320px",
-            maxWidth: "400px",
-            textAlign: "left",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
-          }}
-        >
-          <h6
-            style={{
-              fontSize: "1.2rem",
-              fontWeight: 700,
-              color: "#00332c",
-              marginBottom: "10px",
-            }}
-          >
-            One-on-One Therapy
-          </h6>
-          <p
-            style={{
-              fontSize: "0.95rem",
-              color: "#00332c",
-              marginBottom: "20px",
-              lineHeight: 1.5,
-            }}
-          >
+        <div style={{ ...styles.card, ...styles.whiteCard }}>
+          <h6 style={styles.cardHeading}>One-on-One Therapy</h6>
+          <p style={styles.cardText}>
             Virtual and in-person therapy <br /> sessions with licensed
             professionals.
           </p>
-          <button
-            style={{
-              padding: "10px 18px",
-              border: "1px solid #00332c",
-              borderRadius: "25px",
-              color: "#00332c",
-              backgroundColor: "transparent",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            Learn More
-          </button>
+          <button style={styles.cardButton}>Learn More</button>
         </div>
       </div>
 
       {/* Coaching Section */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: "30px",
-          background: "white",
-          borderRadius: "25px",
-          padding: "40px",
-          flexWrap: "wrap",
-        }}
-      >
-        <div style={{ flex: 2, textAlign: "left" }}>
-          <h2
-            style={{
-              fontSize: "1.2rem",
-              fontWeight: 700,
-              color: "#00332c",
-              marginBottom: "10px",
-            }}
-          >
-            Wellness Coaching
-          </h2>
-          <p
-            style={{
-              fontSize: "0.95rem",
-              color: "#00332c",
-              marginBottom: "20px",
-              lineHeight: 1.5,
-            }}
-          >
+      <div style={styles.coachingSection}>
+        <div style={styles.coachingText}>
+          <h2 style={styles.coachingHeading}>Wellness Coaching</h2>
+          <p style={styles.coachingParagraph}>
             Personalized guidance to help you build healthier habits, manage
             stress, and achieve balance in all areas of your life. <br />
             <br />
             Our wellness coaches support you in creating sustainable routines
             for mental, emotional, and physical well-being.
           </p>
-          <button
-            style={{
-              padding: "10px 18px",
-              backgroundColor: "#00332c",
-              color: "white",
-              border: "none",
-              borderRadius: "25px",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            Learn More
-          </button>
+          <button style={styles.coachingButton}>Learn More</button>
         </div>
 
-        <div style={{ flex: 1, maxWidth: "220px" }}>
+        <div style={styles.coachingImageWrapper}>
           <img
             src={servicesIllustration}
             alt="Wellness Illustration"
-            style={{ width: "100%", borderRadius: "20px" }}
+            style={styles.coachingImage}
           />
         </div>
       </div>

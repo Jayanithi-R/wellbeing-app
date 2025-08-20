@@ -18,152 +18,117 @@ const FAQSection = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  // ✅ Inline styles
+  const styles = {
+    container: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+      gap: "60px",
+      padding: "60px 80px",
+      background: "#f7f6f3",
+      fontFamily: "'Inter', sans-serif",
+      flexWrap: "wrap",
+    },
+    left: { flex: 1 },
+    smallText: {
+      fontSize: "11px",
+      fontWeight: 500,
+      color: "#666",
+      letterSpacing: "1px",
+      textTransform: "uppercase",
+      marginBottom: "10px",
+    },
+    heading: {
+      fontSize: "28px",
+      fontWeight: 700,
+      color: "#00342e",
+      marginBottom: "15px",
+    },
+    desc: {
+      fontSize: "15px",
+      lineHeight: 1.6,
+      color: "#555",
+      marginBottom: "30px",
+    },
+    imageBox: {
+      display: "inline-block",
+      padding: "20px",
+      background: "#F9E6D0",
+      borderRadius: "24px",
+      boxShadow: "0px 4px 15px rgba(0,0,0,0.08)",
+      height: "40%",
+    },
+    image: {
+      maxWidth: "280px",
+      borderRadius: "20px",
+      display: "block",
+    },
+    right: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      gap: "18px",
+    },
+    item: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      background: "#fff",
+      padding: "16px 20px",
+      borderRadius: "14px",
+      cursor: "pointer",
+      boxShadow: "0px 2px 6px rgba(0,0,0,0.05)",
+      transition: "all 0.3s ease",
+    },
+    itemHover: { background: "#fdfdfd" },
+    question: {
+      fontSize: "15px",
+      fontWeight: 600,
+      color: "#00342e",
+    },
+    icon: { fontSize: "14px", color: "#00342e", flexShrink: 0 },
+    active: { border: "1px solid #00342e" },
+  };
+
   return (
-    <div className="faq-container">
+    <div style={styles.container}>
       {/* Left Section */}
-      <div className="faq-left">
-        <p className="small-text">NEED HELP?</p>
-        <h2 className="faq-heading">Frequently Asked Questions</h2>
-        <p className="faq-desc">
-          Find answers to common questions about our services,<br />
+      <div style={styles.left}>
+        <p style={styles.smallText}>NEED HELP?</p>
+        <h2 style={styles.heading}>Frequently Asked Questions</h2>
+        <p style={styles.desc}>
+          Find answers to common questions about our services,
+          <br />
           therapy, and mental well-being.
         </p>
 
         {/* ✅ Box behind image */}
-        <div className="faq-image-box">
-          <img src={web} alt="illustration" className="faq-image" />
+        <div style={styles.imageBox}>
+          <img src={web} alt="illustration" style={styles.image} />
         </div>
       </div>
 
       {/* Right Section */}
-      <div className="faq-right">
+      <div style={styles.right}>
         {faqs.map((q, index) => (
           <div
             key={index}
-            className={`faq-item ${activeIndex === index ? "faq-active" : ""}`}
+            style={{
+              ...styles.item,
+              ...(activeIndex === index ? styles.active : {}),
+            }}
             onClick={() => toggleFAQ(index)}
           >
-            <p className="faq-question">{q}</p>
+            <p style={styles.question}>{q}</p>
             {activeIndex === index ? (
-              <FaMinus className="faq-icon" />
+              <FaMinus style={styles.icon} />
             ) : (
-              <FaPlus className="faq-icon" />
+              <FaPlus style={styles.icon} />
             )}
           </div>
         ))}
       </div>
-
-      {/* CSS */}
-      <style>{`
-        .faq-container {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          gap: 60px;
-          padding: 60px 80px;
-          background: #f7f6f3;
-          font-family: "Inter", sans-serif;
-        }
-
-        .faq-left {
-          flex: 1;
-        }
-
-        .small-text {
-          font-size: 11px;
-          font-weight: 500;
-          color: #666;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          margin-bottom: 10px;
-        }
-
-        .faq-heading {
-          font-size: 28px;
-          font-weight: 700;
-          color: #00342e;
-          margin-bottom: 15px;
-        }
-
-        .faq-desc {
-          font-size: 15px;
-          line-height: 1.6;
-          color: #555;
-          margin-bottom: 30px;
-        }
-
-        /* ✅ Box behind image */
-        .faq-image-box {
-          display: inline-block;
-          padding: 20px;
-          background: #F9E6D0;
-          border-radius: 24px;
-          box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
-
-        }
-
-        .faq-image {
-          max-width: 280px;
-          border-radius: 20px;
-          display: block;
-        }
-
-        .faq-right {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          gap: 18px;
-        }
-
-        .faq-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background: #fff;
-          padding: 16px 20px;
-          border-radius: 14px;
-          cursor: pointer;
-          box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
-          transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-          background: #fdfdfd;
-        }
-
-        .faq-question {
-          font-size: 15px;
-          font-weight: 600;
-          color: #00342e;
-        }
-
-        .faq-icon {
-          font-size: 14px;
-          color: #00342e;
-          flex-shrink: 0;
-        }
-
-        /* Active FAQ */
-        .faq-active {
-          border: 1px solid #00342e;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-          .faq-container {
-            flex-direction: column;
-            padding: 40px 30px;
-          }
-
-          .faq-left {
-            text-align: center;
-          }
-
-          .faq-image-box {
-            margin: 20px auto 0;
-          }
-        }
-      `}</style>
     </div>
   );
 };
