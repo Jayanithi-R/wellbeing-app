@@ -36,12 +36,10 @@ const ServicesSection = () => {
             fontSize: "2.2rem",
             fontWeight: 800,
             color: "#00332c",
-            marginBottom: "10px",
         },
         description: {
             fontSize: "1rem",
             color: "#00332c",
-            marginBottom: "50px",
         },
         cardContainer: {
             display: "flex",
@@ -138,13 +136,13 @@ const ServicesSection = () => {
 
     return (
         <section style={styles.section}>
-            {/* <div style={styles.container}>
+            <div style={styles.container}>
                 <h6 style={styles.subtitle}>SERVICES</h6>
                 <h1 style={styles.title}>Your Path to Well-being</h1>
                 <p style={styles.description}>
                     Discover expert guidance for a healthier <br /> mind and balanced life.
                 </p>
-            </div> */}
+            </div>
             {/* Cards */}
             <div style={styles.cardContainer}>
                 {/* Card 1 */}
