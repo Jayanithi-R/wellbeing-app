@@ -1,5 +1,6 @@
 import React from "react";
-import poster from "../assets/poster.png" 
+import poster from "../assets/poster.png"; // ✅ imported from src/assets
+
 const FooterSection = () => {
   return (
     <div
@@ -121,7 +122,8 @@ const FooterSection = () => {
               maxWidth: "300px",
             }}
           >
-            Find Support, <br />
+            Find 
+            Support, <br />       
             Guidance, <br />
             and Balance.
           </p>
@@ -144,7 +146,7 @@ const FooterSection = () => {
             Find Support Now
           </button>
 
-          {/* Decorative Images */}
+          {/* ✅ Decorative Image imported from assets */}
           <div
             style={{
               position: "absolute",
@@ -156,9 +158,11 @@ const FooterSection = () => {
               gap: "10px",
             }}
           >
-            {/* <img src={rainbow} alt="Rainbow" style={{ width: "70px", height: "auto" }} /> */}
-            {/* <img src={flower1} alt="Flower" style={{ width: "70px", height: "auto" }} /> */}
-            {/* <img src={flower2} alt="Flower" style={{ width: "70px", height: "auto" }} /> */}
+            <img
+              src={poster}
+              alt="Poster"
+              style={{ width: "100px", height: "auto", borderRadius: "10px" }}
+            />
           </div>
         </div>
       </div>

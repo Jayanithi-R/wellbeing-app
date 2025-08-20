@@ -1,4 +1,6 @@
 import React from "react";
+// import red from "../assets/red.png";
+import servicesIllustration from "../assets/services-illustration.png"; // ✅ imported from src/assets
 
 const ServicesSection = () => {
   return (
@@ -180,7 +182,6 @@ const ServicesSection = () => {
               color: "#00332c",
               marginBottom: "20px",
               lineHeight: 1.5,
-            //   width:"60%",
             }}
           >
             Personalized guidance to help you build healthier habits, manage
@@ -206,7 +207,7 @@ const ServicesSection = () => {
 
         <div style={{ flex: 1, maxWidth: "220px" }}>
           <img
-            src="/images/services-illustration.png"
+            src={servicesIllustration} // ✅ using import instead of /images
             alt="Wellness Illustration"
             style={{ width: "100%", borderRadius: "20px" }}
           />

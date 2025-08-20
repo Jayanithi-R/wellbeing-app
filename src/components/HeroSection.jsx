@@ -1,5 +1,5 @@
 import React from "react";
-import community from "../assets/community.png";
+// import community from "../assets/community.png"; // ✅ image from src/assets
 
 const HeroSection = () => {
   return (
@@ -12,6 +12,9 @@ const HeroSection = () => {
             to support your journey.
           </p>
           <button style={styles.heroButton}>Get Started</button>
+
+          {/* ✅ Image placed inside hero content, without changing UI */}
+          {/* <img src={community} alt="Community" style={styles.heroImage} /> */}
         </div>
       </div>
     </div>
@@ -69,9 +72,15 @@ const styles = {
     cursor: "pointer",
     transition: "background-color 0.3s ease",
   },
+  heroImage: {
+    marginTop: "20px", // ✅ only adds space, doesn’t break layout
+    maxWidth: "300px",
+    height: "auto",
+    borderRadius: "20px",
+  },
 };
 
-// Hover effect (applied via JS since inline styles don’t support :hover)
+// Hover effect workaround
 styles.heroButton[":hover"] = {
   backgroundColor: "#066f4d",
 };
