@@ -37,7 +37,7 @@ const HeroSection = () => {
             fontWeight: "600",
             letterSpacing: "1px",
             color: "#00332c",
-            marginBottom: "15px",
+            // marginBottom: "15px",
           }}
         >
           HOW IT WORKS
@@ -48,7 +48,7 @@ const HeroSection = () => {
             fontSize: "2.8rem",
             fontWeight: "800",
             color: "#00332c",
-            marginBottom: "20px",
+            // marginBottom: "20px",
             lineHeight: "1.3",
           }}
         >
@@ -61,7 +61,7 @@ const HeroSection = () => {
           style={{
             fontSize: "1.1rem",
             color: "#404040",
-            marginBottom: "30px",
+            // marginBottom: "30px",
             lineHeight: "1.6",
           }}
         >
@@ -92,7 +92,7 @@ const HeroSection = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          minWidth: "280px",
+        //   minWidth: "280px",
         }}
       >
         <div

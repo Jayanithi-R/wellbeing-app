@@ -16,7 +16,7 @@ const ServicesSection = () => {
     const styles = {
         section: {
             backgroundColor: "#f9f8f6",
-            //   padding: "80px 40px",
+              padding: "60px 0",
             fontFamily: "'Inter', sans-serif",
             width: "100%",
         },
@@ -30,7 +30,7 @@ const ServicesSection = () => {
             fontSize: "12px",
             color: "#00332c",
             fontWeight: 600,
-            //   marginBottom: "10px",
+              marginBottom: "10px",
         },
         title: {
             fontSize: "2.2rem",
@@ -77,7 +77,7 @@ const ServicesSection = () => {
         cardText: {
             fontSize: "0.95rem",
             color: "#00332c",
-            marginBottom: "20px",
+            // marginBottom: "20px",
             lineHeight: 1.5,
         },
         cardButton: {
