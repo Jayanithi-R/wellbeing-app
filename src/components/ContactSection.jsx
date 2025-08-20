@@ -50,7 +50,7 @@ const ContactSection = () => {
       <style>{`
         .contact-container {
           background-color: #f7f6f3;
-          padding: 60px 20px;
+          padding: 70px 20px;
           font-family: "Inter", sans-serif;
           text-align: center;
         }
@@ -64,16 +64,20 @@ const ContactSection = () => {
         }
 
         .main-heading {
-          font-size: 28px;
+          font-size: 32px;
           font-weight: 700;
           color: #00342e;
-          margin-bottom: 10px;
+          margin-bottom: 15px;
         }
 
         .sub-heading {
-          font-size: 15px;
+          font-size: 16px;
           color: #555;
-          margin-bottom: 40px;
+          margin-bottom: 50px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+          line-height: 1.6;
         }
 
         .contact-box {
@@ -81,47 +85,47 @@ const ContactSection = () => {
           justify-content: space-between;
           align-items: flex-start;
           gap: 40px;
-          max-width: 900px;
+          max-width: 950px;
           margin: 0 auto;
           background: #fff;
           border-radius: 20px;
-          padding: 30px;
-          box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+          padding: 40px;
+          box-shadow: 0px 4px 12px rgba(0,0,0,0.06);
           flex-wrap: wrap;
         }
 
         .contact-left {
           flex: 1;
           text-align: left;
-          min-width: 250px;
+          min-width: 260px;
         }
 
         .contact-right {
           flex: 1;
-          min-width: 280px;
+          min-width: 300px;
           background: #fefaf5;
-          border-radius: 16px;
-          padding: 20px;
+          border-radius: 20px;
+          padding: 25px;
           text-align: left;
         }
 
         .heading3 {
           font-size: 18px;
           font-weight: 600;
-          margin-bottom: 15px;
+          margin-bottom: 20px;
           color: #00342e;
         }
 
         .text {
-          font-size: 14px;
+          font-size: 15px;
           color: #222;
-          margin: 8px 0;
+          margin: 10px 0;
         }
 
         .social-icons {
           display: flex;
           gap: 15px;
-          margin-top: 15px;
+          margin-top: 20px;
         }
 
         .icon {
@@ -136,7 +140,7 @@ const ContactSection = () => {
 
         .response {
           margin-top: 15px;
-          font-size: 13px;
+          font-size: 14px;
           color: #666;
         }
 
@@ -145,19 +149,23 @@ const ContactSection = () => {
           font-weight: 600;
           color: #00342e;
           display: block;
-          margin-top: 10px;
+          margin-top: 15px;
         }
 
         .input, .textarea {
           width: 100%;
           padding: 10px;
           margin-top: 6px;
-          margin-bottom: 12px;
+          margin-bottom: 15px;
           border: none;
           border-bottom: 1px solid #999;
           background: transparent;
           font-size: 14px;
           outline: none;
+        }
+
+        .input::placeholder, .textarea::placeholder {
+          color: #bbb;
         }
 
         .textarea {
@@ -167,13 +175,13 @@ const ContactSection = () => {
         .button {
           background: #00342e;
           color: #fff;
-          padding: 12px 20px;
+          padding: 14px 20px;
           border: none;
-          border-radius: 25px;
+          border-radius: 999px;
           cursor: pointer;
-          font-size: 14px;
+          font-size: 15px;
           width: 100%;
-          margin-top: 10px;
+          margin-top: 15px;
           transition: background 0.3s;
         }
         .button:hover {
@@ -184,12 +192,12 @@ const ContactSection = () => {
         @media (max-width: 768px) {
           .contact-box {
             flex-direction: column;
-            padding: 20px;
-            gap: 20px;
+            padding: 25px;
+            gap: 25px;
           }
 
           .main-heading {
-            font-size: 24px;
+            font-size: 26px;
           }
 
           .sub-heading {
@@ -199,11 +207,11 @@ const ContactSection = () => {
 
         @media (max-width: 480px) {
           .contact-container {
-            padding: 40px 15px;
+            padding: 50px 15px;
           }
 
           .main-heading {
-            font-size: 20px;
+            font-size: 22px;
           }
 
           .sub-heading {
@@ -211,7 +219,7 @@ const ContactSection = () => {
           }
 
           .contact-right {
-            padding: 15px;
+            padding: 18px;
           }
         }
       `}</style>
