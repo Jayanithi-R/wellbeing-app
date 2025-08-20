@@ -1,4 +1,5 @@
 import React from "react";
+import communityImg from "../assets/community(2).png"; // ✅ imported from src/assets
 
 const CommunitySection = () => {
   return (
@@ -149,10 +150,7 @@ const CommunitySection = () => {
 
           {/* Right Image */}
           <div className="community-image">
-            <img
-              src="/images/community.png" 
-              alt="Community"
-            />
+            <img src={communityImg} alt="Community" /> {/* ✅ updated */}
           </div>
         </div>
       </section>
