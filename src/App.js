@@ -6,7 +6,7 @@ import ServicesSection from './components/ServiceCard';
 import TestimonialsSection from './components/TestimonialsSection';
 // import ResourcesSection from './components/ResourcesSection';
 import CommunitySection from './components/CommunitySection';
-// import FAQSection from './components/FAQSection';
+import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import FooterSection from './components/FooterSection';
 
@@ -20,7 +20,7 @@ function App() {
       <TestimonialsSection />
       {/* <ResourcesSection /> */}
       <CommunitySection />
-      {/* <FAQSection /> */}
+      <FAQSection />
       <ContactSection />
       <FooterSection />
     </div>
