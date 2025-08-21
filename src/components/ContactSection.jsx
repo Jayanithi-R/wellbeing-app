@@ -176,7 +176,7 @@ const ContactSection = () => {
             <input type="email" placeholder="Email" required style={styles.input} />
 
             <label style={styles.label}>Message</label>
-            <textarea placeholder="Message" rows="4" required style={styles.textarea}></textarea>
+            <textarea placeholder="Message"  required style={styles.textarea}></textarea>
 
             <button
               type="submit"
