@@ -20,7 +20,7 @@ const FAQSection = () => {
 
   const styles = {
     container: {
-      fontFamily: "'Inter', sans-serif",
+       
       display: "flex",
       flexDirection: "column",
       gap: "clamp(2rem, 6vw, 4rem)",

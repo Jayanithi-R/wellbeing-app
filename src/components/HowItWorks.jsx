@@ -10,7 +10,7 @@ const HeroSection = () => {
         alignItems: "center",
         padding: "clamp(2rem, 5vw, 4rem) clamp(1.5rem, 6vw, 5rem)",
         backgroundColor: "#f9f8f6",
-        fontFamily: "Inter, sans-serif",
+          
         gap: "clamp(1.5rem, 4vw, 3rem)",
         flexWrap: "wrap", // ✅ allows responsiveness
       }}

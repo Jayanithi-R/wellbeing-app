@@ -7,7 +7,7 @@ const FooterSection = () => {
       style={{
         backgroundColor: "#f7f6f3",
         padding: "clamp(2rem, 6vw, 3.75rem) clamp(1rem, 4vw, 1.25rem)",
-        fontFamily: "Inter, sans-serif",
+          
         display: "flex",
         justifyContent: "center",
       }}

@@ -27,7 +27,7 @@ const Navbar = () => {
     justifyContent: isMobile ? "center" : "space-between",
     alignItems: "center",
     padding: isTablet ? "16px 24px" : isMobile ? "12px 16px" : "20px 40px",
-    fontFamily: "'Inter', sans-serif",
+     
     backgroundColor: "#f7f6f4",
     flexDirection: isMobile ? "column" : "row",
     gap: isMobile ? "15px" : "0px",

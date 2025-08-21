@@ -12,7 +12,7 @@ const styles = {
   container: {
     backgroundColor: "#f7f6f3",
     padding: "clamp(2rem, 6vw, 4rem) clamp(1.5rem, 5vw, 2.5rem)",
-    fontFamily: "'Inter', sans-serif",
+     
     display: "flex",
     flexDirection: "column",
   },

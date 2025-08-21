@@ -17,7 +17,7 @@ const ServicesSection = () => {
         section: {
             backgroundColor: "#f9f8f6",
               padding: "60px 0",
-            fontFamily: "'Inter', sans-serif",
+             
             width: "100%",
         },
 

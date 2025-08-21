@@ -35,7 +35,7 @@ const ResourcesSection = () => {
     section: {
       backgroundColor: "#f9f9f7",
       padding: "60px 20px",
-      fontFamily: "Inter, sans-serif",
+        
       textAlign: "center",
     },
     header: {

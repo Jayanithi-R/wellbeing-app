@@ -14,7 +14,7 @@ const ContactSection = () => {
     container: {
       backgroundColor: "#f7f6f3",
       padding: "70px 20px",
-      fontFamily: "Inter, sans-serif",
+        
       textAlign: "center",
     },
     smallHeading: {
@@ -59,10 +59,11 @@ const ContactSection = () => {
     },
     right: {
       flex: 1,
-      minWidth: "300px",
+      // minWidth: "300px",
+      width:"40%",
       background: "#fefaf5",
       borderRadius: "20px",
-      padding: "25px",
+      padding: "clamp(10px,25px,25px)",
       textAlign: "left",
     },
     heading3: {
@@ -100,7 +101,7 @@ const ContactSection = () => {
       marginTop: "15px",
     },
     input: {
-      width: "100%",
+      width: "80%",
       padding: "10px",
       marginTop: "6px",
       marginBottom: "15px",
@@ -110,18 +111,19 @@ const ContactSection = () => {
       fontSize: "14px",
       outline: "none",
     },
-    textarea: {
-      width: "100%",
-      padding: "10px",
-      marginTop: "6px",
-      marginBottom: "15px",
-      border: "none",
-      borderBottom: "1px solid #999",
-      background: "transparent",
-      fontSize: "14px",
-      outline: "none",
-      resize: "none",
-    },
+    // textarea: {
+    //   width: "100%",
+    //   padding: "10px",
+    //   marginTop: "6px",
+    //   marginBottom: "15px",
+    //   border: "none",
+    //   borderBottom: "1px solid #999",
+    //   background: "transparent",
+    //   fontSize: "14px",
+    //   outline: "none",
+    //   resize: "none",
+    //   input:""
+    // },
     button: {
       background: "#00342e",
       color: "#fff",
@@ -176,7 +178,7 @@ const ContactSection = () => {
             <input type="email" placeholder="Email" required style={styles.input} />
 
             <label style={styles.label}>Message</label>
-            <textarea placeholder="Message"  required style={styles.textarea}></textarea>
+            <input type="text" placeholder="Message" required style={styles.input}></input>
 
             <button
               type="submit"
