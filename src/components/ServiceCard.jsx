@@ -17,7 +17,7 @@ const ServicesSection = () => {
         section: {
             backgroundColor: "#f9f8f6",
               padding: "60px 0",
-             
+              paddingRight:"30px",
             width: "100%",
         },
 
@@ -59,7 +59,7 @@ const ServicesSection = () => {
         },
         orangeCard: {
             backgroundColor: "#fce6cf",
-            
+
         },
         whiteCard: {
             backgroundColor: "white",

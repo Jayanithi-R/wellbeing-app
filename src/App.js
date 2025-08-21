@@ -9,7 +9,7 @@ import CommunitySection from './components/CommunitySection';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import FooterSection from './components/FooterSection';
-// import LogoSection from './components/logosection';
+
 import './index.css'; 
 
 
@@ -25,9 +25,7 @@ function App() {
       <CommunitySection />
       <FAQSection />
       <ContactSection />
-      <FooterSection />
-      {/* <LogoSection /> */}
-      
+      <FooterSection />   
     </div>
   );
 } 
