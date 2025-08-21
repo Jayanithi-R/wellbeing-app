@@ -108,6 +108,7 @@ const FAQSection = () => {
       display: "flex",
       flexDirection: "column",
       gap: "clamp(1.2rem, 3vw, 2rem)",
+      
     },
     form: {
       display: "flex",

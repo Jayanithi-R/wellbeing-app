@@ -59,6 +59,7 @@ const ServicesSection = () => {
         },
         orangeCard: {
             backgroundColor: "#fce6cf",
+            
         },
         whiteCard: {
             backgroundColor: "white",
