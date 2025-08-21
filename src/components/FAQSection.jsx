@@ -37,6 +37,7 @@ const FAQSection = () => {
       background: "#f7f6f3",
       padding: "clamp(2rem, 6vw, 3.75rem)",
       borderRadius: "24px",
+      paddingUp:"20px",
     },
     left: { flex: 1, minWidth: "280px" },
     smallText: {
