@@ -1,37 +1,26 @@
-import React, { useState, useEffect } from "react";
-// import community from "../assets/community.png"; // ✅ image from src/assets
-import right from "../assets/hero.png";
-function Cal() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 769);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-}
+import React from "react";
+import right from "../assets/hero.png"; // ✅ background shapes
+
 const HeroSection = () => {
   return (
     <div style={styles.hero}>
       <div style={styles.heroContainer}>
         <div style={styles.heroContent}>
-          <h1 style={styles.heroTitle}>Support for Your Mental Well-being</h1>
-          <p style={styles.heroText}>
+          <h1 style={styles.heroTitle}>
+            Support for Your <br /> Mental Well-being
+          </h1>
+          <p style={styles.heroParagraph}>
             Connect with licensed therapists, counselors, and wellness coaches
             to support your journey.
           </p>
           <button style={styles.heroButton}>Get Started</button>
-
-          {/* ✅ Image placed inside hero content, without changing UI */}
-          {/* <img src={community} alt="Community" style={styles.heroImage} /> */}
-          {/* <img src={right} alt="right" style={styles.rightImage} /> */}
         </div>
       </div>
     </div>
   );
 };
 
-// Inline CSS styles
+// ✅ Styles with clamp() for responsiveness
 const styles = {
   hero: {
     position: "relative",
@@ -41,65 +30,60 @@ const styles = {
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    height: "100vh",
-    overflowX: "hidden",
+    alignItems: "center",
+    minHeight: "90vh",
+    // padding: "20px",
   },
   heroContainer: {
     position: "relative",
     backgroundColor: "#f9e6d0",
     borderRadius: "40px",
-    padding: "20px",
-    textAlign: "center",
-    fontFamily: '"Inter", sans-serif',
+    padding: "clamp(1rem, 4vw, 3rem)",
     width: "90%",
-    height: "70vh",
+    maxWidth: "1200px",
+    minHeight: "70vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
     backgroundImage: `url(${right})`,
-    backgroundPosition:"center",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
     backgroundSize: "cover",
   },
   heroContent: {
-    maxWidth: "800px",
+    maxWidth: "700px",
+    textAlign: "center",
+    padding: "clamp(1rem, 3vw, 2rem)",
   },
   heroTitle: {
-    fontSize: "2.8rem",
+    fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
     color: "#00332c",
     fontWeight: "800",
-    marginBottom: "20px",
+    marginBottom: "clamp(0.8rem, 2vw, 1.2rem)",
+    lineHeight: 1.3,
   },
-  heroText: {
+  heroParagraph: {
     color: "#404040",
-    fontSize: "1.1rem",
-    marginBottom: "30px",
-    lineHeight: "1.6",
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    marginBottom: "clamp(1.5rem, 3vw, 2rem)",
+    lineHeight: 1.6,
   },
   heroButton: {
     backgroundColor: "#00332c",
     color: "white",
-    padding: "12px 24px",
-    fontSize: "1rem",
+    padding: "clamp(0.7rem, 1.5vw, 1rem) clamp(1.2rem, 3vw, 2rem)",
+    fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
     border: "none",
     borderRadius: "25px",
     cursor: "pointer",
     transition: "background-color 0.3s ease",
   },
-  heroImage: {
-    marginTop: "20px", // ✅ only adds space, doesn’t break layout
-    maxWidth: "300px",
-    height: "auto",
-    borderRadius: "20px",
-  },
 };
 
-// Hover effect workaround
+// ✅ Inline hover style workaround
 styles.heroButton[":hover"] = {
   backgroundColor: "#066f4d",
 };
 
 export default HeroSection;
-
-
-
-

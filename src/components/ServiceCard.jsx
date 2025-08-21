@@ -23,7 +23,7 @@ const ServicesSection = () => {
 
         container: {
             textAlign: "center",
-            width: "100%",
+            width: "90%",
         },
         subtitle: {
             textTransform: "uppercase",
@@ -89,7 +89,18 @@ const ServicesSection = () => {
             fontWeight: 600,
             cursor: "pointer",
         },
+
         coachingSection: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "30px",
+            borderRadius: "25px",
+            // padding: "40px",
+            // flexWrap: "wrap",
+            width :"100%",
+        },
+        coachingcontainer: {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -98,6 +109,7 @@ const ServicesSection = () => {
             borderRadius: "25px",
             padding: "40px",
             flexWrap: "wrap",
+            width :"70%",
         },
         coachingText: {
             flex: 2,
@@ -168,7 +180,8 @@ const ServicesSection = () => {
 
             {/* Coaching Section */}
             <div style={styles.coachingSection}>
-                <div style={styles.coachingText}>
+                <div style={styles.coachingcontainer}>
+                    <div style={styles.coachingText}>
                     <h2 style={styles.coachingHeading}>Wellness Coaching</h2>
                     <p style={styles.coachingParagraph}>
                         Personalized guidance to help you build healthier habits, manage
@@ -179,7 +192,6 @@ const ServicesSection = () => {
                     </p>
                     <button style={styles.coachingButton}>Learn More</button>
                 </div>
-
                 <div style={styles.coachingImageWrapper}>
                     <img
                         src={servicesIllustration}
@@ -187,6 +199,10 @@ const ServicesSection = () => {
                         style={styles.coachingImage}
                     />
                 </div>
+                </div>
+                
+
+                
             </div>
         </section>
     );

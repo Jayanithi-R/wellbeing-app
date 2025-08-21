@@ -9,6 +9,8 @@ import CommunitySection from './components/CommunitySection';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import FooterSection from './components/FooterSection';
+// import LogoSection from './components/logosection';
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
       <FAQSection />
       <ContactSection />
       <FooterSection />
+      {/* <LogoSection /> */}
       
     </div>
   );

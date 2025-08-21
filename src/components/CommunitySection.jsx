@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import communityImg from "../assets/community(2).png"; // ✅ imported from src/assets
+import { findAllByPlaceholderText } from "@testing-library/dom";
 function Cal() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
   
@@ -27,13 +28,12 @@ const CommunitySection = () => {
       backgroundColor: "#ffffff",
       borderRadius: "25px",
       padding: "50px",
-      maxWidth: "1100px",
-      width: "100%",
+      width:  "88%",
       boxSizing: "border-box",
       gap: "40px",
-      flexWrap: "wrap", // ✅ responsive fallback
+      flexDirection:"row",
     },
-    text: { flex: 1, maxWidth: "500px" },
+    text: { flex: 1, width:"50%" },
     label: {
       fontSize: "12px",
       fontWeight: 600,
@@ -67,11 +67,19 @@ const CommunitySection = () => {
     },
     buttonHover: { backgroundColor: "#092f2a" }, // ✅ for JS hover handling
     imageWrapper: {
-      flex: 1,
-      display: "flex",
-      justifyContent: "flex-end",
-    },
-    image: { maxWidth: "380px", height: "auto" },
+  flex: 1,
+  display: "flex",
+  justifyContent: "flex-end",
+  Width: "50%",   
+},
+
+image: {
+  width: "100%",     // ✅ image fills wrapper properly
+  height: "auto",    // ✅ keeps aspect ratio
+  maxWidth: "100%",  // ✅ prevents overflow
+  objectFit: "contain", // or "cover" depending on design
+},
+
   };
 
   return (

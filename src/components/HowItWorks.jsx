@@ -1,14 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import heroImage from "../assets/hero(2).png";
-function Cal() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 769);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-}
+
 const HeroSection = () => {
   return (
     <section
@@ -16,28 +8,28 @@ const HeroSection = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "60px 80px",
+        padding: "clamp(2rem, 5vw, 4rem) clamp(1.5rem, 6vw, 5rem)",
         backgroundColor: "#f9f8f6",
         fontFamily: "Inter, sans-serif",
-        gap: "40px",
+        gap: "clamp(1.5rem, 4vw, 3rem)",
         flexWrap: "wrap", // ✅ allows responsiveness
       }}
     >
       {/* Left Side - Text */}
       <div
         style={{
-          flex: "1 1 400px", // ✅ flex grows, shrinks, and has a min width
+          flex: "1 1 400px",
           minWidth: "280px",
           textAlign: "left",
         }}
       >
         <h5
           style={{
-            fontSize: "12px",
+            fontSize: "clamp(0.7rem, 1vw, 0.9rem)",
             fontWeight: "600",
             letterSpacing: "1px",
             color: "#00332c",
-            // marginBottom: "15px",
+            marginBottom: "clamp(0.5rem, 1vw, 1rem)",
           }}
         >
           HOW IT WORKS
@@ -45,10 +37,10 @@ const HeroSection = () => {
 
         <h1
           style={{
-            fontSize: "2.8rem",
+            fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
             fontWeight: "800",
             color: "#00332c",
-            // marginBottom: "20px",
+            marginBottom: "clamp(1rem, 2vw, 1.5rem)",
             lineHeight: "1.3",
           }}
         >
@@ -59,9 +51,9 @@ const HeroSection = () => {
 
         <p
           style={{
-            fontSize: "1.1rem",
+            fontSize: "clamp(1rem, 2vw, 1.1rem)",
             color: "#404040",
-            // marginBottom: "30px",
+            marginBottom: "clamp(1.2rem, 2.5vw, 2rem)",
             lineHeight: "1.6",
           }}
         >
@@ -74,8 +66,8 @@ const HeroSection = () => {
           style={{
             backgroundColor: "#00332c",
             color: "white",
-            padding: "12px 28px",
-            fontSize: "1rem",
+            padding: "clamp(0.6rem, 1.2vw, 0.8rem) clamp(1.2rem, 2vw, 1.8rem)",
+            fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
             border: "none",
             borderRadius: "25px",
             cursor: "pointer",
@@ -92,13 +84,12 @@ const HeroSection = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-        //   minWidth: "280px",
         }}
       >
         <div
           style={{
             backgroundColor: "#003c3b",
-            padding: "40px",
+            padding: "clamp(1.5rem, 4vw, 2.5rem)",
             borderRadius: "24px",
             display: "flex",
             justifyContent: "center",
