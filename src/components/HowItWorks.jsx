@@ -26,10 +26,11 @@ const HeroSection = () => {
         <h5
           style={{
             fontSize: "clamp(0.7rem, 1vw, 0.9rem)",
-            fontWeight: "600",
+            fontWeight: "500",
             letterSpacing: "1px",
             color: "#00332c",
             marginBottom: "clamp(0.5rem, 1vw, 1rem)",
+            letterSpacing:"0.5px",
           }}
         >
           HOW IT WORKS

@@ -10,7 +10,7 @@ const HeroSection = () => {
             Support for Your <br /> Mental Well-being
           </h1>
           <p style={styles.heroParagraph}>
-            Connect with licensed therapists, counselors, and wellness coaches
+            Connect with licensed therapists, counselors,<br /> and wellness coaches
             to support your journey.
           </p>
           <button style={styles.heroButton}>Get Started</button>
