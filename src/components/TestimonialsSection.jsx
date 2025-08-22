@@ -25,19 +25,29 @@ const TestimonialsSection = () => {
         padding: "clamp(2rem, 6vw, 4rem) clamp(1.5rem, 5vw, 2.5rem)",
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
       }}
     >
       {/* Top Section */}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "center",
+          alignItems: "flex-start",
           gap: "clamp(1.5rem, 4vw, 3rem)",
           flexWrap: "wrap",
+          maxWidth: "1200px",
+          width: "100%",
         }}
       >
         {/* Left Header */}
-        <div style={{ flex: 1, minWidth: "clamp(220px, 40%, 350px)" }}>
+        <div
+          style={{
+            flex: "1 1 300px",
+            minWidth: "300px",
+            maxWidth: "350px",
+          }}
+        >
           <p
             style={{
               fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
@@ -120,8 +130,10 @@ const TestimonialsSection = () => {
             display: "flex",
             flexDirection: isMobile ? "column" : "row",
             gap: "clamp(1rem, 2vw, 1.5rem)",
-            flex: 2,
-            minWidth: "clamp(250px, 50%, 320px)",
+            flex: "2 1 500px",
+            justifyContent: "center",
+            alignItems: "stretch",
+            maxWidth: "700px",
           }}
         >
           {/* Card 1 */}
@@ -129,7 +141,8 @@ const TestimonialsSection = () => {
             style={{
               borderRadius: "24px",
               padding: "clamp(1rem, 2vw, 1.6rem)",
-              width: isMobile ? "100%" : "clamp(250px, 28vw, 320px)",
+              flex: "1 1 300px",
+              maxWidth: "320px",
               lineHeight: 1.6,
               fontSize: "clamp(0.85rem, 1vw, 0.95rem)",
               boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
@@ -138,7 +151,6 @@ const TestimonialsSection = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              flexShrink: 0,
             }}
           >
             <p>
@@ -162,7 +174,8 @@ const TestimonialsSection = () => {
             style={{
               borderRadius: "24px",
               padding: "clamp(1rem, 2vw, 1.6rem)",
-              width: isMobile ? "100%" : "clamp(250px, 28vw, 320px)",
+              flex: "1 1 300px",
+              maxWidth: "320px",
               lineHeight: 1.6,
               fontSize: "clamp(0.85rem, 1vw, 0.95rem)",
               boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
@@ -171,7 +184,6 @@ const TestimonialsSection = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              flexShrink: 0,
             }}
           >
             <p>
@@ -204,6 +216,8 @@ const TestimonialsSection = () => {
           alignItems: "center",
           justifyContent: "center",
           gap: "clamp(1rem, 2vw, 1.5rem)",
+          width: "100%",
+          maxWidth: "1000px",
         }}
       >
         <p

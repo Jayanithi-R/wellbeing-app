@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import servicesIllustration from "../assets/services-illustration.png";
 import extraImage from "../assets/extraImage.png";
-// import web from "../assets/web(2).png"; // ✅ your web(2).png import
-// import heart from "../assets/heart image.png";
+
 function Cal() {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
 
@@ -12,25 +11,30 @@ function Cal() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 }
+
 const ServicesSection = () => {
     const styles = {
         section: {
             backgroundColor: "#f9f8f6",
-              padding: "60px 0",
-              paddingRight:"30px",
+            padding: "60px 0",
             width: "100%",
+            overflowX: "hidden", // ✅ Prevents side scrolling
+            display: "flex",
+            justifyContent: "center"
         },
-
         container: {
             textAlign: "center",
-            width: "90%",
+            width: "100%",
+            maxWidth: "1200px", // ✅ Keeps content centered
+            padding: "0 20px",
+            margin: "0 auto",
         },
         subtitle: {
             textTransform: "uppercase",
             fontSize: "12px",
             color: "#00332c",
             fontWeight: 600,
-              marginBottom: "10px",
+            marginBottom: "10px",
         },
         title: {
             fontSize: "2.2rem",
@@ -47,27 +51,24 @@ const ServicesSection = () => {
             justifyContent: "center",
             marginBottom: "40px",
             flexWrap: "wrap",
-
+            width: "100%",
         },
         card: {
             borderRadius: "25px",
             padding: "30px",
-            flex: "1 1 320px",
-            maxWidth: "400px",
+            flex: "1 1 300px",
+            maxWidth: "380px",
             textAlign: "left",
             boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+            boxSizing: "border-box",
         },
         orangeCard: {
             backgroundColor: "#fce6cf",
-
         },
         whiteCard: {
             backgroundColor: "white",
-        },
-        cardImage: {
-            width: "100%",
-            borderRadius: "15px",
-            marginBottom: "15px",
+            width:"60%",
+            gap:"40%",
         },
         cardHeading: {
             fontSize: "1.2rem",
@@ -78,7 +79,6 @@ const ServicesSection = () => {
         cardText: {
             fontSize: "0.95rem",
             color: "#00332c",
-            // marginBottom: "20px",
             lineHeight: 1.5,
         },
         cardButton: {
@@ -90,16 +90,12 @@ const ServicesSection = () => {
             fontWeight: 600,
             cursor: "pointer",
         },
-
         coachingSection: {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: "30px",
-            borderRadius: "25px",
-            // padding: "40px",
-            // flexWrap: "wrap",
-            width :"100%",
+            width: "100%",
+            marginTop: "30px",
         },
         coachingcontainer: {
             display: "flex",
@@ -110,11 +106,14 @@ const ServicesSection = () => {
             borderRadius: "25px",
             padding: "40px",
             flexWrap: "wrap",
-            width :"70%",
+            width: "100%",
+            maxWidth: "900px",
+            boxSizing: "border-box",
         },
         coachingText: {
             flex: 2,
             textAlign: "left",
+            minWidth: "250px",
         },
         coachingHeading: {
             fontSize: "1.2rem",
@@ -140,6 +139,7 @@ const ServicesSection = () => {
         coachingImageWrapper: {
             flex: 1,
             maxWidth: "220px",
+            minWidth: "180px",
         },
         coachingImage: {
             width: "100%",
@@ -155,55 +155,48 @@ const ServicesSection = () => {
                 <p style={styles.description}>
                     Discover expert guidance for a healthier <br /> mind and balanced life.
                 </p>
-            </div>
-            {/* Cards */}
-            <div style={styles.cardContainer}>
-                {/* Card 1 */}
-                <div style={{ ...styles.card, ...styles.orangeCard }}>
-                    {/* <img src={web} alt="Mindfulness" style={styles.cardImage} /> */}
-                    <h6 style={styles.cardHeading}>Mindfulness & Meditation</h6>
-                    <p style={styles.cardText}>
-                        Guided meditation sessions and <br /> stress management techniques.
-                    </p>
-                    <button style={styles.cardButton}>Learn More</button>
+
+                {/* Cards */}
+                <div style={styles.cardContainer}>
+                    <div style={{ ...styles.card, ...styles.orangeCard }}>
+                        <h6 style={styles.cardHeading}>Mindfulness & Meditation</h6>
+                        <p style={styles.cardText}>
+                            Guided meditation sessions and <br /> stress management techniques.
+                        </p>
+                        <button style={styles.cardButton}>Learn More</button>
+                    </div>
+
+                    <div style={{ ...styles.card, ...styles.whiteCard }}>
+                        <h6 style={styles.cardHeading}>One-on-One Therapy</h6>
+                        <p style={styles.cardText}>
+                            Virtual and in-person therapy <br /> sessions with licensed professionals.
+                        </p>
+                        <button style={styles.cardButton}>Learn More</button>
+                    </div>
                 </div>
 
-                {/* Card 2 */}
-                <div style={{ ...styles.card, ...styles.whiteCard }}>
-                    <h6 style={styles.cardHeading}>One-on-One Therapy</h6>
-                    <p style={styles.cardText}>
-                        Virtual and in-person therapy <br /> sessions with licensed
-                        professionals.
-                    </p>
-                    <button style={styles.cardButton}>Learn More</button>
+                {/* Coaching Section */}
+                <div style={styles.coachingSection}>
+                    <div style={styles.coachingcontainer}>
+                        <div style={styles.coachingText}>
+                            <h2 style={styles.coachingHeading}>Wellness Coaching</h2>
+                            <p style={styles.coachingParagraph}>
+                                Personalized guidance to help you build healthier habits, manage
+                                stress, and achieve balance in all areas of your life. <br /><br />
+                                Our wellness coaches support you in creating sustainable routines
+                                for mental, emotional, and physical well-being.
+                            </p>
+                            <button style={styles.coachingButton}>Learn More</button>
+                        </div>
+                        <div style={styles.coachingImageWrapper}>
+                            <img
+                                src={servicesIllustration}
+                                alt="Wellness Illustration"
+                                style={styles.coachingImage}
+                            />
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            {/* Coaching Section */}
-            <div style={styles.coachingSection}>
-                <div style={styles.coachingcontainer}>
-                    <div style={styles.coachingText}>
-                    <h2 style={styles.coachingHeading}>Wellness Coaching</h2>
-                    <p style={styles.coachingParagraph}>
-                        Personalized guidance to help you build healthier habits, manage
-                        stress, and achieve balance in all areas of your life. <br />
-                        <br />
-                        Our wellness coaches support you in creating sustainable routines
-                        for mental, emotional, and physical well-being.
-                    </p>
-                    <button style={styles.coachingButton}>Learn More</button>
-                </div>
-                <div style={styles.coachingImageWrapper}>
-                    <img
-                        src={servicesIllustration}
-                        alt="Wellness Illustration"
-                        style={styles.coachingImage}
-                    />
-                </div>
-                </div>
-                
-
-                
             </div>
         </section>
     );

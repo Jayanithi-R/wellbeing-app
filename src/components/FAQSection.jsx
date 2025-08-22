@@ -81,6 +81,7 @@ const FAQSection = () => {
       display: "flex",
       flexDirection: "column",
       gap: "clamp(0.8rem, 2vw, 1.2rem)",
+      marginTop:"80px",
     },
     item: {
       display: "flex",
