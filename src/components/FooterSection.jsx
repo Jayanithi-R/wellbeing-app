@@ -30,7 +30,7 @@ const FooterSection = () => {
             borderRadius: "clamp(12px, 2vw, 20px)",
             padding: "clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 2rem)",
             flex: 1,
-            minWidth: "clamp(240px, 40vw, 320px)",
+            // minWidth: "clamp(240px, 40vw, 320px)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",

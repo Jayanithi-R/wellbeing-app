@@ -67,7 +67,8 @@ const FAQSection = () => {
       background: "#F9E6D0",
       borderRadius: "24px",
       boxShadow: "0px 4px 15px rgba(0,0,0,0.08)",
-      height: "auto",
+      // height: "auto",
+      width:"50%",
     },
     image: {
       maxWidth: "clamp(200px, 40vw, 280px)",
@@ -103,7 +104,7 @@ const FAQSection = () => {
     active: { border: "1px solid #00342e" },
     formContainer: {
       background: "#00342e",
-      color: "#fff",
+      color: "#f6f3f9",
       borderRadius: "24px",
       padding: "clamp(2rem, 6vw, 4rem)",
       display: "flex",

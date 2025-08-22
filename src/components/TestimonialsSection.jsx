@@ -212,12 +212,12 @@ const TestimonialsSection = () => {
           padding: "clamp(1.5rem, 4vw, 2.5rem)",
           marginTop: "clamp(2rem, 5vw, 3rem)",
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
           gap: "clamp(1rem, 2vw, 1.5rem)",
-          width: "100%",
-          maxWidth: "1000px",
+          width: "90%",
+          // maxWidth: "1000px",
         }}
       >
         <p
@@ -236,7 +236,7 @@ const TestimonialsSection = () => {
             gap: "clamp(1rem, 3vw, 4rem)",
             justifyContent: "center",
             flexWrap: "wrap",
-            width: "100%",
+            width: "90%",
           }}
         >
           {partnerLogos.map((src, index) => (

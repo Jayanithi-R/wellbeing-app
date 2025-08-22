@@ -1,205 +1,150 @@
 import React, { useState, useEffect } from "react";
-import servicesIllustration from "../assets/services-illustration.png";
-import extraImage from "../assets/extraImage.png";
 
 function Cal() {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
 
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 769);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return null;
 }
 
-const ServicesSection = () => {
-    const styles = {
-        section: {
-            backgroundColor: "#f9f8f6",
-            padding: "60px 0",
-            width: "100%",
-            overflowX: "hidden", // ✅ Prevents side scrolling
-            display: "flex",
-            justifyContent: "center"
-        },
-        container: {
-            textAlign: "center",
-            width: "100%",
-            maxWidth: "1200px", // ✅ Keeps content centered
-            padding: "0 20px",
-            margin: "0 auto",
-        },
-        subtitle: {
-            textTransform: "uppercase",
-            fontSize: "12px",
-            color: "#00332c",
-            fontWeight: 600,
-            marginBottom: "10px",
-        },
-        title: {
-            fontSize: "2.2rem",
-            fontWeight: 800,
-            color: "#00332c",
-        },
-        description: {
-            fontSize: "1rem",
-            color: "#00332c",
-        },
-        cardContainer: {
-            display: "flex",
-            gap: "30px",
-            justifyContent: "center",
-            marginBottom: "40px",
-            flexWrap: "wrap",
-            width: "100%",
-        },
-        card: {
-            borderRadius: "25px",
-            padding: "30px",
-            flex: "1 1 300px",
-            maxWidth: "380px",
-            textAlign: "left",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
-            boxSizing: "border-box",
-        },
-        orangeCard: {
-            backgroundColor: "#fce6cf",
-        },
-        whiteCard: {
-            backgroundColor: "white",
-            width:"60%",
-            gap:"40%",
-        },
-        cardHeading: {
-            fontSize: "1.2rem",
-            fontWeight: 700,
-            color: "#00332c",
-            marginBottom: "10px",
-        },
-        cardText: {
-            fontSize: "0.95rem",
-            color: "#00332c",
-            lineHeight: 1.5,
-        },
-        cardButton: {
-            padding: "10px 18px",
-            border: "1px solid #00332c",
-            borderRadius: "25px",
-            color: "#00332c",
-            backgroundColor: "transparent",
-            fontWeight: 600,
-            cursor: "pointer",
-        },
-        coachingSection: {
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-            marginTop: "30px",
-        },
-        coachingcontainer: {
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: "30px",
-            background: "white",
-            borderRadius: "25px",
-            padding: "40px",
-            flexWrap: "wrap",
-            width: "100%",
-            maxWidth: "900px",
-            boxSizing: "border-box",
-        },
-        coachingText: {
-            flex: 2,
-            textAlign: "left",
-            minWidth: "250px",
-        },
-        coachingHeading: {
-            fontSize: "1.2rem",
-            fontWeight: 700,
-            color: "#00332c",
-            marginBottom: "10px",
-        },
-        coachingParagraph: {
-            fontSize: "0.95rem",
-            color: "#00332c",
-            marginBottom: "20px",
-            lineHeight: 1.5,
-        },
-        coachingButton: {
-            padding: "10px 18px",
-            backgroundColor: "#00332c",
-            color: "white",
-            border: "none",
-            borderRadius: "25px",
-            fontWeight: 600,
-            cursor: "pointer",
-        },
-        coachingImageWrapper: {
-            flex: 1,
-            maxWidth: "220px",
-            minWidth: "180px",
-        },
-        coachingImage: {
-            width: "100%",
-            borderRadius: "20px",
-        },
-    };
+const ResourcesSection = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
 
-    return (
-        <section style={styles.section}>
-            <div style={styles.container}>
-                <h6 style={styles.subtitle}>SERVICES</h6>
-                <h1 style={styles.title}>Your Path to Well-being</h1>
-                <p style={styles.description}>
-                    Discover expert guidance for a healthier <br /> mind and balanced life.
-                </p>
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-                {/* Cards */}
-                <div style={styles.cardContainer}>
-                    <div style={{ ...styles.card, ...styles.orangeCard }}>
-                        <h6 style={styles.cardHeading}>Mindfulness & Meditation</h6>
-                        <p style={styles.cardText}>
-                            Guided meditation sessions and <br /> stress management techniques.
-                        </p>
-                        <button style={styles.cardButton}>Learn More</button>
-                    </div>
+  const resources = [
+    {
+      title: "Articles & Guides",
+      description: "Practical tips on stress management, mindfulness, and emotional resilience.",
+      buttonColor: "#facc15",
+    },
+    {
+      title: "Meditation & Relaxation",
+      description: "Audio sessions for guided meditation and deep breathing exercises.",
+      buttonColor: "#34d399",
+    },
+    {
+      title: "Webinars & Workshops",
+      description: "Live and recorded sessions with mental health professionals.",
+      buttonColor: "#f9a8d4",
+    },
+  ];
 
-                    <div style={{ ...styles.card, ...styles.whiteCard }}>
-                        <h6 style={styles.cardHeading}>One-on-One Therapy</h6>
-                        <p style={styles.cardText}>
-                            Virtual and in-person therapy <br /> sessions with licensed professionals.
-                        </p>
-                        <button style={styles.cardButton}>Learn More</button>
-                    </div>
-                </div>
+  const styles = {
+    section: {
+      backgroundColor: "#f9f9f7",
+      padding: "60px 20px",
+      display: "flex",
+      flexDirection: "column",
+      textAlign: "center",
+      alignItems: "center",
+    },
+    container: {
+      display: "flex",
+      width: isMobile ? "100%" : "50%",
+      flexDirection: "column",
+      justifyContent: "center",
+      height: isMobile ? "auto" : "auto",
+    },
+    smallHeading: {
+      fontSize: "0.75rem",
+      fontWeight: 600,
+      letterSpacing: "1px",
+      color: "#4b5563",
+      marginBottom: "10px",
+      textTransform: "uppercase",
+    },
+    mainHeading: {
+      fontSize: "2.2rem",
+      fontWeight: "800",
+      color: "#00332c",
+      marginBottom: "20px",
+      width: isMobile ? "100%" : "300px",
+      margin: isMobile ? "0 auto" : "0 auto",
+    },
+    subText: {
+      fontSize: "1rem",
+      color: "#404040",
+      lineHeight: 1.6,
+    },
+    grid: {
+      display: "flex",
+      flexDirection: isMobile ? "column" : "row",
+      gap: "25px",
+      width: isMobile ? "100%" : "90%",
+      margin: "0 auto",
+    },
+    card: {
+      background: "#ffffff",
+      borderRadius: "20px",
+      padding: "30px 20px",
+      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.05)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
+      flex: 1,
+    },
+    cardTitle: {
+      fontSize: "1.25rem",
+      fontWeight: 700,
+      color: "#00332c",
+      marginBottom: "10px",
+    },
+    cardDesc: {
+      fontSize: "0.95rem",
+      color: "#404040",
+      marginBottom: "20px",
+      lineHeight: 1.5,
+    },
+    cardBtn: {
+      border: "none",
+      padding: "10px 24px",
+      borderRadius: "999px",
+      fontSize: "0.95rem",
+      fontWeight: 600,
+      color: "#fff",
+      cursor: "pointer",
+      transition: "transform 0.2s ease",
+    },
+  };
 
-                {/* Coaching Section */}
-                <div style={styles.coachingSection}>
-                    <div style={styles.coachingcontainer}>
-                        <div style={styles.coachingText}>
-                            <h2 style={styles.coachingHeading}>Wellness Coaching</h2>
-                            <p style={styles.coachingParagraph}>
-                                Personalized guidance to help you build healthier habits, manage
-                                stress, and achieve balance in all areas of your life. <br /><br />
-                                Our wellness coaches support you in creating sustainable routines
-                                for mental, emotional, and physical well-being.
-                            </p>
-                            <button style={styles.coachingButton}>Learn More</button>
-                        </div>
-                        <div style={styles.coachingImageWrapper}>
-                            <img
-                                src={servicesIllustration}
-                                alt="Wellness Illustration"
-                                style={styles.coachingImage}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section style={styles.section}>
+      <div style={styles.container}>
+        <p style={styles.smallHeading}>EXPLORE & LEARN</p>
+        <h2 style={styles.mainHeading}>Resources for Your Well-being</h2>
+        <p style={styles.subText}>
+          Explore expert insights, self-care guides, and tools to support your mental health.
+        </p>
+      </div>
+
+      <div style={styles.grid}>
+        {resources.map((res, index) => (
+          <div key={index} style={styles.card}>
+            <h3 style={styles.cardTitle}>{res.title}</h3>
+            <p style={styles.cardDesc}>{res.description}</p>
+            <button
+              style={{
+                ...styles.cardBtn,
+                backgroundColor: res.buttonColor,
+              }}
+            >
+              Explore
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
-export default ServicesSection;
+export default ResourcesSection;

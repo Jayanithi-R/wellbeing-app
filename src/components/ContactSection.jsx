@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { FaLinkedin, FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
-function Cal() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 769);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-}
+
 const ContactSection = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const styles = {
     container: {
       backgroundColor: "#f7f6f3",
       padding: "70px 20px",
-        
       textAlign: "center",
     },
     smallHeading: {
@@ -41,16 +40,20 @@ const ContactSection = () => {
     },
     box: {
       display: "flex",
+      flexDirection: isMobile ? "column" : "row",
       justifyContent: "space-between",
-      alignItems: "flex-start",
+      alignItems: "stretch", // ✅ ensures full height match
       gap: "40px",
       maxWidth: "950px",
       margin: "0 auto",
       background: "#fff",
       borderRadius: "20px",
-      padding: "40px",
+      padding: isMobile ? "40px" : "79px",
       boxShadow: "0px 4px 12px rgba(0,0,0,0.06)",
-      flexWrap: "wrap", // ✅ responsive fallback
+      flexWrap: "wrap",
+      width: "100%",
+      height:"auto",
+      width:"100%",
     },
     left: {
       flex: 1,
@@ -59,12 +62,16 @@ const ContactSection = () => {
     },
     right: {
       flex: 1,
-      // minWidth: "300px",
-      width:"40%",
+      minWidth: "280px",
+      maxWidth: isMobile ? "100%" : "50%",
+      width: "100%",
       background: "#fefaf5",
       borderRadius: "20px",
-      padding: "clamp(10px,25px,25px)",
+      padding: "25px",
       textAlign: "left",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
     },
     heading3: {
       fontSize: "18px",
@@ -81,6 +88,7 @@ const ContactSection = () => {
       display: "flex",
       gap: "15px",
       marginTop: "20px",
+      flexWrap: "wrap",
     },
     icon: {
       fontSize: "20px",
@@ -101,7 +109,7 @@ const ContactSection = () => {
       marginTop: "15px",
     },
     input: {
-      width: "80%",
+      width: "100%", // ✅ full width for better mobile view
       padding: "10px",
       marginTop: "6px",
       marginBottom: "15px",
@@ -111,19 +119,6 @@ const ContactSection = () => {
       fontSize: "14px",
       outline: "none",
     },
-    // textarea: {
-    //   width: "100%",
-    //   padding: "10px",
-    //   marginTop: "6px",
-    //   marginBottom: "15px",
-    //   border: "none",
-    //   borderBottom: "1px solid #999",
-    //   background: "transparent",
-    //   fontSize: "14px",
-    //   outline: "none",
-    //   resize: "none",
-    //   input:""
-    // },
     button: {
       background: "#00342e",
       color: "#fff",
@@ -143,23 +138,19 @@ const ContactSection = () => {
 
   return (
     <div style={styles.container}>
-      {/* Top Text */}
       <p style={styles.smallHeading}>GET IN TOUCH</p>
       <h2 style={styles.mainHeading}>We’re Here to Support You</h2>
       <p style={styles.subHeading}>
         Whether you have questions, need help getting started, or want to learn more — reach out anytime.
       </p>
 
-      {/* Contact Box */}
       <div style={styles.box}>
-        {/* Left Section */}
         <div style={styles.left}>
           <h3 style={styles.heading3}>Contact Details:</h3>
           <p style={styles.text}><strong>Email:</strong> support@solus.com</p>
           <p style={styles.text}><strong>Phone:</strong> +1 (123) 456-7890</p>
           <p style={styles.text}><strong>Address:</strong> 123 Wellness Way, Calm City, CA 90210</p>
 
-          {/* Social Icons */}
           <div style={styles.socialIcons}>
             <FaLinkedin style={styles.icon} />
             <FaFacebookF style={styles.icon} />
@@ -170,7 +161,6 @@ const ContactSection = () => {
           <p style={styles.response}>We typically respond within 12 hours.</p>
         </div>
 
-        {/* Right Section (Form) */}
         <div style={styles.right}>
           <h3 style={styles.heading3}>Send Us a Message</h3>
           <form>
