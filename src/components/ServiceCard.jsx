@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
+const ResourcesSection = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+}
 const ServicesSection = () => {
   const styles = {
     section: {
@@ -34,7 +43,7 @@ const ServicesSection = () => {
        display:"flex",
        width:"100%",
        flexDirection:"column",
-       gap:"10px",
+       gap:"30px",
        justifyContent:"center",
     },
 
@@ -46,6 +55,7 @@ const ServicesSection = () => {
       margin: "0 auto",
       flexDirection:"row",
       width:"90%",
+
     },
     card: {
       backgroundColor: "#ffffff",
@@ -112,7 +122,8 @@ const ServicesSection = () => {
       flexWrap: "wrap",
       boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
       width:"84%",
-      marginLeft:"5%", 
+      marginLeft:"5%",
+    //   marginTop:"10%", 
     },
     fullCardContent: {
       flex: "1 1 60%",
