@@ -111,7 +111,7 @@ const ServicesSection = () => {
       gap: "clamp(1rem, 2vw, 2rem)",
       flexWrap: "wrap",
       boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
-      width:"85%",
+      width:"84%",
       marginLeft:"5%", 
     },
     fullCardContent: {
