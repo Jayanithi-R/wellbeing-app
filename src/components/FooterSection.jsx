@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import cornerImage from "../assets/corner.png"; // ✅ import your image
 
 const FooterSection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -122,8 +123,23 @@ const FooterSection = () => {
             justifyContent: "center",
             alignItems: isMobile ? "center" : "flex-start", // ✅ centered on mobile
             textAlign: isMobile ? "center" : "left",
+            position: "relative", // ✅ allows absolute image inside
+            overflow: "hidden", // ✅ keep image inside rounded box
           }}
         >
+          {/* ✅ Corner Image */}
+          <img
+            src={cornerImage}
+            alt="decor"
+            style={{
+              position: "absolute",
+              top: "0",
+              right: "0",
+              width: "228.38px",
+              height: "auto",
+              borderBottomRightRadius: "20px",
+            }}
+          />
           <p
             style={{
               fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)",
@@ -156,6 +172,8 @@ const FooterSection = () => {
           >
             Find Support Now
           </button>
+
+          
         </div>
       </div>
     </div>
