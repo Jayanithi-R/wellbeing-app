@@ -22,10 +22,11 @@ const TestimonialsSection = () => {
     <div
       style={{
         backgroundColor: "#f7f6f3",
-        padding: "clamp(2rem, 6vw, 4rem) clamp(1.5rem, 5vw, 2.5rem)",
+        padding: "clamp(1.5rem, 4vw, 4rem) clamp(1rem, 5vw, 3rem)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        width: "100%",
       }}
     >
       {/* Top Section */}
@@ -34,7 +35,7 @@ const TestimonialsSection = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "flex-start",
-          gap: "clamp(1.5rem, 4vw, 3rem)",
+          gap: "clamp(1rem, 3vw, 3rem)",
           flexWrap: "wrap",
           maxWidth: "1200px",
           width: "100%",
@@ -44,7 +45,7 @@ const TestimonialsSection = () => {
         <div
           style={{
             flex: "1 1 300px",
-            minWidth: "300px",
+            minWidth: "280px",
             maxWidth: "350px",
           }}
         >
@@ -64,7 +65,7 @@ const TestimonialsSection = () => {
               fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
               fontWeight: 700,
               color: "#00342e",
-              margin: "clamp(0.5rem, 1.2vw, 1rem) 0",
+              margin: "clamp(0.5rem, 1vw, 1rem) 0",
             }}
           >
             What Our Clients Are Saying
@@ -134,6 +135,7 @@ const TestimonialsSection = () => {
             justifyContent: "center",
             alignItems: "stretch",
             maxWidth: "700px",
+            width: "100%",
           }}
         >
           {/* Card 1 */}
@@ -143,6 +145,7 @@ const TestimonialsSection = () => {
               padding: "clamp(1rem, 2vw, 1.6rem)",
               flex: "1 1 300px",
               maxWidth: "320px",
+              width: "100%",
               lineHeight: 1.6,
               fontSize: "clamp(0.85rem, 1vw, 0.95rem)",
               boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
@@ -176,6 +179,7 @@ const TestimonialsSection = () => {
               padding: "clamp(1rem, 2vw, 1.6rem)",
               flex: "1 1 300px",
               maxWidth: "320px",
+              width: "100%",
               lineHeight: 1.6,
               fontSize: "clamp(0.85rem, 1vw, 0.95rem)",
               boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
@@ -217,7 +221,7 @@ const TestimonialsSection = () => {
           justifyContent: "center",
           gap: "clamp(1rem, 2vw, 1.5rem)",
           width: "90%",
-          // maxWidth: "1000px",
+          flexWrap: "wrap",
         }}
       >
         <p

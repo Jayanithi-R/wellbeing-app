@@ -1,134 +1,127 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FaLinkedin, FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const ContactSection = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 769);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   const styles = {
     container: {
       backgroundColor: "#f7f6f3",
-      padding: "70px 20px",
+      padding: "clamp(40px, 6vw, 70px) clamp(20px, 5vw, 60px)",
       textAlign: "center",
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      gap: "clamp(20px, 3vw, 40px)",
+      boxSizing: "border-box",
     },
     smallHeading: {
       textTransform: "uppercase",
-      fontSize: "12px",
+      fontSize: "clamp(10px, 1.2vw, 12px)",
       letterSpacing: "1px",
       color: "#555",
-      marginBottom: "10px",
+      marginBottom: "clamp(5px, 1vw, 10px)",
     },
     mainHeading: {
-      fontSize: "32px",
+      fontSize: "clamp(22px, 3vw, 32px)",
       fontWeight: 700,
       color: "#00342e",
-      marginBottom: "15px",
+      marginBottom: "clamp(10px, 2vw, 15px)",
     },
     subHeading: {
-      fontSize: "16px",
+      fontSize: "clamp(14px, 1.5vw, 16px)",
       color: "#555",
-      marginBottom: "50px",
-      maxWidth: "600px",
+      marginBottom: "clamp(30px, 5vw, 50px)",
+      maxWidth: "clamp(280px, 80%, 600px)",
       marginLeft: "auto",
       marginRight: "auto",
       lineHeight: 1.6,
     },
     box: {
       display: "flex",
-      flexDirection: isMobile ? "column" : "row",
-      justifyContent: "space-between",
-      alignItems: "stretch", // ✅ ensures full height match
-      gap: "40px",
-      maxWidth: "950px",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      gap: "clamp(20px, 4vw, 40px)",
+      maxWidth: "1000px",
       margin: "0 auto",
       background: "#fff",
       borderRadius: "20px",
-      padding: isMobile ? "40px" : "79px",
+      padding: "clamp(30px, 5vw, 60px)",
       boxShadow: "0px 4px 12px rgba(0,0,0,0.06)",
-      flexWrap: "wrap",
-      width: "100%",
-      height:"auto",
-      width:"100%",
+      boxSizing: "border-box",
     },
     left: {
-      flex: 1,
+      flex: "1 1 clamp(260px, 45%, 450px)",
+      minWidth: "clamp(260px, 45%, 450px)",
       textAlign: "left",
-      minWidth: "260px",
     },
     right: {
-      flex: 1,
-      minWidth: "280px",
-      maxWidth: isMobile ? "100%" : "50%",
-      width: "100%",
+      flex: "1 1 clamp(260px, 45%, 450px)",
+      minWidth: "clamp(260px, 45%, 450px)",
       background: "#fefaf5",
       borderRadius: "20px",
-      padding: "25px",
+      padding: "clamp(20px, 3vw, 25px)",
       textAlign: "left",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
+      boxSizing: "border-box",
     },
     heading3: {
-      fontSize: "18px",
+      fontSize: "clamp(16px, 2vw, 18px)",
       fontWeight: 600,
-      marginBottom: "20px",
+      marginBottom: "clamp(15px, 2vw, 20px)",
       color: "#00342e",
     },
     text: {
-      fontSize: "15px",
+      fontSize: "clamp(13px, 1.5vw, 15px)",
       color: "#222",
-      margin: "10px 0",
+      margin: "clamp(5px, 1vw, 10px) 0",
     },
     socialIcons: {
       display: "flex",
-      gap: "15px",
-      marginTop: "20px",
+      gap: "clamp(10px, 2vw, 15px)",
+      marginTop: "clamp(15px, 2vw, 20px)",
       flexWrap: "wrap",
     },
     icon: {
-      fontSize: "20px",
+      fontSize: "clamp(16px, 1.5vw, 20px)",
       color: "#00342e",
       cursor: "pointer",
       transition: "0.3s",
     },
     response: {
-      marginTop: "15px",
-      fontSize: "14px",
+      marginTop: "clamp(10px, 1vw, 15px)",
+      fontSize: "clamp(12px, 1vw, 14px)",
       color: "#666",
     },
     label: {
-      fontSize: "14px",
+      fontSize: "clamp(12px, 1vw, 14px)",
       fontWeight: 600,
       color: "#00342e",
       display: "block",
-      marginTop: "15px",
+      marginTop: "clamp(10px, 1vw, 15px)",
     },
     input: {
-      width: "100%", // ✅ full width for better mobile view
-      padding: "10px",
+      width: "100%",
+      padding: "clamp(8px, 1vw, 10px)",
       marginTop: "6px",
-      marginBottom: "15px",
+      marginBottom: "clamp(10px, 1vw, 15px)",
       border: "none",
       borderBottom: "1px solid #999",
       background: "transparent",
-      fontSize: "14px",
+      fontSize: "clamp(12px, 1vw, 14px)",
       outline: "none",
+      boxSizing: "border-box",
     },
     button: {
       background: "#00342e",
       color: "#fff",
-      padding: "14px 20px",
+      padding: "clamp(10px, 2vw, 14px) 20px",
       border: "none",
       borderRadius: "999px",
       cursor: "pointer",
-      fontSize: "15px",
+      fontSize: "clamp(13px, 1.2vw, 15px)",
       width: "100%",
-      marginTop: "15px",
+      marginTop: "clamp(10px, 2vw, 15px)",
       transition: "background 0.3s",
     },
     buttonHover: {
@@ -138,13 +131,17 @@ const ContactSection = () => {
 
   return (
     <div style={styles.container}>
-      <p style={styles.smallHeading}>GET IN TOUCH</p>
+      <div>
+ <p style={styles.smallHeading}>GET IN TOUCH</p>
       <h2 style={styles.mainHeading}>We’re Here to Support You</h2>
       <p style={styles.subHeading}>
         Whether you have questions, need help getting started, or want to learn more — reach out anytime.
       </p>
-
+      </div>
+      
+     
       <div style={styles.box}>
+        {/* Left Side */}
         <div style={styles.left}>
           <h3 style={styles.heading3}>Contact Details:</h3>
           <p style={styles.text}><strong>Email:</strong> support@solus.com</p>
@@ -161,6 +158,7 @@ const ContactSection = () => {
           <p style={styles.response}>We typically respond within 12 hours.</p>
         </div>
 
+        {/* Right Side */}
         <div style={styles.right}>
           <h3 style={styles.heading3}>Send Us a Message</h3>
           <form>
@@ -168,7 +166,7 @@ const ContactSection = () => {
             <input type="email" placeholder="Email" required style={styles.input} />
 
             <label style={styles.label}>Message</label>
-            <input type="text" placeholder="Message" required style={styles.input}></input>
+            <input type="text" placeholder="Message" required style={styles.input} />
 
             <button
               type="submit"

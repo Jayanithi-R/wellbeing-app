@@ -6,31 +6,29 @@ const HeroSection = () => {
     <section
       style={{
         display: "flex",
-        justifyContent: "space-between",
+        flexWrap: "wrap",
+        justifyContent: "center",
         alignItems: "center",
         padding: "clamp(2rem, 5vw, 4rem) clamp(1.5rem, 6vw, 5rem)",
         backgroundColor: "#f9f8f6",
-          
-        gap: "clamp(1.5rem, 4vw, 3rem)",
-        flexWrap: "wrap", // ✅ allows responsiveness
+        gap: "clamp(1rem, 4vw, 3rem)",
       }}
     >
       {/* Left Side - Text */}
       <div
         style={{
-          flex: "1 1 400px",
-          minWidth: "280px",
+          flex: "1 1 clamp(280px, 40%, 500px)",
+          minWidth: "clamp(280px, 45%, 500px)",
           textAlign: "left",
         }}
       >
         <h5
           style={{
             fontSize: "clamp(0.7rem, 1vw, 0.9rem)",
-            fontWeight: "500",
-            letterSpacing: "1px",
+            fontWeight: 500,
+            letterSpacing: "0.5px",
             color: "#00332c",
             marginBottom: "clamp(0.5rem, 1vw, 1rem)",
-            letterSpacing:"0.5px",
           }}
         >
           HOW IT WORKS
@@ -39,10 +37,10 @@ const HeroSection = () => {
         <h1
           style={{
             fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-            fontWeight: "800",
+            fontWeight: 800,
             color: "#00332c",
             marginBottom: "clamp(1rem, 2vw, 1.5rem)",
-            lineHeight: "1.3",
+            lineHeight: 1.3,
           }}
         >
           We Help You <br />
@@ -55,7 +53,7 @@ const HeroSection = () => {
             fontSize: "clamp(1rem, 2vw, 1.1rem)",
             color: "#404040",
             marginBottom: "clamp(1.2rem, 2.5vw, 2rem)",
-            lineHeight: "1.6",
+            lineHeight: 1.6,
           }}
         >
           Browse therapists, book a session, and <br />
@@ -66,12 +64,13 @@ const HeroSection = () => {
         <button
           style={{
             backgroundColor: "#00332c",
-            color: "white",
+            color: "#fff",
             padding: "clamp(0.6rem, 1.2vw, 0.8rem) clamp(1.2rem, 2vw, 1.8rem)",
             fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
             border: "none",
             borderRadius: "25px",
             cursor: "pointer",
+            marginTop: "clamp(0.5rem, 1vw, 1rem)",
           }}
         >
           Find A Therapist
@@ -81,7 +80,8 @@ const HeroSection = () => {
       {/* Right Side - Image */}
       <div
         style={{
-          flex: "1 1 400px",
+          flex: "1 1 clamp(280px, 40%, 500px)",
+          minWidth: "clamp(280px, 45%, 500px)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -95,9 +95,9 @@ const HeroSection = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            maxWidth: "400px",
+            maxWidth: "clamp(280px, 80%, 400px)",
             width: "100%",
-            aspectRatio: "1 / 1", // ✅ keeps it square
+            aspectRatio: "1 / 1",
           }}
         >
           <img
@@ -105,7 +105,7 @@ const HeroSection = () => {
             alt="Mental Health Illustration"
             style={{
               width: "100%",
-              height: "auto",
+              height: "100%",
               borderRadius: "16px",
               objectFit: "cover",
             }}

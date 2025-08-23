@@ -7,7 +7,7 @@ const FooterSection = () => {
       style={{
         backgroundColor: "#f7f6f3",
         padding: "clamp(2rem, 6vw, 3.75rem) clamp(1rem, 4vw, 1.25rem)",
-          
+        width:"100%", 
         display: "flex",
         justifyContent: "center",
       }}
@@ -34,6 +34,7 @@ const FooterSection = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
+            width:"100%",
           }}
         >
           <h3

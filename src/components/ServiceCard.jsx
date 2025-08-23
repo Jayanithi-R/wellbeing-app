@@ -1,16 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-function Cal() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 769);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  return null;
-}
-
 const ResourcesSection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
 
@@ -41,7 +30,7 @@ const ResourcesSection = () => {
   const styles = {
     section: {
       backgroundColor: "#f9f9f7",
-      padding: "60px 20px",
+      padding: "clamp(30px, 5vw, 60px) 20px",
       display: "flex",
       flexDirection: "column",
       textAlign: "center",
@@ -49,13 +38,13 @@ const ResourcesSection = () => {
     },
     container: {
       display: "flex",
-      width: isMobile ? "100%" : "50%",
+      width: "min(100%, 600px)",
       flexDirection: "column",
       justifyContent: "center",
-      height: isMobile ? "auto" : "auto",
+      margin: "0 auto",
     },
     smallHeading: {
-      fontSize: "0.75rem",
+      fontSize: "clamp(0.7rem, 1.2vw, 0.8rem)",
       fontWeight: 600,
       letterSpacing: "1px",
       color: "#4b5563",
@@ -63,29 +52,31 @@ const ResourcesSection = () => {
       textTransform: "uppercase",
     },
     mainHeading: {
-      fontSize: "2.2rem",
+      fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
       fontWeight: "800",
       color: "#00332c",
       marginBottom: "20px",
-      width: isMobile ? "100%" : "300px",
-      margin: isMobile ? "0 auto" : "0 auto",
+      margin: "0 auto",
+      lineHeight: 1.3,
     },
     subText: {
-      fontSize: "1rem",
+      fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
       color: "#404040",
       lineHeight: 1.6,
+      maxWidth: "600px",
+      margin: "0 auto 20px",
     },
     grid: {
       display: "flex",
       flexDirection: isMobile ? "column" : "row",
-      gap: "25px",
-      width: isMobile ? "100%" : "90%",
+      gap: "clamp(15px, 3vw, 25px)",
+      width: "min(100%, 1000px)",
       margin: "0 auto",
     },
     card: {
       background: "#ffffff",
       borderRadius: "20px",
-      padding: "30px 20px",
+      padding: "clamp(20px, 4vw, 30px) clamp(15px, 3vw, 20px)",
       boxShadow: "0 4px 10px rgba(0, 0, 0, 0.05)",
       display: "flex",
       flexDirection: "column",
@@ -94,26 +85,28 @@ const ResourcesSection = () => {
       flex: 1,
     },
     cardTitle: {
-      fontSize: "1.25rem",
+      fontSize: "clamp(1.1rem, 2vw, 1.25rem)",
       fontWeight: 700,
       color: "#00332c",
       marginBottom: "10px",
     },
     cardDesc: {
-      fontSize: "0.95rem",
+      fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)",
       color: "#404040",
       marginBottom: "20px",
       lineHeight: 1.5,
+      maxWidth: "320px",
     },
     cardBtn: {
       border: "none",
       padding: "10px 24px",
       borderRadius: "999px",
-      fontSize: "0.95rem",
+      fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)",
       fontWeight: 600,
       color: "#fff",
       cursor: "pointer",
       transition: "transform 0.2s ease",
+      minWidth: "120px",
     },
   };
 

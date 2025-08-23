@@ -20,26 +20,33 @@ const FAQSection = () => {
 
   const styles = {
     container: {
-       
+      width: "100%",
       display: "flex",
       flexDirection: "column",
       gap: "clamp(2rem, 6vw, 4rem)",
-      Width: "100%",
-    //   padding: "0 clamp(1rem, 5vw, 5rem)",
-            background: "#f7f6f3",
+      background: "#f7f6f3",
+      padding: "clamp(2rem, 5vw, 4rem)",
+      boxSizing: "border-box",
     },
     faqContainer: {
       display: "flex",
-      justifyContent: "space-between",
-      alignItems: "flex-start",
-      gap: "clamp(1.5rem, 5vw, 3.75rem)",
       flexWrap: "wrap",
+      justifyContent: "center",
+      alignItems: "flex-start",
+      gap: "clamp(2rem, 5vw, 4rem)",
       background: "#f7f6f3",
-      padding: "clamp(2rem, 6vw, 3.75rem)",
+      padding: "clamp(2rem, 5vw, 3rem)",
       borderRadius: "24px",
-      paddingUp:"20px",
+      boxSizing: "border-box",
+      // marginTop:"50px",
     },
-    left: { flex: 1, minWidth: "280px" },
+    left: {
+      flex: "1 1 clamp(280px, 40%, 450px)",
+      minWidth: "clamp(280px, 40%, 450px)",
+      display: "flex",
+      flexDirection: "column",
+      gap: "clamp(1rem, 2vw, 2rem)",
+    },
     smallText: {
       fontSize: "clamp(0.65rem, 1vw, 0.75rem)",
       fontWeight: 500,
@@ -59,30 +66,33 @@ const FAQSection = () => {
       fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
       lineHeight: 1.6,
       color: "#555",
-      marginBottom: "clamp(1.2rem, 3vw, 1.8rem)",
+      marginBottom: "clamp(1rem, 2vw, 1.5rem)",
     },
     imageBox: {
-      display: "inline-block",
-      padding: "clamp(1rem, 3vw, 1.25rem)",
+      padding: "clamp(1rem, 3vw, 1.5rem)",
       background: "#F9E6D0",
       borderRadius: "24px",
-      boxShadow: "0px 4px 15px rgba(0,0,0,0.08)",
-      // height: "auto",
-      width:"50%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      maxWidth: "clamp(250px, 80%, 350px)",
+      boxSizing: "border-box",
     },
     image: {
-      maxWidth: "clamp(200px, 40vw, 280px)",
+      width: "100%",
       borderRadius: "20px",
-      display: "block",
       height: "auto",
+      display: "block",
     },
     right: {
-      flex: 1,
-      minWidth: "280px",
+      flex: "1 1 clamp(280px, 40%, 450px)",
+      minWidth: "clamp(280px, 40%, 450px)",
       display: "flex",
       flexDirection: "column",
       gap: "clamp(0.8rem, 2vw, 1.2rem)",
-      marginTop:"80px",
+      marginTop:"clamp(6rem, 10vw, 8rem)",
+      // alignSelf:"flex-start",
     },
     item: {
       display: "flex",
@@ -94,70 +104,32 @@ const FAQSection = () => {
       cursor: "pointer",
       boxShadow: "0px 2px 6px rgba(0,0,0,0.05)",
       transition: "all 0.3s ease",
+      // marginTop:"50px",
     },
     question: {
       fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
       fontWeight: 600,
       color: "#00342e",
     },
-    icon: { fontSize: "clamp(0.8rem, 1vw, 0.9rem)", color: "#00342e", flexShrink: 0 },
-    active: { border: "1px solid #00342e" },
-    formContainer: {
-      background: "#00342e",
-      color: "#f6f3f9",
-      borderRadius: "24px",
-      padding: "clamp(2rem, 6vw, 4rem)",
-      display: "flex",
-      flexDirection: "column",
-      gap: "clamp(1.2rem, 3vw, 2rem)",
-      
-    },
-    form: {
-      display: "flex",
-      flexDirection: "column",
-      gap: "clamp(0.8rem, 2vw, 1.2rem)",
-      marginTop: "clamp(1rem, 3vw, 2rem)",
-    },
-    input: {
-      padding: "clamp(0.8rem, 2vw, 1rem)",
-      borderRadius: "12px",
-      border: "none",
-      fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
-      outline: "none",
-    },
-    textarea: {
-      padding: "clamp(0.8rem, 2vw, 1rem)",
-      borderRadius: "12px",
-      border: "none",
-      fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
-      minHeight: "clamp(120px, 25vh, 180px)",
-      outline: "none",
-      resize: "vertical",
-    },
-    button: {
-      background: "#fff",
+    icon: {
+      fontSize: "clamp(0.8rem, 1vw, 0.9rem)",
       color: "#00342e",
-      border: "none",
-      borderRadius: "30px",
-      padding: "clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem)",
-      fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
-      fontWeight: 600,
-      cursor: "pointer",
-      alignSelf: "flex-start",
-      transition: "0.3s",
+      flexShrink: 0,
+    },
+    active: {
+      border: "1px solid #00342e",
     },
   };
 
   return (
     <div style={styles.container}>
-      {/* FAQ Section */}
       <div style={styles.faqContainer}>
+        {/* Left Side */}
         <div style={styles.left}>
           <p style={styles.smallText}>NEED HELP?</p>
           <h2 style={styles.heading}>Frequently Asked Questions</h2>
           <p style={styles.desc}>
             Find answers to common questions about our services,
-            <br />
             therapy, and mental well-being.
           </p>
           <div style={styles.imageBox}>
@@ -165,6 +137,15 @@ const FAQSection = () => {
           </div>
         </div>
 
+        {/* Right Side */}
+        {/* <div 
+        style={{
+          flex:"1 1 clamp(280px, 40%, 450px)",
+          minWidth:"clamp(280px, 40%, 450px)"
+          paddingTop:"clamp(6rem, 10vw, 8rem)",
+          boxSizing: "border-box",
+        }}
+        ></div> */}
         <div style={styles.right}>
           {faqs.map((q, index) => (
             <div
@@ -176,7 +157,11 @@ const FAQSection = () => {
               onClick={() => toggleFAQ(index)}
             >
               <p style={styles.question}>{q}</p>
-              {activeIndex === index ? <FaMinus style={styles.icon} /> : <FaPlus style={styles.icon} />}
+              {activeIndex === index ? (
+                <FaMinus style={styles.icon} />
+              ) : (
+                <FaPlus style={styles.icon} />
+              )}
             </div>
           ))}
         </div>
