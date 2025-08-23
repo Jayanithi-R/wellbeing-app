@@ -51,6 +51,7 @@ const styles = {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
+    margin: "0 10px",
   },
   heroContent: {
     maxWidth: "700px",

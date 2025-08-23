@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import web from "../assets/web(2).png";
 
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const faqs = [
     "How do I book a therapy session?",
@@ -27,23 +34,25 @@ const FAQSection = () => {
     },
     faqContainer: {
       display: "flex",
-      justifyContent: "flex-start", // ✅ closer to left
-      alignItems: "flex-start",
-      gap: "clamp(2rem, 4vw, 3rem)", // ✅ reduced gap
-      flexWrap: "wrap",
-      maxWidth: "1200px", // ✅ keeps layout centered
+      flexDirection: isMobile ? "column" : "row",
+      justifyContent: "flex-start",
+      alignItems: isMobile ? "center" : "flex-start",
+      gap: isMobile ? "2rem" : "clamp(2rem, 4vw, 3rem)",
+      maxWidth: "1200px",
       margin: "0 auto",
     },
     left: {
-      flex: "1 1 400px",
-      minWidth: "280px",
+      flex: "1 1 50%",
+      // minWidth: "280px",
       display: "flex",
       flexDirection: "column",
       gap: "1rem",
       justifyContent: "space-between",
+      textAlign: isMobile ? "center" : "left",
+      alignItems: isMobile ? "center" : "flex-start",
     },
-    text:{
-      width:"50%",
+    text: {
+      width: isMobile ? "100%" : "70%",
     },
     smallText: {
       fontSize: "clamp(0.65rem, 1vw, 0.75rem)",
@@ -66,33 +75,34 @@ const FAQSection = () => {
     imageWrapper: {
       position: "relative",
       width: "100%",
-      maxWidth: "320px",
-      marginTop: "6rem", // ✅ spacing from text
-      alignSelf: "flex-start", // ✅ no overlap
+      maxWidth: isMobile ? "220px" : "320px",
+      marginTop: isMobile ? "2rem" : "6rem",
+      alignSelf: isMobile ? "center" : "flex-start",
     },
     imageBox: {
       background: "#F9E6D0",
       borderRadius: "24px",
       width: "100%",
-      height: "220px",
+      height: isMobile ? "160px" : "220px",
       position: "relative",
-      overflow: "hidden", // ✅ keeps image inside
+      overflow: "hidden",
     },
     image: {
       position: "absolute",
-      bottom: "0", // ✅ sits inside box
+      bottom: "0",
       left: "50%",
       transform: "translateX(-50%)",
-      maxWidth: "200px",
+      maxWidth: isMobile ? "150px" : "200px",
       width: "80%",
       height: "auto",
     },
     right: {
-      flex: "1 1 400px",
+      flex: "1 1 50%",
       minWidth: "280px",
       display: "flex",
       flexDirection: "column",
       gap: "clamp(0.8rem, 2vw, 1.2rem)",
+      width: isMobile ? "100%" : "auto",
     },
     item: {
       display: "flex",
@@ -126,19 +136,14 @@ const FAQSection = () => {
         {/* Left Side */}
         <div style={styles.left}>
           <div style={styles.text}>
-             <p style={styles.smallText}>NEED HELP?</p>
-          <h2 style={styles.heading}>Frequently Asked Questions</h2>
-          <p style={styles.desc}>
-            Find answers to common questions about our services, therapy, and
-            mental well-being.
-          </p>
+            <p style={styles.smallText}>NEED HELP?</p>
+            <h2 style={styles.heading}>Frequently Asked Questions</h2>
+            <p style={styles.desc}>
+              Find answers to common questions about our services, therapy, and
+              mental well-being.
+            </p>
           </div>
-          {/* <p style={styles.smallText}>NEED HELP?</p>
-          <h2 style={styles.heading}>Frequently Asked Questions</h2>
-          <p style={styles.desc}>
-            Find answers to common questions about our services, therapy, and
-            mental well-being.
-          </p> */}
+
           <div style={styles.imageWrapper}>
             <div style={styles.imageBox}></div>
             <img src={web} alt="illustration" style={styles.image} />

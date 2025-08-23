@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import communityImg from "../assets/community(2).png"; // ✅ imported from src/assets
 
 const CommunitySection = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 426);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 426);
+    const handleResize = () => setIsMobile(window.innerWidth < 500);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -17,7 +17,7 @@ const CommunitySection = () => {
       alignItems: "center",
       backgroundColor: "#f9f8f6",
       width: "100%",
-      padding: isMobile ? "40px 6px" : "60px 0px",
+      padding: isMobile ? "40px 0px" : "60px 0px",
     },
     container: {
       display: "flex",
@@ -26,8 +26,8 @@ const CommunitySection = () => {
       backgroundColor: "#ffffff",
       borderRadius: "25px",
       padding: isMobile ? "30px 20px" : "50px",
-      width: "100%",
-      maxWidth: "1200px",
+      width: "85%",
+      // maxWidth: "1200px",
       boxSizing: "border-box",
       gap: isMobile ? "20px" : "40px",
       flexDirection: isMobile ? "column" : "row", // ✅ stack on mobile
