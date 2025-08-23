@@ -24,8 +24,8 @@ const FooterSection = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "stretch",
-          width: isMobile ? "90%" : "80%",
-          gap: "clamp(1rem, 4vw, 2rem)",
+          width: isMobile ? "92%" : "80%",
+          gap: "clamp(1rem, 3vw, 2rem)",
           flexDirection: isMobile ? "column" : "row", // ✅ stack on mobile
         }}
       >
@@ -35,7 +35,7 @@ const FooterSection = () => {
             background: "#fff",
             borderRadius: "16px",
             padding: "clamp(1.5rem, 4vw, 2.5rem)",
-            width: isMobile ? "100%" : "50%", // ✅ full width on mobile
+            flex: "1",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -47,6 +47,7 @@ const FooterSection = () => {
               fontWeight: 700,
               color: "#00342e",
               marginBottom: "1rem",
+              textAlign: isMobile ? "center" : "left", // ✅ center on mobile
             }}
           >
             Solus
@@ -55,8 +56,8 @@ const FooterSection = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(3, auto)", // ✅ fewer columns on mobile
-              gap: "0.8rem 2rem",
+              gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(3, 1fr)", // ✅ responsive grid
+              gap: "0.8rem 1.5rem",
               fontSize: "clamp(0.8rem, 1vw, 0.9rem)",
               marginBottom: "1.5rem",
             }}
@@ -100,6 +101,8 @@ const FooterSection = () => {
             style={{
               fontSize: "clamp(0.7rem, 0.9vw, 0.75rem)",
               color: "#888",
+              textAlign: isMobile ? "center" : "left",
+              marginTop: "auto",
             }}
           >
             © {new Date().getFullYear()} Solus. All Rights Reserved.
@@ -113,17 +116,17 @@ const FooterSection = () => {
             color: "#fff",
             borderRadius: "20px",
             padding: "clamp(2rem, 5vw, 3rem)",
-            width: isMobile ? "100%" : "50%", // ✅ full width on mobile
+            flex: "1",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            position: "relative",
-            overflow: "hidden",
+            alignItems: isMobile ? "center" : "flex-start", // ✅ centered on mobile
+            textAlign: isMobile ? "center" : "left",
           }}
         >
           <p
             style={{
-              fontSize: "clamp(1.4rem, 2.5vw, 1.6rem)",
+              fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)",
               fontWeight: 700,
               lineHeight: 1.5,
               marginBottom: "1.5rem",
@@ -146,6 +149,7 @@ const FooterSection = () => {
               fontWeight: 600,
               cursor: "pointer",
               width: "100%",
+              maxWidth: "400px", // ✅ button doesn't stretch too much
               textAlign: "center",
               transition: "0.3s",
             }}
