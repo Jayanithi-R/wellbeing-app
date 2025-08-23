@@ -1,143 +1,183 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-const ResourcesSection = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 769);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const resources = [
-    {
-      title: "Articles & Guides",
-      description: "Practical tips on stress management, mindfulness, and emotional resilience.",
-      buttonColor: "#facc15",
-    },
-    {
-      title: "Meditation & Relaxation",
-      description: "Audio sessions for guided meditation and deep breathing exercises.",
-      buttonColor: "#34d399",
-    },
-    {
-      title: "Webinars & Workshops",
-      description: "Live and recorded sessions with mental health professionals.",
-      buttonColor: "#f9a8d4",
-    },
-  ];
-
+const ServicesSection = () => {
   const styles = {
     section: {
+      fontFamily: "'Inter', sans-serif",
       backgroundColor: "#f9f9f7",
-      padding: "clamp(30px, 5vw, 60px) 20px",
-      display: "flex",
-      flexDirection: "column",
+      padding: "clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem)",
       textAlign: "center",
-      alignItems: "center",
     },
-    container: {
-      display: "flex",
-      width: "min(100%, 600px)",
-      flexDirection: "column",
-      justifyContent: "center",
-      margin: "0 auto",
-    },
-    smallHeading: {
-      fontSize: "clamp(0.7rem, 1.2vw, 0.8rem)",
-      fontWeight: 600,
-      letterSpacing: "1px",
-      color: "#4b5563",
-      marginBottom: "10px",
+    subheading: {
       textTransform: "uppercase",
+      fontSize: "clamp(0.75rem, 1vw, 0.9rem)",
+      color: "#4b5563",
+      marginBottom: "clamp(0.5rem, 1vw, 0.8rem)",
+      letterSpacing: "1px",
+      fontFamily:"Bricolage Grotesque",
     },
-    mainHeading: {
-      fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
-      fontWeight: "800",
-      color: "#00332c",
-      marginBottom: "20px",
-      margin: "0 auto",
-      lineHeight: 1.3,
+    heading: {
+      fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
+      fontWeight: "700",
+      color: "#0f3d36",
+      marginBottom: "clamp(0.5rem, 1.2vw, 1rem)",
     },
-    subText: {
-      fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
-      color: "#404040",
-      lineHeight: 1.6,
+    description: {
+      fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
+      color: "#4b5563",
+      marginBottom: "clamp(1.5rem, 4vw, 2.5rem)",
       maxWidth: "600px",
-      margin: "0 auto 20px",
+      marginLeft: "auto",
+      marginRight: "auto",
     },
+    gridcard:{
+       display:"flex",
+       width:"100%",
+       flexDirection:"column",
+       gap:"10px",
+       justifyContent:"center",
+    },
+
     grid: {
       display: "flex",
-      flexDirection: isMobile ? "column" : "row",
-      gap: "clamp(15px, 3vw, 25px)",
-      width: "min(100%, 1000px)",
+      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+      gap: "clamp(1rem, 2vw, 1.5rem)",
+    //   maxWidth: "1100px",
       margin: "0 auto",
+      flexDirection:"row",
+      width:"90%",
     },
     card: {
-      background: "#ffffff",
+      backgroundColor: "#ffffff",
+      padding: "clamp(1.5rem, 3vw, 2rem)",
       borderRadius: "20px",
-      padding: "clamp(20px, 4vw, 30px) clamp(15px, 3vw, 20px)",
-      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.05)",
+      textAlign: "left",
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
-      textAlign: "center",
-      flex: 1,
+      justifyContent: "space-between",
+      boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+    },
+    cardAlt: {
+      backgroundColor: "#fdecd8",
+      padding: "clamp(1.5rem, 3vw, 2rem)",
+      borderRadius: "20px",
+      textAlign: "left",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
     },
     cardTitle: {
-      fontSize: "clamp(1.1rem, 2vw, 1.25rem)",
-      fontWeight: 700,
-      color: "#00332c",
-      marginBottom: "10px",
+      fontSize: "clamp(1rem, 2vw, 1.25rem)",
+      fontWeight: "600",
+      color: "#0f3d36",
+      marginBottom: "clamp(0.5rem, 1vw, 0.8rem)",
     },
-    cardDesc: {
-      fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)",
-      color: "#404040",
-      marginBottom: "20px",
-      lineHeight: 1.5,
-      maxWidth: "320px",
+    cardText: {
+      fontSize: "clamp(0.85rem, 1.2vw, 1rem)",
+      color: "#374151",
+      marginBottom: "clamp(1rem, 2vw, 1.5rem)",
     },
-    cardBtn: {
-      border: "none",
-      padding: "10px 24px",
-      borderRadius: "999px",
-      fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)",
-      fontWeight: 600,
-      color: "#fff",
+    button: {
+      border: "1px solid #0f3d36",
+      padding: "clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.25rem)",
+      borderRadius: "30px",
+      background: "transparent",
+      fontSize: "clamp(0.8rem, 1vw, 0.9rem)",
+      fontWeight: "500",
       cursor: "pointer",
-      transition: "transform 0.2s ease",
-      minWidth: "120px",
+      alignSelf: "flex-start",
+    },
+    buttonFilled: {
+      border: "none",
+      padding: "clamp(0.6rem, 1.2vw, 0.9rem) clamp(1.2rem, 2.5vw, 1.5rem)",
+      borderRadius: "30px",
+      background: "#0f3d36",
+      color: "#fff",
+      fontSize: "clamp(0.8rem, 1vw, 0.9rem)",
+      fontWeight: "500",
+      cursor: "pointer",
+      alignSelf: "flex-start",
+    },
+    fullCard: {
+      gridColumn: "1 / -1",
+      backgroundColor: "#ffffff",
+      padding: "clamp(1.5rem, 3vw, 2rem)",
+      borderRadius: "20px",
+      textAlign: "left",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "clamp(1rem, 2vw, 2rem)",
+      flexWrap: "wrap",
+      boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+      width:"85%",
+      marginLeft:"5%", 
+    },
+    fullCardContent: {
+      flex: "1 1 60%",
+      minWidth: "280px",
+    //   marginLeft:"10%",
+    },
+    illustration: {
+      width: "clamp(120px, 18vw, 160px)",
+      height: "auto",
     },
   };
 
   return (
     <section style={styles.section}>
-      <div style={styles.container}>
-        <p style={styles.smallHeading}>EXPLORE & LEARN</p>
-        <h2 style={styles.mainHeading}>Resources for Your Well-being</h2>
-        <p style={styles.subText}>
-          Explore expert insights, self-care guides, and tools to support your mental health.
-        </p>
-      </div>
+      <p style={styles.subheading}>SERVICES</p>
+      <h2 style={styles.heading}>Your Path to Well-being</h2>
+      <p style={styles.description}>
+        Discover expert guidance for a healthier mind and balanced life.
+      </p>
 
-      <div style={styles.grid}>
-        {resources.map((res, index) => (
-          <div key={index} style={styles.card}>
-            <h3 style={styles.cardTitle}>{res.title}</h3>
-            <p style={styles.cardDesc}>{res.description}</p>
-            <button
-              style={{
-                ...styles.cardBtn,
-                backgroundColor: res.buttonColor,
-              }}
-            >
-              Explore
-            </button>
+      <div style={styles.gridcard}>
+<div style={styles.grid}>
+        {/* Mindfulness Card */}
+        <div style={styles.cardAlt}>
+          <h3 style={styles.cardTitle}>Mindfulness & Meditation</h3>
+          <p style={styles.cardText}>
+            Guided meditation sessions and stress management techniques.
+          </p>
+          <button style={styles.button}>Learn More</button>
+        </div>
+
+        {/* Therapy Card */}
+        <div style={styles.card}>
+          <h3 style={styles.cardTitle}>One-on-One Therapy</h3>
+          <p style={styles.cardText}>
+            Virtual and in-person therapy sessions with licensed professionals.
+          </p>
+          <button style={styles.button}>Learn More</button>
+        </div>
+      </div>
+      
+
+        {/* Wellness Coaching Card */}
+        <div style={styles.fullCard}>
+          <div style={styles.fullCardContent}>
+            <h3 style={styles.cardTitle}>Wellness Coaching</h3>
+            <p style={styles.cardText}>
+              Personalized guidance to help you build healthier habits,<br/>
+              manage stress, and achieve balance in all areas of your life. <br />
+              <br />
+              Our wellness coaches support you in creating sustainable <br />routines
+              for mental, emotional, and physical well-being.
+            </p>
+            <button style={styles.buttonFilled}>Learn More</button>
           </div>
-        ))}
+          {/* Replace with your illustration image */}
+          <img
+            // style={styles.illustration}
+            // src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+            // alt="Wellness Illustration"
+          />
+        </div>
       </div>
     </section>
   );
 };
 
-export default ResourcesSection;
+export default ServicesSection;

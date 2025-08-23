@@ -7,34 +7,35 @@ const FooterSection = () => {
       style={{
         backgroundColor: "#f7f6f3",
         padding: "clamp(2rem, 6vw, 3.75rem) clamp(1rem, 4vw, 1.25rem)",
-        width:"100%", 
+        width: "100%",
         display: "flex",
         justifyContent: "center",
+        flexWrap: "wrap",
       }}
     >
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "stretch",
-          maxWidth: "1100px",
-          width: "100%",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          // height: "auto",
+          width: "90%",
           gap: "clamp(1.5rem, 5vw, 2.5rem)",
           flexWrap: "wrap",
         }}
       >
-        {/* Left Section */}
+        {/* Left Section (White) */}
         <div
           style={{
             background: "#fff",
             borderRadius: "clamp(12px, 2vw, 20px)",
-            padding: "clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 2rem)",
-            flex: 1,
-            // minWidth: "clamp(240px, 40vw, 320px)",
+            // padding: "clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 2rem)",
+            flex: "0 1 auto", // ✅ shrinks based on content
+            maxWidth: "350px", // ✅ limit width
+            minWidth: "260px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            width:"100%",
           }}
         >
           <h3
@@ -58,17 +59,17 @@ const FooterSection = () => {
               marginBottom: "clamp(1rem, 2vw, 1.5rem)",
             }}
           >
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>About</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>Instagram</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>Terms Of Use</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>Services</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>Facebook</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>Privacy Policy</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>Therapists</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>YouTube</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>Resources</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>LinkedIn</a>
-            <a href="#" style={{ textDecoration: "none", color: "#00342e" }}>Contact</a>
+            <a href="#">About</a>
+            <a href="#">Instagram</a>
+            <a href="#">Terms Of Use</a>
+            <a href="#">Services</a>
+            <a href="#">Facebook</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Therapists</a>
+            <a href="#">YouTube</a>
+            <a href="#">Resources</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Contact</a>
           </div>
 
           <p
@@ -82,11 +83,12 @@ const FooterSection = () => {
           </p>
         </div>
 
-        {/* Right Section */}
+        {/* Right Section (Teal) */}
         <div
           style={{
-            flex: 1,
-            minWidth: "clamp(260px, 45vw, 360px)",
+            flex: "0 1 auto", // ✅ shrink to fit content
+            maxWidth: "380px", // ✅ smaller max width
+            minWidth: "260px",
             background: "#00342e",
             color: "#fff",
             borderRadius: "clamp(16px, 3vw, 24px)",
@@ -131,7 +133,7 @@ const FooterSection = () => {
             Find Support Now
           </button>
 
-          {/* ✅ Decorative Image imported from assets */}
+          {/* ✅ Decorative Image */}
           <div
             style={{
               position: "absolute",

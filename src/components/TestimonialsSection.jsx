@@ -220,7 +220,7 @@ const TestimonialsSection = () => {
           alignItems: "center",
           justifyContent: "center",
           gap: "clamp(1rem, 2vw, 1.5rem)",
-          width: "90%",
+          width: "85%",
           flexWrap: "wrap",
         }}
       >
