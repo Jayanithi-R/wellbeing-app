@@ -21,31 +21,29 @@ const FAQSection = () => {
   const styles = {
     container: {
       width: "100%",
-      display: "flex",
-      flexDirection: "column",
-      gap: "clamp(2rem, 6vw, 4rem)",
       background: "#f7f6f3",
       padding: "clamp(2rem, 5vw, 4rem)",
       boxSizing: "border-box",
     },
     faqContainer: {
       display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "center",
+      justifyContent: "flex-start", // ✅ closer to left
       alignItems: "flex-start",
-      gap: "clamp(2rem, 5vw, 4rem)",
-      background: "#f7f6f3",
-      padding: "clamp(2rem, 5vw, 3rem)",
-      borderRadius: "24px",
-      boxSizing: "border-box",
-      // marginTop:"50px",
+      gap: "clamp(2rem, 4vw, 3rem)", // ✅ reduced gap
+      flexWrap: "wrap",
+      maxWidth: "1200px", // ✅ keeps layout centered
+      margin: "0 auto",
     },
     left: {
-      flex: "1 1 clamp(280px, 40%, 450px)",
-      minWidth: "clamp(280px, 40%, 450px)",
+      flex: "1 1 400px",
+      minWidth: "280px",
       display: "flex",
       flexDirection: "column",
-      gap: "clamp(1rem, 2vw, 2rem)",
+      gap: "1rem",
+      justifyContent: "space-between",
+    },
+    text:{
+      width:"50%",
     },
     smallText: {
       fontSize: "clamp(0.65rem, 1vw, 0.75rem)",
@@ -53,46 +51,48 @@ const FAQSection = () => {
       color: "#666",
       letterSpacing: "1px",
       textTransform: "uppercase",
-      marginBottom: "clamp(0.5rem, 1vw, 0.6rem)",
     },
     heading: {
       fontSize: "clamp(1.5rem, 3vw, 2rem)",
       fontWeight: 700,
       lineHeight: 1.3,
       color: "#00342e",
-      marginBottom: "clamp(0.8rem, 2vw, 1rem)",
     },
     desc: {
       fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
       lineHeight: 1.6,
       color: "#555",
-      marginBottom: "clamp(1rem, 2vw, 1.5rem)",
+    },
+    imageWrapper: {
+      position: "relative",
+      width: "100%",
+      maxWidth: "320px",
+      marginTop: "6rem", // ✅ spacing from text
+      alignSelf: "flex-start", // ✅ no overlap
     },
     imageBox: {
-      padding: "clamp(1rem, 3vw, 1.5rem)",
       background: "#F9E6D0",
       borderRadius: "24px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
       width: "100%",
-      maxWidth: "clamp(250px, 80%, 350px)",
-      boxSizing: "border-box",
+      height: "220px",
+      position: "relative",
+      overflow: "hidden", // ✅ keeps image inside
     },
     image: {
-      width: "100%",
-      borderRadius: "20px",
+      position: "absolute",
+      bottom: "0", // ✅ sits inside box
+      left: "50%",
+      transform: "translateX(-50%)",
+      maxWidth: "200px",
+      width: "80%",
       height: "auto",
-      display: "block",
     },
     right: {
-      flex: "1 1 clamp(280px, 40%, 450px)",
-      minWidth: "clamp(280px, 40%, 450px)",
+      flex: "1 1 400px",
+      minWidth: "280px",
       display: "flex",
       flexDirection: "column",
       gap: "clamp(0.8rem, 2vw, 1.2rem)",
-      marginTop:"clamp(6rem, 10vw, 8rem)",
-      // alignSelf:"flex-start",
     },
     item: {
       display: "flex",
@@ -104,7 +104,6 @@ const FAQSection = () => {
       cursor: "pointer",
       boxShadow: "0px 2px 6px rgba(0,0,0,0.05)",
       transition: "all 0.3s ease",
-      // marginTop:"50px",
     },
     question: {
       fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
@@ -126,26 +125,27 @@ const FAQSection = () => {
       <div style={styles.faqContainer}>
         {/* Left Side */}
         <div style={styles.left}>
-          <p style={styles.smallText}>NEED HELP?</p>
+          <div style={styles.text}>
+             <p style={styles.smallText}>NEED HELP?</p>
           <h2 style={styles.heading}>Frequently Asked Questions</h2>
           <p style={styles.desc}>
-            Find answers to common questions about our services,
-            therapy, and mental well-being.
+            Find answers to common questions about our services, therapy, and
+            mental well-being.
           </p>
-          <div style={styles.imageBox}>
+          </div>
+          {/* <p style={styles.smallText}>NEED HELP?</p>
+          <h2 style={styles.heading}>Frequently Asked Questions</h2>
+          <p style={styles.desc}>
+            Find answers to common questions about our services, therapy, and
+            mental well-being.
+          </p> */}
+          <div style={styles.imageWrapper}>
+            <div style={styles.imageBox}></div>
             <img src={web} alt="illustration" style={styles.image} />
           </div>
         </div>
 
         {/* Right Side */}
-        {/* <div 
-        style={{
-          flex:"1 1 clamp(280px, 40%, 450px)",
-          minWidth:"clamp(280px, 40%, 450px)"
-          paddingTop:"clamp(6rem, 10vw, 8rem)",
-          boxSizing: "border-box",
-        }}
-        ></div> */}
         <div style={styles.right}>
           {faqs.map((q, index) => (
             <div

@@ -33,7 +33,7 @@ const ResourcesSection = () => {
   const styles = {
     section: {
       backgroundColor: "#f9f9f7",
-      padding: "60px 20px",
+      padding: "60px 60px",
       textAlign: "center",
       display: "flex",
       flexDirection: "column",

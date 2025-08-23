@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
 import communityImg from "../assets/community(2).png"; // ✅ imported from src/assets
-import { findAllByPlaceholderText } from "@testing-library/dom";
-function Cal() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 769);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-}
+
 const CommunitySection = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 426);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 426);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const styles = {
     section: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: "#f9f8f6",
-    //   padding: "60px 20px",
-       
-      width:"100%",
+      width: "100%",
+      padding: isMobile ? "40px 6px" : "60px 0px",
     },
     container: {
       display: "flex",
@@ -27,13 +25,18 @@ const CommunitySection = () => {
       alignItems: "center",
       backgroundColor: "#ffffff",
       borderRadius: "25px",
-      padding: "50px",
-      width:  "88%",
+      padding: isMobile ? "30px 20px" : "50px",
+      width: "100%",
+      maxWidth: "1200px",
       boxSizing: "border-box",
-      gap: "40px",
-      flexDirection:"row",
+      gap: isMobile ? "20px" : "40px",
+      flexDirection: isMobile ? "column" : "row", // ✅ stack on mobile
+      textAlign: isMobile ? "center" : "left",
     },
-    text: { flex: 1, width:"50%" },
+    text: {
+      flex: 1,
+      width: isMobile ? "100%" : "50%",
+    },
     label: {
       fontSize: "12px",
       fontWeight: 600,
@@ -43,7 +46,7 @@ const CommunitySection = () => {
       letterSpacing: "1px",
     },
     title: {
-      fontSize: "32px",
+      fontSize: isMobile ? "24px" : "32px",
       fontWeight: 700,
       color: "#123d3a",
       marginBottom: "20px",
@@ -59,27 +62,25 @@ const CommunitySection = () => {
       backgroundColor: "#0c3b36",
       color: "#fff",
       border: "none",
-      padding: "14px 28px",
+      padding: isMobile ? "12px 24px" : "14px 28px",
       borderRadius: "999px",
       fontSize: "16px",
       fontWeight: 600,
       cursor: "pointer",
     },
-    buttonHover: { backgroundColor: "#092f2a" }, // ✅ for JS hover handling
+    buttonHover: { backgroundColor: "#092f2a" },
     imageWrapper: {
-  flex: 1,
-  display: "flex",
-  justifyContent: "flex-end",
-  Width: "50%",   
-},
-
-image: {
-  width: "100%",     // ✅ image fills wrapper properly
-  height: "auto",    // ✅ keeps aspect ratio
-  maxWidth: "100%",  // ✅ prevents overflow
-  objectFit: "contain", // or "cover" depending on design
-},
-
+      flex: 1,
+      display: "flex",
+      justifyContent: isMobile ? "center" : "flex-end",
+      width: isMobile ? "100%" : "50%",
+    },
+    image: {
+      width: isMobile ? "80%" : "100%", // ✅ shrink on mobile
+      maxWidth: isMobile ? "300px" : "500px",
+      height: "auto",
+      objectFit: "contain",
+    },
   };
 
   return (
@@ -99,7 +100,8 @@ image: {
           <button
             style={styles.button}
             onMouseEnter={(e) =>
-              (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)
+              (e.target.style.backgroundColor =
+                styles.buttonHover.backgroundColor)
             }
             onMouseLeave={(e) =>
               (e.target.style.backgroundColor = styles.button.backgroundColor)

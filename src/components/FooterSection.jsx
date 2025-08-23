@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const FooterSection = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div
       style={{
         backgroundColor: "#f7f6f3",
-        padding: "clamp(2rem, 6vw, 3rem) clamp(1rem, 4vw, 2rem)",
+        padding: "clamp(2rem, 6vw, 3rem) 0",
         width: "100%",
         display: "flex",
         justifyContent: "center",
@@ -15,10 +23,10 @@ const FooterSection = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "stretch", // ✅ ensures same height
-          width: "90%",
+          alignItems: "stretch",
+          width: isMobile ? "90%" : "80%",
           gap: "clamp(1rem, 4vw, 2rem)",
-          flexWrap: "wrap",
+          flexDirection: isMobile ? "column" : "row", // ✅ stack on mobile
         }}
       >
         {/* White Box */}
@@ -27,8 +35,7 @@ const FooterSection = () => {
             background: "#fff",
             borderRadius: "16px",
             padding: "clamp(1.5rem, 4vw, 2.5rem)",
-            flex: "1 1 320px", // ✅ equal sizing
-            minWidth: "280px",
+            width: isMobile ? "100%" : "50%", // ✅ full width on mobile
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -48,7 +55,7 @@ const FooterSection = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(3, auto)",
+              gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(3, auto)", // ✅ fewer columns on mobile
               gap: "0.8rem 2rem",
               fontSize: "clamp(0.8rem, 1vw, 0.9rem)",
               marginBottom: "1.5rem",
@@ -95,7 +102,7 @@ const FooterSection = () => {
               color: "#888",
             }}
           >
-            © [2035] Solus. All Rights Reserved.
+            © {new Date().getFullYear()} Solus. All Rights Reserved.
           </p>
         </div>
 
@@ -106,8 +113,7 @@ const FooterSection = () => {
             color: "#fff",
             borderRadius: "20px",
             padding: "clamp(2rem, 5vw, 3rem)",
-            flex: "1 1 320px", // ✅ equal sizing
-            minWidth: "280px",
+            width: isMobile ? "100%" : "50%", // ✅ full width on mobile
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -134,7 +140,8 @@ const FooterSection = () => {
               color: "#00342e",
               border: "none",
               borderRadius: "30px",
-              padding: "clamp(0.7rem, 1.5vw, 0.9rem) clamp(1rem, 3vw, 1.25rem)",
+              padding:
+                "clamp(0.7rem, 1.5vw, 0.9rem) clamp(1rem, 3vw, 1.25rem)",
               fontSize: "clamp(0.9rem, 1vw, 1rem)",
               fontWeight: 600,
               cursor: "pointer",

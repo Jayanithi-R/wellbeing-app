@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import img from "../assets/community(2).png";
 
-const ResourcesSection = () => {
+const ServicesSection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
 
   useEffect(() => {
@@ -8,25 +9,24 @@ const ResourcesSection = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-}
-const ServicesSection = () => {
+
   const styles = {
     section: {
       fontFamily: "'Inter', sans-serif",
       backgroundColor: "#f9f9f7",
-      padding: "clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem)",
+      padding: "clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem)",
       textAlign: "center",
     },
     subheading: {
       textTransform: "uppercase",
       fontSize: "clamp(0.75rem, 1vw, 0.9rem)",
       color: "#4b5563",
-      marginBottom: "clamp(0.5rem, 1vw, 0.8rem)",
+    //   marginBottom: "clamp(0.5rem, 1vw, 0.8rem)",
       letterSpacing: "1px",
-      fontFamily:"Bricolage Grotesque",
+      fontFamily: "Bricolage Grotesque",
     },
     heading: {
-      fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
+      fontSize: "clamp(1.6rem, 3vw, 2.3rem)",
       fontWeight: "700",
       color: "#0f3d36",
       marginBottom: "clamp(0.5rem, 1.2vw, 1rem)",
@@ -39,23 +39,14 @@ const ServicesSection = () => {
       marginLeft: "auto",
       marginRight: "auto",
     },
-    gridcard:{
-       display:"flex",
-       width:"100%",
-       flexDirection:"column",
-       gap:"30px",
-       justifyContent:"center",
-    },
-
     grid: {
-      display: "flex",
-      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+      display: "grid",
+      gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 1fr))",
       gap: "clamp(1rem, 2vw, 1.5rem)",
-    //   maxWidth: "1100px",
-      margin: "0 auto",
-      flexDirection:"row",
-      width:"90%",
-
+      justifyContent: "center",
+      alignItems: "stretch",
+      width: "90%",
+      margin: "0 auto clamp(2rem, 4vw, 3rem)",
     },
     card: {
       backgroundColor: "#ffffff",
@@ -65,7 +56,8 @@ const ServicesSection = () => {
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
-      boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+      transition: "transform 0.3s ease",
     },
     cardAlt: {
       backgroundColor: "#fdecd8",
@@ -75,18 +67,21 @@ const ServicesSection = () => {
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
-      boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+      transition: "transform 0.3s ease",
     },
     cardTitle: {
-      fontSize: "clamp(1rem, 2vw, 1.25rem)",
+      fontSize: "40px",
       fontWeight: "600",
       color: "#0f3d36",
       marginBottom: "clamp(0.5rem, 1vw, 0.8rem)",
     },
     cardText: {
-      fontSize: "clamp(0.85rem, 1.2vw, 1rem)",
+      fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
       color: "#374151",
       marginBottom: "clamp(1rem, 2vw, 1.5rem)",
+      maxWidth: "95%",
+      lineHeight: 1.6,
     },
     button: {
       border: "1px solid #0f3d36",
@@ -97,6 +92,11 @@ const ServicesSection = () => {
       fontWeight: "500",
       cursor: "pointer",
       alignSelf: "flex-start",
+      transition: "all 0.3s ease",
+    },
+    buttonHover: {
+      background: "#0f3d36",
+      color: "#fff",
     },
     buttonFilled: {
       border: "none",
@@ -108,6 +108,7 @@ const ServicesSection = () => {
       fontWeight: "500",
       cursor: "pointer",
       alignSelf: "flex-start",
+      transition: "all 0.3s ease",
     },
     fullCard: {
       gridColumn: "1 / -1",
@@ -116,76 +117,95 @@ const ServicesSection = () => {
       borderRadius: "20px",
       textAlign: "left",
       display: "flex",
-      justifyContent: "center",
+      flexDirection: isMobile ? "column" : "row",
+    //   gap: isMobile ? "1.5rem" : "2rem",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+      width: "85%",
+      margin: "0 auto",
       alignItems: "center",
-      gap: "clamp(1rem, 2vw, 2rem)",
-      flexWrap: "wrap",
-      boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
-      width:"84%",
-      marginLeft:"5%",
-    //   marginTop:"10%", 
     },
     fullCardContent: {
-      flex: "1 1 60%",
-      minWidth: "280px",
-    //   marginLeft:"10%",
+      width: isMobile ? "100%" : "50%",
+      display:"flex",
+      flexDirection:"column",
+    },
+    text: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "clamp(0.8rem, 2vw, 1.5rem)",
+      flex: "1 1 auto",
     },
     illustration: {
-      width: "clamp(120px, 18vw, 160px)",
+      objectFit: "contain",
+      width: isMobile ? "100%" : "50%",
       height: "auto",
     },
   };
 
   return (
     <section style={styles.section}>
-      <p style={styles.subheading}>SERVICES</p>
-      <h2 style={styles.heading}>Your Path to Well-being</h2>
-      <p style={styles.description}>
-        Discover expert guidance for a healthier mind and balanced life.
-      </p>
+      <div style={styles.text}>
+        <p style={styles.subheading}>SERVICES</p>
+        <h2 style={styles.heading}>Your Path to Well-being</h2>
+        <p style={styles.description}>
+          Discover expert guidance for a healthier mind and balanced life.
+        </p>
+      </div>
 
-      <div style={styles.gridcard}>
-<div style={styles.grid}>
-        {/* Mindfulness Card */}
+      {/* Grid with two cards */}
+      <div style={styles.grid}>
         <div style={styles.cardAlt}>
           <h3 style={styles.cardTitle}>Mindfulness & Meditation</h3>
           <p style={styles.cardText}>
             Guided meditation sessions and stress management techniques.
           </p>
-          <button style={styles.button}>Learn More</button>
+          <button
+            style={styles.button}
+            onMouseEnter={(e) =>
+              Object.assign(e.target.style, styles.buttonHover)
+            }
+            onMouseLeave={(e) =>
+              Object.assign(e.target.style, styles.button)
+            }
+          >
+            Learn More
+          </button>
         </div>
 
-        {/* Therapy Card */}
         <div style={styles.card}>
           <h3 style={styles.cardTitle}>One-on-One Therapy</h3>
           <p style={styles.cardText}>
             Virtual and in-person therapy sessions with licensed professionals.
           </p>
-          <button style={styles.button}>Learn More</button>
+          <button
+            style={styles.button}
+            onMouseEnter={(e) =>
+              Object.assign(e.target.style, styles.buttonHover)
+            }
+            onMouseLeave={(e) =>
+              Object.assign(e.target.style, styles.button)
+            }
+          >
+            Learn More
+          </button>
         </div>
       </div>
-      
 
-        {/* Wellness Coaching Card */}
-        <div style={styles.fullCard}>
-          <div style={styles.fullCardContent}>
-            <h3 style={styles.cardTitle}>Wellness Coaching</h3>
-            <p style={styles.cardText}>
-              Personalized guidance to help you build healthier habits,<br/>
-              manage stress, and achieve balance in all areas of your life. <br />
-              <br />
-              Our wellness coaches support you in creating sustainable <br />routines
-              for mental, emotional, and physical well-being.
-            </p>
-            <button style={styles.buttonFilled}>Learn More</button>
-          </div>
-          {/* Replace with your illustration image */}
-          <img
-            // style={styles.illustration}
-            // src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
-            // alt="Wellness Illustration"
-          />
+      {/* Full-width card */}
+      <div style={styles.fullCard}>
+        <div style={styles.fullCardContent}>
+          <h3 style={styles.cardTitle}>Wellness Coaching</h3>
+          <p style={styles.cardText}>
+            Personalized guidance to help you build healthier habits, manage
+            stress, and achieve balance in all areas of your life. <br />
+            <br />
+            Our wellness coaches support you in creating sustainable routines for
+            mental, emotional, and physical well-being.
+          </p>
+          <button style={styles.buttonFilled}>Learn More</button>
         </div>
+
+        <img style={styles.illustration} src={img} alt="Wellness Illustration" />
       </div>
     </section>
   );
