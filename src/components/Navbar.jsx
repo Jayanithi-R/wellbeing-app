@@ -11,7 +11,7 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Breakpoints
+  // ✅ Breakpoint
   const isTabletOrMobile = screenWidth <= 768;
 
   const navbarStyle = {
@@ -22,35 +22,40 @@ const Navbar = () => {
     backgroundColor: "#f7f6f4",
     flexDirection: "row",
     position: "relative",
+    zIndex: 1000,
   };
 
   const navLinksStyle = {
     display: isTabletOrMobile ? (menuOpen ? "flex" : "none") : "flex",
-    gap: isTabletOrMobile ? "15px" : "32px",
+    gap: isTabletOrMobile ? "20px" : "32px",
     flexDirection: isTabletOrMobile ? "column" : "row",
-    alignItems: isTabletOrMobile ? "center" : "flex-start",
+    alignItems: "center",
     backgroundColor: isTabletOrMobile ? "#f7f6f4" : "transparent",
     position: isTabletOrMobile ? "absolute" : "static",
     top: isTabletOrMobile ? "60px" : "auto",
-    left: "0",
+    left: 0,
     width: isTabletOrMobile ? "100%" : "auto",
-    padding: isTabletOrMobile ? "15px 0" : "0",
+    padding: isTabletOrMobile ? "20px 0" : "0",
+    boxShadow: isTabletOrMobile ? "0 4px 6px rgba(0,0,0,0.1)" : "none",
+    flexWrap: "wrap",
+    justifyContent: isTabletOrMobile ? "center" : "flex-start",
   };
 
   const navLinkStyle = {
-    fontSize: isTabletOrMobile ? "14px" : "16px",
+    fontSize: isTabletOrMobile ? "16px" : "16px",
     color: "#003c3b",
     textDecoration: "none",
+    fontWeight: "500",
   };
 
   const navLogoStyle = {
     fontWeight: "bold",
-    fontSize: isTabletOrMobile ? "18px" : "20px",
+    fontSize: isTabletOrMobile ? "18px" : "22px",
     color: "#003c3b",
   };
 
   const hamburgerStyle = {
-    fontSize: "24px",
+    fontSize: "26px",
     cursor: "pointer",
     display: isTabletOrMobile ? "block" : "none",
     color: "#003c3b",
@@ -58,7 +63,7 @@ const Navbar = () => {
 
   return (
     <nav style={navbarStyle}>
-      {/* Desktop left links */}
+      {/* Left links (desktop only) */}
       {!isTabletOrMobile && (
         <div style={navLinksStyle}>
           <a href="#" style={navLinkStyle}>Home</a>
@@ -70,15 +75,22 @@ const Navbar = () => {
       {/* Logo */}
       <div style={navLogoStyle}>Solus</div>
 
-      {/* Hamburger (Tablet/Mobile only) */}
+      {/* Hamburger (mobile/tablet only) */}
       {isTabletOrMobile && (
         <div style={hamburgerStyle} onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
+          {menuOpen ? "✖" : "☰"}
         </div>
       )}
 
-      {/* Right links (and also all links in dropdown on mobile/tablet) */}
+      {/* Right links (desktop) OR full dropdown (mobile/tablet) */}
       <div style={navLinksStyle}>
+        {isTabletOrMobile && (
+          <>
+            <a href="#" style={navLinkStyle}>Home</a>
+            <a href="#" style={navLinkStyle}>About</a>
+            <a href="#" style={navLinkStyle}>Services</a>
+          </>
+        )}
         <a href="#" style={navLinkStyle}>Therapists</a>
         <a href="#" style={navLinkStyle}>Resources</a>
         <a href="#" style={navLinkStyle}>Contact</a>

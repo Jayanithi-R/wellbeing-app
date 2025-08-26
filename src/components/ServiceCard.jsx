@@ -128,17 +128,24 @@ const ServicesSection = () => {
       display: "flex",
       flexDirection: "column",
     },
+
+    // ✅ Responsive second image
     illustration: {
       objectFit: "contain",
       width: isMobile ? "100%" : "50%",
+      maxWidth: "500px",
       height: "auto",
+      alignSelf: isMobile ? "center" : "flex-end",
     },
+
+    // ✅ Responsive first image (top-right corner)
     decorImage: {
       position: "absolute",
-      right: "20px",
-      bottom: "20px",
-      width: "120px",
+      top: "clamp(10px, 2vw, 20px)",
+      right: "clamp(10px, 2vw, 20px)",
+      width: "clamp(60px, 12vw, 120px)",
       height: "auto",
+      pointerEvents: "none",
     },
   };
 
@@ -161,12 +168,14 @@ const ServicesSection = () => {
             Guided meditation sessions and stress management techniques.
           </p>
 
-          {/* Decorative image positioned right */}
+          {/* Decorative image positioned top-right */}
           <img src={img2} alt="decor" style={styles.decorImage} />
 
           <button
             style={styles.button}
-            onMouseEnter={(e) => Object.assign(e.target.style, styles.buttonHover)}
+            onMouseEnter={(e) =>
+              Object.assign(e.target.style, styles.buttonHover)
+            }
             onMouseLeave={(e) => Object.assign(e.target.style, styles.button)}
           >
             Learn More
@@ -180,7 +189,9 @@ const ServicesSection = () => {
           </p>
           <button
             style={styles.button}
-            onMouseEnter={(e) => Object.assign(e.target.style, styles.buttonHover)}
+            onMouseEnter={(e) =>
+              Object.assign(e.target.style, styles.buttonHover)
+            }
             onMouseLeave={(e) => Object.assign(e.target.style, styles.button)}
           >
             Learn More
@@ -201,7 +212,11 @@ const ServicesSection = () => {
           </p>
           <button style={styles.buttonFilled}>Learn More</button>
         </div>
-        <img style={styles.illustration} src={img} alt="Wellness Illustration" />
+        <img
+          style={styles.illustration}
+          src={img}
+          alt="Wellness Illustration"
+        />
       </div>
     </section>
   );
