@@ -19,6 +19,7 @@ const HeroSection = () => {
         style={{
           flex: "1 1 clamp(280px, 40%, 500px)",
           minWidth: "clamp(280px, 45%, 500px)",
+          width:"45%",
           textAlign: "left",
         }}
       >

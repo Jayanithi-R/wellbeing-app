@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
           justifyContent: "center",
           alignItems: isMobile ? "center" : "flex-start",
           gap: "clamp(2rem, 4vw, 3rem)",
-          width: "90%",
+          width: "85%",
           maxWidth: "1200px",
           margin: "0 auto",
         }}

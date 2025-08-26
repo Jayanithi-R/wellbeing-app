@@ -93,6 +93,8 @@ const ServicesSection = () => {
       cursor: "pointer",
       alignSelf: "flex-start",
       transition: "all 0.3s ease",
+        color: "#0f3d36",
+      
     },
     buttonHover: {
       background: "#0f3d36",
@@ -103,7 +105,7 @@ const ServicesSection = () => {
       padding: "clamp(0.6rem, 1.2vw, 0.9rem) clamp(1.2rem, 2.5vw, 1.5rem)",
       borderRadius: "30px",
       background: "#0f3d36",
-      color: "#fff",
+      color: "#291616ff",
       fontSize: "clamp(0.8rem, 1vw, 0.9rem)",
       fontWeight: "500",
       cursor: "pointer",
@@ -128,24 +130,19 @@ const ServicesSection = () => {
       display: "flex",
       flexDirection: "column",
     },
-
-    // ✅ Responsive second image
     illustration: {
       objectFit: "contain",
       width: isMobile ? "100%" : "50%",
-      maxWidth: "500px",
       height: "auto",
-      alignSelf: isMobile ? "center" : "flex-end",
     },
-
-    // ✅ Responsive first image (top-right corner)
+    // ✅ Responsive decorative image
     decorImage: {
       position: "absolute",
       top: "clamp(10px, 2vw, 20px)",
       right: "clamp(10px, 2vw, 20px)",
-      width: "clamp(60px, 12vw, 120px)",
+      width: "clamp(60px, 15vw, 120px)", // scales between 60px → 120px
       height: "auto",
-      pointerEvents: "none",
+      pointerEvents: "none", // doesn’t block clicks
     },
   };
 
@@ -168,14 +165,12 @@ const ServicesSection = () => {
             Guided meditation sessions and stress management techniques.
           </p>
 
-          {/* Decorative image positioned top-right */}
+          {/* Decorative image positioned right */}
           <img src={img2} alt="decor" style={styles.decorImage} />
 
           <button
             style={styles.button}
-            onMouseEnter={(e) =>
-              Object.assign(e.target.style, styles.buttonHover)
-            }
+            onMouseEnter={(e) => Object.assign(e.target.style, styles.buttonHover)}
             onMouseLeave={(e) => Object.assign(e.target.style, styles.button)}
           >
             Learn More
@@ -189,9 +184,7 @@ const ServicesSection = () => {
           </p>
           <button
             style={styles.button}
-            onMouseEnter={(e) =>
-              Object.assign(e.target.style, styles.buttonHover)
-            }
+            onMouseEnter={(e) => Object.assign(e.target.style, styles.buttonHover)}
             onMouseLeave={(e) => Object.assign(e.target.style, styles.button)}
           >
             Learn More
@@ -212,11 +205,7 @@ const ServicesSection = () => {
           </p>
           <button style={styles.buttonFilled}>Learn More</button>
         </div>
-        <img
-          style={styles.illustration}
-          src={img}
-          alt="Wellness Illustration"
-        />
+        <img style={styles.illustration} src={img} alt="Wellness Illustration" />
       </div>
     </section>
   );

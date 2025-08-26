@@ -12,6 +12,7 @@ const ContactSection = () => {
       flexDirection: "column",
       gap: "clamp(20px, 3vw, 40px)",
       boxSizing: "border-box",
+      alignItems: "center",
     },
     smallHeading: {
       textTransform: "uppercase",
@@ -38,31 +39,30 @@ const ContactSection = () => {
     box: {
       display: "flex",
       flexWrap: "wrap",
-      justifyContent: "center",
-      // gap: "clamp(20px, 4vw, 40px)",
-      // maxWidth: "1000px",
-      // margin: "0 auto",
+      justifyContent: "space-between",
+      alignItems: "stretch",
       background: "#fff",
       borderRadius: "20px",
       padding: "clamp(30px, 5vw, 60px)",
       boxShadow: "0px 4px 12px rgba(0,0,0,0.06)",
       boxSizing: "border-box",
+      gap: "clamp(20px, 4vw, 40px)", // ensures spacing on smaller screens
+      width: "100%",
+      maxWidth: "1100px",
     },
     left: {
-      flex: "1 1 clamp(260px, 45%, 450px)",
-      minWidth: "clamp(260px, 45%, 450px)",
+      flex: "1 1 320px", // min width for mobile
       textAlign: "left",
     },
     right: {
-      flex: "1 1 clamp(260px, 45%, 450px)",
-      minWidth: "clamp(260px, 45%, 450px)",
+      flex: "1 1 320px", // min width for mobile
       background: "#fefaf5",
       borderRadius: "20px",
       padding: "clamp(20px, 3vw, 25px)",
       textAlign: "left",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-between",
+      justifyContent: "flex-start",
       boxSizing: "border-box",
     },
     heading3: {
@@ -132,14 +132,13 @@ const ContactSection = () => {
   return (
     <div style={styles.container}>
       <div>
- <p style={styles.smallHeading}>GET IN TOUCH</p>
-      <h2 style={styles.mainHeading}>We’re Here to Support You</h2>
-      <p style={styles.subHeading}>
-        Whether you have questions, need help getting started, or want to learn more — reach out anytime.
-      </p>
+        <p style={styles.smallHeading}>GET IN TOUCH</p>
+        <h2 style={styles.mainHeading}>We’re Here to Support You</h2>
+        <p style={styles.subHeading}>
+          Whether you have questions, need help getting started, or want to learn more — reach out anytime.
+        </p>
       </div>
-      
-     
+
       <div style={styles.box}>
         {/* Left Side */}
         <div style={styles.left}>

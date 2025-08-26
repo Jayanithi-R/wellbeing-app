@@ -66,8 +66,7 @@ const ResourcesSection = () => {
       display: "grid",
       gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
       gap: "25px",
-      width: "100%",
-      maxWidth: "1000px",
+      width: "90%",
       margin: "0 auto",
     },
     card: {
