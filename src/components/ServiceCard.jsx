@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import img from "../assets/community(2).png";
+import img2 from "../assets/extraImage.png";
 
 const ServicesSection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
@@ -21,7 +22,6 @@ const ServicesSection = () => {
       textTransform: "uppercase",
       fontSize: "clamp(0.75rem, 1vw, 0.9rem)",
       color: "#4b5563",
-    //   marginBottom: "clamp(0.5rem, 1vw, 0.8rem)",
       letterSpacing: "1px",
       fontFamily: "Bricolage Grotesque",
     },
@@ -41,7 +41,7 @@ const ServicesSection = () => {
     },
     grid: {
       display: "grid",
-      gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 1fr))",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
       gap: "clamp(1rem, 2vw, 1.5rem)",
       justifyContent: "center",
       alignItems: "stretch",
@@ -57,7 +57,6 @@ const ServicesSection = () => {
       flexDirection: "column",
       justifyContent: "space-between",
       boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-      transition: "transform 0.3s ease",
     },
     cardAlt: {
       backgroundColor: "#fdecd8",
@@ -68,10 +67,11 @@ const ServicesSection = () => {
       flexDirection: "column",
       justifyContent: "space-between",
       boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-      transition: "transform 0.3s ease",
+      position: "relative",
+      overflow: "hidden",
     },
     cardTitle: {
-      fontSize: "40px",
+      fontSize: "22px",
       fontWeight: "600",
       color: "#0f3d36",
       marginBottom: "clamp(0.5rem, 1vw, 0.8rem)",
@@ -108,7 +108,6 @@ const ServicesSection = () => {
       fontWeight: "500",
       cursor: "pointer",
       alignSelf: "flex-start",
-      transition: "all 0.3s ease",
     },
     fullCard: {
       gridColumn: "1 / -1",
@@ -118,33 +117,34 @@ const ServicesSection = () => {
       textAlign: "left",
       display: "flex",
       flexDirection: isMobile ? "column" : "row",
-    //   gap: isMobile ? "1.5rem" : "2rem",
       boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
       width: "85%",
       margin: "0 auto",
       alignItems: "center",
+      gap: "2rem",
     },
     fullCardContent: {
       width: isMobile ? "100%" : "50%",
-      display:"flex",
-      flexDirection:"column",
-    },
-    text: {
       display: "flex",
       flexDirection: "column",
-      gap: "clamp(0.8rem, 2vw, 1.5rem)",
-      flex: "1 1 auto",
     },
     illustration: {
       objectFit: "contain",
       width: isMobile ? "100%" : "50%",
       height: "auto",
     },
+    decorImage: {
+      position: "absolute",
+      right: "20px",
+      bottom: "20px",
+      width: "120px",
+      height: "auto",
+    },
   };
 
   return (
     <section style={styles.section}>
-      <div style={styles.text}>
+      <div>
         <p style={styles.subheading}>SERVICES</p>
         <h2 style={styles.heading}>Your Path to Well-being</h2>
         <p style={styles.description}>
@@ -152,21 +152,22 @@ const ServicesSection = () => {
         </p>
       </div>
 
-      {/* Grid with two cards */}
+      {/* Two cards */}
       <div style={styles.grid}>
+        {/* Mindfulness card with right-side image */}
         <div style={styles.cardAlt}>
           <h3 style={styles.cardTitle}>Mindfulness & Meditation</h3>
           <p style={styles.cardText}>
             Guided meditation sessions and stress management techniques.
           </p>
+
+          {/* Decorative image positioned right */}
+          <img src={img2} alt="decor" style={styles.decorImage} />
+
           <button
             style={styles.button}
-            onMouseEnter={(e) =>
-              Object.assign(e.target.style, styles.buttonHover)
-            }
-            onMouseLeave={(e) =>
-              Object.assign(e.target.style, styles.button)
-            }
+            onMouseEnter={(e) => Object.assign(e.target.style, styles.buttonHover)}
+            onMouseLeave={(e) => Object.assign(e.target.style, styles.button)}
           >
             Learn More
           </button>
@@ -179,19 +180,15 @@ const ServicesSection = () => {
           </p>
           <button
             style={styles.button}
-            onMouseEnter={(e) =>
-              Object.assign(e.target.style, styles.buttonHover)
-            }
-            onMouseLeave={(e) =>
-              Object.assign(e.target.style, styles.button)
-            }
+            onMouseEnter={(e) => Object.assign(e.target.style, styles.buttonHover)}
+            onMouseLeave={(e) => Object.assign(e.target.style, styles.button)}
           >
             Learn More
           </button>
         </div>
       </div>
 
-      {/* Full-width card */}
+      {/* Full card */}
       <div style={styles.fullCard}>
         <div style={styles.fullCardContent}>
           <h3 style={styles.cardTitle}>Wellness Coaching</h3>
@@ -204,7 +201,6 @@ const ServicesSection = () => {
           </p>
           <button style={styles.buttonFilled}>Learn More</button>
         </div>
-
         <img style={styles.illustration} src={img} alt="Wellness Illustration" />
       </div>
     </section>

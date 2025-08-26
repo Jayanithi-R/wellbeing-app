@@ -135,7 +135,7 @@ const FooterSection = () => {
               position: "absolute",
               top: "0",
               right: "0",
-              width: "228.38px",
+              width: "150px",
               height: "auto",
               borderBottomRightRadius: "20px",
             }}
