@@ -105,7 +105,7 @@ const ServicesSection = () => {
       padding: "clamp(0.6rem, 1.2vw, 0.9rem) clamp(1.2rem, 2.5vw, 1.5rem)",
       borderRadius: "30px",
       background: "#0f3d36",
-      color: "#291616ff",
+      color: "#ffffffff",
       fontSize: "clamp(0.8rem, 1vw, 0.9rem)",
       fontWeight: "500",
       cursor: "pointer",
