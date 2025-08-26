@@ -160,7 +160,7 @@ const TestimonialsSection = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              flex: "0 0 auto",
+              // flex: "0 0 auto",
               scrollSnapAlign: "start",
             }}
           >
@@ -194,7 +194,7 @@ const TestimonialsSection = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              flex: "0 0 auto",
+              // flex: "0 0 auto",
               scrollSnapAlign: "start",
             }}
           >
@@ -227,7 +227,7 @@ const TestimonialsSection = () => {
           alignItems: "center",
           justifyContent: "center",
           gap: "1.5rem",
-          flexWrap: "wrap",
+          // flexWrap: "wrap",
         }}
       >
         <p
