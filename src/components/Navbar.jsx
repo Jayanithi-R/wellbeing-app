@@ -5,13 +5,14 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth);
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+      if (window.innerWidth > 768) setMenuOpen(false); // close menu if resizing to desktop
+    };
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Breakpoint
   const isTabletOrMobile = screenWidth <= 768;
 
   const navbarStyle = {
@@ -20,38 +21,39 @@ const Navbar = () => {
     alignItems: "center",
     padding: isTabletOrMobile ? "12px 16px" : "20px 40px",
     backgroundColor: "#f7f6f4",
-    flexDirection: "row",
     position: "relative",
-    zIndex: 1000,
+    boxSizing: "border-box",
   };
 
   const navLinksStyle = {
     display: isTabletOrMobile ? (menuOpen ? "flex" : "none") : "flex",
-    gap: isTabletOrMobile ? "20px" : "32px",
     flexDirection: isTabletOrMobile ? "column" : "row",
-    alignItems: "center",
-    backgroundColor: isTabletOrMobile ? "#f7f6f4" : "transparent",
+    alignItems: isTabletOrMobile ? "center" : "center",
+    gap: isTabletOrMobile ? "20px" : "32px",
     position: isTabletOrMobile ? "absolute" : "static",
     top: isTabletOrMobile ? "60px" : "auto",
-    left: 0,
+    left: "0",
     width: isTabletOrMobile ? "100%" : "auto",
+    backgroundColor: isTabletOrMobile ? "#f7f6f4" : "transparent",
     padding: isTabletOrMobile ? "20px 0" : "0",
-    boxShadow: isTabletOrMobile ? "0 4px 6px rgba(0,0,0,0.1)" : "none",
-    flexWrap: "wrap",
-    justifyContent: isTabletOrMobile ? "center" : "flex-start",
+    borderRadius: isTabletOrMobile ? "0 0 12px 12px" : "0",
+    boxShadow: isTabletOrMobile && menuOpen ? "0px 4px 10px rgba(0,0,0,0.1)" : "none",
+    zIndex: 1000,
   };
 
   const navLinkStyle = {
-    fontSize: isTabletOrMobile ? "16px" : "16px",
+    fontSize: isTabletOrMobile ? "15px" : "16px",
     color: "#003c3b",
     textDecoration: "none",
-    fontWeight: "500",
+    fontWeight: 500,
+    transition: "color 0.3s",
   };
 
   const navLogoStyle = {
     fontWeight: "bold",
-    fontSize: isTabletOrMobile ? "18px" : "22px",
+    fontSize: isTabletOrMobile ? "18px" : "20px",
     color: "#003c3b",
+    zIndex: 1100,
   };
 
   const hamburgerStyle = {
@@ -59,13 +61,14 @@ const Navbar = () => {
     cursor: "pointer",
     display: isTabletOrMobile ? "block" : "none",
     color: "#003c3b",
+    zIndex: 1100,
   };
 
   return (
     <nav style={navbarStyle}>
-      {/* Left links (desktop only) */}
+      {/* Desktop left links */}
       {!isTabletOrMobile && (
-        <div style={navLinksStyle}>
+        <div style={{ display: "flex", gap: "32px" }}>
           <a href="#" style={navLinkStyle}>Home</a>
           <a href="#" style={navLinkStyle}>About</a>
           <a href="#" style={navLinkStyle}>Services</a>
@@ -75,14 +78,14 @@ const Navbar = () => {
       {/* Logo */}
       <div style={navLogoStyle}>Solus</div>
 
-      {/* Hamburger (mobile/tablet only) */}
+      {/* Hamburger */}
       {isTabletOrMobile && (
         <div style={hamburgerStyle} onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? "✖" : "☰"}
+          {menuOpen ? "✕" : "☰"}
         </div>
       )}
 
-      {/* Right links (desktop) OR full dropdown (mobile/tablet) */}
+      {/* Right links (Desktop) OR Dropdown (Mobile/Tablet) */}
       <div style={navLinksStyle}>
         {isTabletOrMobile && (
           <>
