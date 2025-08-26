@@ -1,47 +1,46 @@
 import React, { useState, useEffect } from "react";
-
-const ResourcesSection = () => {
+function Cal() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 769);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+}
+const ResourcesSection = () => {
   const resources = [
     {
       title: "Articles & Guides",
       description:
         "Practical tips on stress management, mindfulness, and emotional resilience.",
-      buttonColor: "#facc15",
+      buttonColor: "#facc15", // yellow
     },
     {
       title: "Meditation & Relaxation",
       description:
         "Audio sessions for guided meditation and deep breathing exercises.",
-      buttonColor: "#34d399",
+      buttonColor: "#34d399", // green
     },
     {
       title: "Webinars & Workshops",
       description:
         "Live and recorded sessions with mental health professionals.",
-      buttonColor: "#f9a8d4",
+      buttonColor: "#f9a8d4", // pink
     },
   ];
 
+  // ✅ Styles as const object
   const styles = {
     section: {
       backgroundColor: "#f9f9f7",
-      padding: "60px 60px",
+      padding: "60px 20px",
+        
       textAlign: "center",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
     },
-    container: {
-      maxWidth: "600px",
-      margin: "0 auto 40px",
+    header: {
+      maxWidth: "650px",
+      margin: "0 auto 50px",
     },
     smallHeading: {
       fontSize: "0.75rem",
@@ -56,6 +55,7 @@ const ResourcesSection = () => {
       fontWeight: 800,
       color: "#00332c",
       marginBottom: "20px",
+      lineHeight: 1.3,
     },
     subText: {
       fontSize: "1rem",
@@ -64,9 +64,9 @@ const ResourcesSection = () => {
     },
     grid: {
       display: "grid",
-      gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
       gap: "25px",
-      width: "90%",
+      maxWidth: "1100px",
       margin: "0 auto",
     },
     card: {
@@ -74,10 +74,10 @@ const ResourcesSection = () => {
       borderRadius: "20px",
       padding: "30px 20px",
       boxShadow: "0 4px 10px rgba(0, 0, 0, 0.05)",
-      textAlign: "center",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-between",
+      alignItems: "center",
+      textAlign: "center",
     },
     cardTitle: {
       fontSize: "1.25rem",
@@ -100,15 +100,16 @@ const ResourcesSection = () => {
       color: "#fff",
       cursor: "pointer",
       transition: "transform 0.2s ease",
-      alignSelf: "center",
     },
   };
 
   return (
     <section style={styles.section}>
-      <div style={styles.container}>
+      <div style={styles.header}>
         <p style={styles.smallHeading}>EXPLORE & LEARN</p>
-        <h2 style={styles.mainHeading}>Resources for Your Well-being</h2>
+        <h2 style={styles.mainHeading}>
+          Resources for <br /> Your Well-being
+        </h2>
         <p style={styles.subText}>
           Explore expert insights, self-care guides, and tools to support your
           mental health.

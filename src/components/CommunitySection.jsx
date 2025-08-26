@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import communityImg from "../assets/community(2).png"; // ✅ imported from src/assets
+import communityImg from "../assets/community(3).png"; // ✅ imported from src/assets
 
 const CommunitySection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);

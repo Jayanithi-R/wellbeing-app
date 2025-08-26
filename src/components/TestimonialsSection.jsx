@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import partner1 from "../assets/partner1.png";
@@ -9,6 +9,7 @@ import partner5 from "../assets/partner5.png";
 
 const TestimonialsSection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -18,37 +19,40 @@ const TestimonialsSection = () => {
 
   const partnerLogos = [partner1, partner2, partner3, partner4, partner5];
 
+  // Scroll functions
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       style={{
         backgroundColor: "#f7f6f3",
-        padding: "clamp(2rem, 5vw, 4rem) 0",
+        padding: "clamp(2rem, 6vw, 4rem) clamp(1.5rem, 5vw, 2.5rem)",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        width: "100%",
+        gap: "2rem",
       }}
     >
       {/* Top Section */}
       <div
         style={{
           display: "flex",
-          flexDirection: isMobile ? "column" : "row",
-          justifyContent: "center",
-          alignItems: isMobile ? "center" : "flex-start",
-          gap: "clamp(2rem, 4vw, 3rem)",
-          width: "85%",
-          maxWidth: "1200px",
-          margin: "0 auto",
+          justifyContent: "space-between",
+          gap: "clamp(1.5rem, 4vw, 3rem)",
+          flexWrap: "wrap",
         }}
       >
         {/* Left Header */}
-        <div
-          style={{
-            width: isMobile ? "100%" : "35%",
-            textAlign: isMobile ? "center" : "left",
-          }}
-        >
+        <div style={{ flex: 1, minWidth: "clamp(220px, 40%, 350px)" }}>
           <p
             style={{
               fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
@@ -62,11 +66,10 @@ const TestimonialsSection = () => {
           </p>
           <h2
             style={{
-              fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)",
+              fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
               fontWeight: 700,
               color: "#00342e",
-              margin: "clamp(0.5rem, 1vw, 1rem) 0",
-              lineHeight: 1.3,
+              margin: "clamp(0.5rem, 1.2vw, 1rem) 0",
             }}
           >
             What Our Clients Are Saying
@@ -74,7 +77,7 @@ const TestimonialsSection = () => {
           <p
             style={{
               color: "#265a55",
-              fontSize: "clamp(0.9rem, 1.1vw, 1rem)",
+              fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
               lineHeight: 1.6,
             }}
           >
@@ -82,80 +85,83 @@ const TestimonialsSection = () => {
             benefited from therapy or wellness programs.
           </p>
 
-          {/* Arrows */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: isMobile ? "center" : "flex-start",
-              gap: "clamp(0.8rem, 1vw, 1rem)",
-              marginTop: "clamp(1rem, 2vw, 1.5rem)",
-            }}
-          >
-            <button
+          {/* Arrow Buttons */}
+          {isMobile && (
+            <div
               style={{
-                width: "clamp(2.4rem, 3vw, 2.8rem)",
-                height: "clamp(2.4rem, 3vw, 2.8rem)",
-                borderRadius: "50%",
-                fontSize: "clamp(0.9rem, 1vw, 1rem)",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                backgroundColor: "#ffffff",
-                color: "#00342e",
-                border: "1px solid #e0e0e0",
-                transition: "all 0.3s ease",
+                gap: "1rem",
+                marginTop: "1rem",
               }}
             >
-              <FaArrowLeft />
-            </button>
-            <button
-              style={{
-                width: "clamp(2.4rem, 3vw, 2.8rem)",
-                height: "clamp(2.4rem, 3vw, 2.8rem)",
-                borderRadius: "50%",
-                fontSize: "clamp(0.9rem, 1vw, 1rem)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                backgroundColor: "#00342e",
-                color: "#ffffff",
-                border: "none",
-                transition: "all 0.3s ease",
-              }}
-            >
-              <FaArrowRight />
-            </button>
-          </div>
+              <button
+                onClick={scrollLeft}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  backgroundColor: "#ffffff",
+                  color: "#00342e",
+                  border: "1px solid #e0e0e0",
+                }}
+              >
+                <FaArrowLeft />
+              </button>
+              <button
+                onClick={scrollRight}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  backgroundColor: "#00342e",
+                  color: "#ffffff",
+                  border: "none",
+                }}
+              >
+                <FaArrowRight />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Right Testimonial Cards */}
         <div
+          ref={scrollRef}
           style={{
             display: "flex",
-            flexDirection: isMobile ? "column" : "row",
-            gap: "clamp(1rem, 2vw, 1.5rem)",
-            flex: "2 1 500px",
-            justifyContent: "center",
-            alignItems: "stretch",
-            width: "100%",
+            flexDirection: "row",
+            gap: "1rem",
+            flex: 2,
+            minWidth: "clamp(250px, 50%, 320px)",
+            overflowX: isMobile ? "auto" : "visible",
+            scrollSnapType: isMobile ? "x mandatory" : "none",
+            paddingBottom: isMobile ? "1rem" : 0,
           }}
         >
           {/* Card 1 */}
           <div
             style={{
               borderRadius: "24px",
-              padding: "clamp(1.2rem, 2vw, 1.8rem)",
-              flex: isMobile ? 0 : "1 1 35%",
+              padding: "1rem",
+              width: "clamp(250px, 28vw, 320px)",
               lineHeight: 1.6,
-              fontSize: "clamp(0.9rem, 1vw, 1rem)",
-              boxShadow: "0px 4px 12px rgba(0,0,0,0.08)",
+              fontSize: "0.9rem",
+              boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
               backgroundColor: "#fce8d2",
               color: "#2d2d2d",
               display: "flex",
               flexDirection: "column",
-              // justifyContent: "space-between",
+              justifyContent: "space-between",
+              flex: "0 0 auto",
+              scrollSnapAlign: "start",
             }}
           >
             <p>
@@ -165,9 +171,9 @@ const TestimonialsSection = () => {
             </p>
             <p
               style={{
-                marginTop: "1rem",
+                marginTop: "0.8rem",
                 fontWeight: 500,
-                fontSize: "clamp(0.8rem, 0.9vw, 0.85rem)",
+                fontSize: "0.85rem",
               }}
             >
               — Anna R., 32
@@ -178,16 +184,18 @@ const TestimonialsSection = () => {
           <div
             style={{
               borderRadius: "24px",
-              padding: "clamp(1.2rem, 2vw, 1.8rem)",
-              flex: isMobile ? 0 : "1 1 35%",
+              padding: "1rem",
+              width: "clamp(250px, 28vw, 320px)",
               lineHeight: 1.6,
-              fontSize: "clamp(0.9rem, 1vw, 1rem)",
-              boxShadow: "0px 4px 12px rgba(0,0,0,0.08)",
+              fontSize: "0.9rem",
+              boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
               backgroundColor: "#00454b",
               color: "#ffffff",
               display: "flex",
               flexDirection: "column",
-              // justifyContent: "space-between",
+              justifyContent: "space-between",
+              flex: "0 0 auto",
+              scrollSnapAlign: "start",
             }}
           >
             <p>
@@ -197,9 +205,9 @@ const TestimonialsSection = () => {
             </p>
             <p
               style={{
-                marginTop: "1rem",
+                marginTop: "0.8rem",
                 fontWeight: 500,
-                fontSize: "clamp(0.8rem, 0.9vw, 0.85rem)",
+                fontSize: "0.85rem",
               }}
             >
               — Mark S., 41
@@ -213,22 +221,20 @@ const TestimonialsSection = () => {
         style={{
           backgroundColor: "white",
           borderRadius: "36px",
-          padding: "clamp(1.5rem, 4vw, 2.5rem)",
-          marginTop: "clamp(2rem, 5vw, 3rem)",
+          padding: "2rem",
+          marginTop: "2rem",
           display: "flex",
-          flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          // gap: "clamp(1rem, 2vw, 1.5rem)",
-          width: "80%",
-          // maxWidth: "1100px",
+          gap: "1.5rem",
+          flexWrap: "wrap",
         }}
       >
         <p
           style={{
             fontWeight: 600,
             color: "#00342e",
-            fontSize: "clamp(0.9rem, 1vw, 1rem)",
+            fontSize: "1rem",
             textAlign: "center",
           }}
         >
@@ -237,10 +243,9 @@ const TestimonialsSection = () => {
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap",
-            gap: "clamp(1rem, 3vw, 4rem)",
+            gap: "2rem",
             justifyContent: "center",
-            alignItems: "center",
+            flexWrap: "wrap",
             width: "100%",
           }}
         >
@@ -250,8 +255,8 @@ const TestimonialsSection = () => {
               src={src}
               alt={`Partner ${index + 1}`}
               style={{
-                height: "clamp(30px, 4vw, 50px)",
-                maxWidth: "clamp(70px, 12vw, 150px)",
+                height: "40px",
+                maxWidth: "120px",
                 objectFit: "contain",
               }}
             />
