@@ -80,6 +80,7 @@ const ResourcesSection = () => {
       maxWidth: "400px",
       margin: "0 auto",
       width: "100%",
+      marginInline: "34px",
     },
 
     card: {

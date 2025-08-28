@@ -85,7 +85,7 @@ const FAQSection = () => {
       background: "#F9E6D0",
       borderRadius: "24px",
       width: "100%",
-      height: isMobile ? "160px" : "220px",
+      height: isMobile ? "180px" : "220px",
       position: "relative",
       overflow: "hidden",
     },

@@ -92,7 +92,7 @@ const TestimonialsSection = () => {
             benefited from therapy or wellness programs.
           </p>
 
-          {/* Arrow Buttons always visible */}
+          {/* Arrow Buttons */}
           <div
             style={{
               display: "flex",
@@ -138,12 +138,12 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Right Testimonial Cards (aligned right) */}
+        {/* Right Testimonial Cards */}
         <div
           style={{
             display: "flex",
-            justifyContent: isMobile ? "center" : "flex-end", // ✅ align right on desktop
-            marginRight: isMobile ? "0" : "40px", // ✅ safe gap from scrollbar
+            justifyContent: isMobile ? "center" : "flex-end",
+            marginRight: isMobile ? "0" : "40px",
             width: "100%",
           }}
         >
@@ -230,7 +230,7 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      {/* Partners Section */}
+      {/* ✅ Updated Partners Section */}
       <div
         style={{
           backgroundColor: "white",
@@ -239,8 +239,11 @@ const TestimonialsSection = () => {
           marginTop: "2rem",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          gap: "1.5rem",
+          justifyContent: "space-between",
+          gap: "2rem",
+          // maxWidth: "1000px",   // compressed width
+          // marginInline: "32px", // center align with page
+          flexWrap: "wrap",
         }}
       >
         <p
@@ -249,6 +252,7 @@ const TestimonialsSection = () => {
             color: "#00342e",
             fontSize: "1rem",
             textAlign: "center",
+            minWidth: "120px",
           }}
         >
           Our Partners
@@ -259,7 +263,7 @@ const TestimonialsSection = () => {
             gap: "2rem",
             justifyContent: "center",
             flexWrap: "wrap",
-            width: "100%",
+            flex: 1,
           }}
         >
           {partnerLogos.map((src, index) => (
@@ -268,8 +272,8 @@ const TestimonialsSection = () => {
               src={src}
               alt={`Partner ${index + 1}`}
               style={{
-                height: "40px",
-                maxWidth: "120px",
+                height: "35px",
+                maxWidth: "110px",
                 objectFit: "contain",
               }}
             />
