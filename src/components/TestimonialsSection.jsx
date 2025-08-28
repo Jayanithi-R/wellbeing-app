@@ -139,19 +139,21 @@ const TestimonialsSection = () => {
             display: "flex",
             flexDirection: "row",
             gap: "1rem",
-            flex: 2,
-            minWidth: "clamp(250px, 50%, 320px)",
-            overflowX: isMobile ? "auto" : "visible",
-            scrollSnapType: isMobile ? "x mandatory" : "none",
-            paddingBottom: isMobile ? "1rem" : 0,
+            overflowX: "auto",
+            scrollSnapType: "x mandatory",
+            paddingBottom: "1rem",
+            direction:  "ltr",
+            WebkitOverflowScrolling: "touch",
           }}
         >
           {/* Card 1 */}
           <div
             style={{
+              direction: "ltr",
+              flex: "0 0 auto",
+              width: "clamp(250px, 80vw, 320px)",
               borderRadius: "24px",
               padding: "1rem",
-              width: "clamp(250px, 28vw, 320px)",
               lineHeight: 1.6,
               fontSize: "0.9rem",
               boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
@@ -160,7 +162,6 @@ const TestimonialsSection = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              // flex: "0 0 auto",
               scrollSnapAlign: "start",
             }}
           >
@@ -183,9 +184,11 @@ const TestimonialsSection = () => {
           {/* Card 2 */}
           <div
             style={{
+              direction: "ltr",
+              flex: "0 0 auto",
+              width: "clamp(250px, 80vw, 320px)",
               borderRadius: "24px",
               padding: "1rem",
-              width: "clamp(250px, 28vw, 320px)",
               lineHeight: 1.6,
               fontSize: "0.9rem",
               boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
@@ -194,7 +197,6 @@ const TestimonialsSection = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              // flex: "0 0 auto",
               scrollSnapAlign: "start",
             }}
           >
@@ -227,7 +229,6 @@ const TestimonialsSection = () => {
           alignItems: "center",
           justifyContent: "center",
           gap: "1.5rem",
-          // flexWrap: "wrap",
         }}
       >
         <p
