@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-function Cal() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 769);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-}
+
 const ResourcesSection = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const resources = [
     {
       title: "Articles & Guides",
@@ -30,12 +30,11 @@ const ResourcesSection = () => {
     },
   ];
 
-  // ✅ Styles as const object
+  // ✅ Styles
   const styles = {
     section: {
       backgroundColor: "#f9f9f7",
       padding: "60px 20px",
-        
       textAlign: "center",
     },
     header: {
@@ -62,14 +61,27 @@ const ResourcesSection = () => {
       color: "#404040",
       lineHeight: 1.6,
     },
-    grid: {
+
+    // Desktop → grid
+    gridDesktop: {
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
       gap: "25px",
       maxWidth: "1100px",
       margin: "0 auto",
-      width:"91%",
+      width: "91%",
     },
+
+    // Mobile → stacked (one by one)
+    gridMobile: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "20px",
+      maxWidth: "400px",
+      margin: "0 auto",
+      width: "100%",
+    },
+
     card: {
       background: "#ffffff",
       borderRadius: "20px",
@@ -117,7 +129,8 @@ const ResourcesSection = () => {
         </p>
       </div>
 
-      <div style={styles.grid}>
+      {/* ✅ Desktop → grid / Mobile → stacked */}
+      <div style={isMobile ? styles.gridMobile : styles.gridDesktop}>
         {resources.map((res, index) => (
           <div key={index} style={styles.card}>
             <h3 style={styles.cardTitle}>{res.title}</h3>

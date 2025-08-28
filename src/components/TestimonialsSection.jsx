@@ -52,7 +52,14 @@ const TestimonialsSection = () => {
         }}
       >
         {/* Left Header */}
-        <div style={{ flex: 1, minWidth: "clamp(220px, 40%, 350px)" }}>
+        <div
+          style={{
+            flex: 1,
+            minWidth: "clamp(220px, 40%, 350px)",
+            marginLeft: isMobile ? "0" : "3rem", // Shifts right on desktop
+            textAlign: isMobile ? "center" : "left",
+          }}
+        >
           <p
             style={{
               fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
@@ -85,135 +92,140 @@ const TestimonialsSection = () => {
             benefited from therapy or wellness programs.
           </p>
 
-          {/* Arrow Buttons */}
-          {isMobile && (
-            <div
+          {/* Arrow Buttons always visible */}
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+              marginTop: "1rem",
+              justifyContent: isMobile ? "center" : "flex-start",
+            }}
+          >
+            <button
+              onClick={scrollLeft}
               style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
                 display: "flex",
-                gap: "1rem",
-                marginTop: "1rem",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                backgroundColor: "#ffffff",
+                color: "#00342e",
+                border: "1px solid #e0e0e0",
               }}
             >
-              <button
-                onClick={scrollLeft}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                  backgroundColor: "#ffffff",
-                  color: "#00342e",
-                  border: "1px solid #e0e0e0",
-                }}
-              >
-                <FaArrowLeft />
-              </button>
-              <button
-                onClick={scrollRight}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                  backgroundColor: "#00342e",
-                  color: "#ffffff",
-                  border: "none",
-                }}
-              >
-                <FaArrowRight />
-              </button>
-            </div>
-          )}
+              <FaArrowLeft />
+            </button>
+            <button
+              onClick={scrollRight}
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                backgroundColor: "#00342e",
+                color: "#ffffff",
+                border: "none",
+              }}
+            >
+              <FaArrowRight />
+            </button>
+          </div>
         </div>
 
-        {/* Right Testimonial Cards */}
+        {/* Right Testimonial Cards (aligned right) */}
         <div
-          ref={scrollRef}
           style={{
             display: "flex",
-            flexDirection: "row",
-            gap: "1rem",
-            overflowX: "auto",
-            scrollSnapType: "x mandatory",
-            paddingBottom: "1rem",
-            direction:  "ltr",
-            WebkitOverflowScrolling: "touch",
+            justifyContent: isMobile ? "center" : "flex-end", // ✅ align right on desktop
+            marginRight: isMobile ? "0" : "40px", // ✅ safe gap from scrollbar
+            width: "100%",
           }}
         >
-          {/* Card 1 */}
           <div
+            ref={scrollRef}
             style={{
-              direction: "ltr",
-              flex: "0 0 auto",
-              width: "clamp(250px, 80vw, 320px)",
-              borderRadius: "24px",
-              padding: "1rem",
-              lineHeight: 1.6,
-              fontSize: "0.9rem",
-              boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
-              backgroundColor: "#fce8d2",
-              color: "#2d2d2d",
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              scrollSnapAlign: "start",
+              flexDirection: "row",
+              gap: "1rem",
+              overflowX: "auto",
+              scrollSnapType: "x mandatory",
+              paddingBottom: "1rem",
+              WebkitOverflowScrolling: "touch",
             }}
           >
-            <p>
-              "Solus made it so easy to find the right therapist for me. The
-              sessions have truly transformed my mindset, and I feel more in
-              control of my emotions than ever before!"
-            </p>
-            <p
+            {/* Card 1 */}
+            <div
               style={{
-                marginTop: "0.8rem",
-                fontWeight: 500,
-                fontSize: "0.85rem",
+                flex: "0 0 auto",
+                width: "clamp(250px, 80vw, 320px)",
+                borderRadius: "24px",
+                padding: "1rem",
+                lineHeight: 1.6,
+                fontSize: "0.9rem",
+                boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
+                backgroundColor: "#fce8d2",
+                color: "#2d2d2d",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                scrollSnapAlign: "start",
               }}
             >
-              — Anna R., 32
-            </p>
-          </div>
+              <p>
+                "Solus made it so easy to find the right therapist for me. The
+                sessions have truly transformed my mindset, and I feel more in
+                control of my emotions than ever before!"
+              </p>
+              <p
+                style={{
+                  marginTop: "0.8rem",
+                  fontWeight: 500,
+                  fontSize: "0.85rem",
+                }}
+              >
+                — Anna R., 32
+              </p>
+            </div>
 
-          {/* Card 2 */}
-          <div
-            style={{
-              direction: "ltr",
-              flex: "0 0 auto",
-              width: "clamp(250px, 80vw, 320px)",
-              borderRadius: "24px",
-              padding: "1rem",
-              lineHeight: 1.6,
-              fontSize: "0.9rem",
-              boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
-              backgroundColor: "#00454b",
-              color: "#ffffff",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              scrollSnapAlign: "start",
-            }}
-          >
-            <p>
-              "I was struggling with stress and anxiety, but the mindfulness
-              program at Solus has helped me regain balance. I finally feel like
-              I'm prioritizing my mental well-being."
-            </p>
-            <p
+            {/* Card 2 */}
+            <div
               style={{
-                marginTop: "0.8rem",
-                fontWeight: 500,
-                fontSize: "0.85rem",
+                flex: "0 0 auto",
+                width: "clamp(250px, 80vw, 320px)",
+                borderRadius: "24px",
+                padding: "1rem",
+                lineHeight: 1.6,
+                fontSize: "0.9rem",
+                boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
+                backgroundColor: "#00454b",
+                color: "#ffffff",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                scrollSnapAlign: "start",
               }}
             >
-              — Mark S., 41
-            </p>
+              <p>
+                "I was struggling with stress and anxiety, but the mindfulness
+                program at Solus has helped me regain balance. I finally feel
+                like I'm prioritizing my mental well-being."
+              </p>
+              <p
+                style={{
+                  marginTop: "0.8rem",
+                  fontWeight: 500,
+                  fontSize: "0.85rem",
+                }}
+              >
+                — Mark S., 41
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -269,5 +281,3 @@ const TestimonialsSection = () => {
 };
 
 export default TestimonialsSection;
-
-
