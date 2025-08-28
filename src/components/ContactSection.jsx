@@ -47,7 +47,7 @@ const ContactSection = () => {
       boxShadow: "0px 4px 12px rgba(0,0,0,0.06)",
       boxSizing: "border-box",
       gap: "clamp(20px, 4vw, 40px)", // ensures spacing on smaller screens
-      width: "100%",
+      // width: "100%",
       maxWidth: "1100px",
     },
     left: {
