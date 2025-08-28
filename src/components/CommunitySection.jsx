@@ -26,7 +26,7 @@ const CommunitySection = () => {
       backgroundColor: "#ffffff",
       borderRadius: "25px",
       padding: isMobile ? "30px 20px" : "50px",
-      width: "85%",
+      width: "91%",
       // maxWidth: "1200px",
       boxSizing: "border-box",
       gap: isMobile ? "20px" : "40px",

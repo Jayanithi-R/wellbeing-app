@@ -68,6 +68,7 @@ const ResourcesSection = () => {
       gap: "25px",
       maxWidth: "1100px",
       margin: "0 auto",
+      width:"91%",
     },
     card: {
       background: "#ffffff",
