@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
           style={{
             flex: 1,
             minWidth: "clamp(220px, 40%, 350px)",
-            marginLeft: isMobile ? "0" : "3rem", // Shifts right on desktop
+            marginLeft: isMobile ? "0" : "3rem",
             textAlign: isMobile ? "center" : "left",
           }}
         >
@@ -230,29 +230,28 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      {/* ✅ Updated Partners Section */}
+      {/* ✅ Partners Section (compressed + centered) */}
       <div
         style={{
-          backgroundColor: "white",
-          borderRadius: "36px",
+          backgroundColor: "#fff",
+          borderRadius: "28px",
           padding: "2rem",
-          marginTop: "2rem",
+          margin: "2rem auto 0 auto", // center it
+          maxWidth: "900px",          // compressed width
+          width: "100%",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-between",
-          gap: "2rem",
-          // maxWidth: "1000px",   // compressed width
-          // marginInline: "32px", // center align with page
-          flexWrap: "wrap",
+          gap: "1.5rem",
         }}
       >
         <p
           style={{
             fontWeight: 600,
             color: "#00342e",
-            fontSize: "1rem",
+            fontSize: "1.1rem",
             textAlign: "center",
-            minWidth: "120px",
           }}
         >
           Our Partners
@@ -263,7 +262,7 @@ const TestimonialsSection = () => {
             gap: "2rem",
             justifyContent: "center",
             flexWrap: "wrap",
-            flex: 1,
+            width: "100%",
           }}
         >
           {partnerLogos.map((src, index) => (
