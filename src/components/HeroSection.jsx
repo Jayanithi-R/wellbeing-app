@@ -14,7 +14,7 @@ const HeroSection = () => {
             and wellness coaches
             to support your journey.
           </p>
-          <button style={styles.heroButton}>Get Started</button>
+          <button style={styles.heroButton} onClick={() => window.location.href = '/register'}>Get Started</button>
         </div>
       </div>
     </div>
